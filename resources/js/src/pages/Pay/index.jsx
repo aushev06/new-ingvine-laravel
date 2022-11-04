@@ -69,6 +69,7 @@ export const Pay = () => {
         console.log(123);
         if (user) {
             setValue('name', user.name);
+            setValue('phone', user.phone);
         }
     }, [user])
 
@@ -176,26 +177,17 @@ export const Pay = () => {
                     </FormControl>
 
                     <FormControl className={styles.formControl}>
-                        <Controller
-                            name="phone"
-                            control={control}
-                            render={({field}) => (
-                                <MuiTelInput
-                                    {...field}
-                                    placeholder={"+7 ___ ___ __ __"}
-                                    disableDropdown
-                                    defaultCountry="RU"
-                                    error={!!formState?.errors?.phone?.message}
-                                    helperText={formState?.errors?.phone?.message}
-                                    className={styles.input}
-                                    label={<span className={styles.label}>Телефон</span>}
-                                    variant="filled"
-                                    InputProps={{disableUnderline: true}}/>
-                            )}
+                        <TextField
+                            {...register("phone")}
+                            className={styles.input}
+                            label={<span className={styles.label}>Телефон</span>}
+                            variant="filled"
+                            InputProps={{disableUnderline: true}}
+                            error={!!formState?.errors?.name?.message}
+                            helperText={formState?.errors?.name?.message}
                         />
-
-
                     </FormControl>
+
 
                     <FormControl className={styles.formControl}>
                         <FormLabel className={styles.radioTitle} id="demo-controlled-radio-buttons-group">Способ
