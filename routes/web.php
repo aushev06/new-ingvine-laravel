@@ -1,0 +1,70 @@
+<?php
+
+use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+Route::get('/app/cacheClear', [\App\Http\Controllers\Api\V1\AppController::class, 'cacheClear'])->middleware('check.admin')->name('cache:clear');
+
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'check.admin']], function () {
+    Route::get('/', [\App\Http\Controllers\Admin\AdminController::class, 'index'])->name('admin.index');
+    Route::post('/sms/activate/{login}', 'Admin\SmsController@activate')->name('admin.sms.activate1');
+
+    Route::get('/promotion-cards/refresh', 'Admin\PromotionCardsController@refresh')->name('promotion-cards.refresh');
+
+    Route::resources([
+        'categories'        => \App\Http\Controllers\Admin\CategoryController::class,
+        'food'              => \App\Http\Controllers\Admin\FoodController::class,
+        'coupon'            => \App\Http\Controllers\Admin\CouponController::class,
+        'order'             => \App\Http\Controllers\Admin\OrderController::class,
+        'ingridients'       => \App\Http\Controllers\Admin\IngridientController::class,
+        'option-categories' => \App\Http\Controllers\Admin\CategoryOptionController::class,
+        'options'           => \App\Http\Controllers\Admin\OptionController::class,
+        'setting'           => \App\Http\Controllers\Admin\SettingController::class,
+        'site-setting'      => \App\Http\Controllers\Admin\SiteSettingController::class,
+        'sms'               => \App\Http\Controllers\Admin\SmsController::class,
+        'promotions'        => \App\Http\Controllers\Admin\PromotionsController::class,
+        'promotion-cards'   => \App\Models\PromotionCards\PromotionCards::class,
+    ]);
+
+    Route::put('/ingridients/{ingridientID}/{foodID}',
+        [\App\Http\Controllers\Admin\IngridientController::class, 'updateStatus'])->name('ingridients.update-status');
+});
+
+
+Route::get('/', function () {
+    return Inertia::render('Welcome', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
+});
+
+Route::get('/dashboard', function () {
+    return Inertia::render('Dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/delivery', function () {
+    return Inertia::render('Delivery');
+})->name('delivery');
+
+Route::get('/pay', function () {
+    return Inertia::render('PayPage');
+})->name('pay');
+
+Route::get('/profile', function () {
+    return Inertia::render('Profile');
+})->name('profile');
+
+require __DIR__ . '/auth.php';

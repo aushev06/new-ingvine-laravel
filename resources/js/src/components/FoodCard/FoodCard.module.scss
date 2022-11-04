@@ -1,0 +1,241 @@
+@import '../../styles/media';
+
+.root {
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+}
+
+.container {
+  display: flex;
+  font-family: 'Nunito' !important;
+  margin-top: 36px;
+}
+
+.title {
+  font-family: 'Nunito' !important;
+  font-style: normal !important;
+  font-weight: 800 !important;
+  font-size: 32px !important;
+  line-height: 34px !important;
+
+  color: #000000 !important;
+}
+
+.optionTitle {
+  font-family: 'Nunito' !important;
+  font-style: normal !important;
+  font-weight: 800 !important;
+  font-size: 18px !important;
+  line-height: 25px !important;
+
+  color: #000000 !important;
+}
+
+.optionContainer {
+  margin-top: 30px;
+}
+
+.property {
+  display: flex;
+  align-items: center;
+}
+
+.propertyPrice {
+  color: #B9B9B9 !important;
+}
+
+.propertyActions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  gap: 10px;
+
+  width: 120px;
+  height: 48px;
+
+  /* Light Gray */
+
+  background: #F5F5F5;
+  border-radius: 12px;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+
+  i {
+    cursor: pointer;
+    display: block;
+  }
+
+  span {
+    font-family: 'Nunito' !important;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+  }
+}
+
+.font {
+  font-family: 'Nunito' !important;
+}
+
+.buttonContainer {
+
+  margin-top: 43px;
+  margin-right: 40px;
+}
+
+.modalDescriptionContainer {
+  margin-left: 34px;
+}
+
+.modalDescription {
+  font-family: 'Nunito' !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  font-size: 16px !important;
+  line-height: 23px !important;
+
+  color: #606060;
+}
+
+.foodCard {
+  width: 272px;
+  margin: 10px;
+  @include phone-m {
+    width: 164px !important;
+    margin: unset !important;
+  }
+}
+
+.foodCard__image img {
+  width: 200px;
+  height: 200px;
+
+  @include phone-m {
+    width: 140px !important;
+    height: 140px !important;
+  }
+}
+
+.span {
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.foodCard__title {
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30px;
+  height: 60px;
+
+  @include phone-m {
+    font-size: 18px;
+    height: 100% !important;
+  }
+}
+
+.foodCard__description {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  height: 60px;
+
+  color: #8B8B8B;
+
+  @include phone-m {
+    font-size: 12px;
+    height: 100% !important;
+  }
+}
+
+.foodCard__footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+  align-items: center;
+}
+
+.foodCard__footer__price {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 26px;
+
+  @include phone-m {
+    font-size: 12px;
+  }
+}
+
+.foodCard__footer_action {
+  @include phone-m {
+    margin-right: 5px;
+  }
+}
+
+.drawerPaper {
+  max-height: 85% !important;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 12px 16px 20px;
+  gap: 28px;
+  height: 95vh;
+
+  background: #FFFFFF;
+
+  div[class*="SideProperty_root"] {
+    width: 100%;
+    max-width: 100% !important;
+  }
+}
+
+.drawerContent {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  height: 95vh;
+
+}
+.skeletonCardItem {
+  height: max-content;
+  box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.04);
+  background: #ffffff;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.skeletonCardItemButton {
+  border-radius: 12px !important;
+}
+
+@keyframes imageOpacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
