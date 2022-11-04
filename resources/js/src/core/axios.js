@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const BASE_URL = 'http://new.ingvine-food.ru';
+export const BASE_URL = 'http://' + window.location.host;
 
 axios.defaults.baseURL = BASE_URL;
 

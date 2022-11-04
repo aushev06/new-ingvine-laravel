@@ -2,6 +2,7 @@
 
 namespace App\Models\Cart;
 
+use App\Models\Coupon\Coupon;
 use App\Models\Coupon\CouponCart;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -17,19 +18,20 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Cart extends Model
 {
     use SoftDeletes;
+
     const SESSION_KEY = '_token';
 
-    const ATTR_ID        = 'id';
-    const ATTR_TOTAL     = 'total';
-    const ATTR_USER_ID   = 'user_id';
-    const ATTR_SESSION   = 'session';
+    const ATTR_ID = 'id';
+    const ATTR_TOTAL = 'total';
+    const ATTR_USER_ID = 'user_id';
+    const ATTR_SESSION = 'session';
     const ATTR_COUPON_ID = 'coupon_id';
-    const ATTR_STATUS    = 'status';
+    const ATTR_STATUS = 'status';
 
     const TABLE_NAME = 'carts';
     protected $table = self::TABLE_NAME;
 
-    const STATUS_ACTIVE   = 1;
+    const STATUS_ACTIVE = 1;
     const STATUS_INACTIVE = 0;
 
     public function properties()
@@ -39,22 +41,29 @@ class Cart extends Model
 
     public function assignCoupon($couponID)
     {
-        $checkExist = CouponCart::where([
-            [CouponCart::ATTR_COUPON_ID, $couponID],
-            [CouponCart::ATTR_CART_ID, $this->id]
-        ])->first();
+        $this->coupon_id = $couponID;
+        $this->save();
 
-        if (null === $checkExist) {
-            CouponCart::create([
-                CouponCart::ATTR_COUPON_ID => $couponID,
-                CouponCart::ATTR_CART_ID   => $this->id
-            ]);
+//        $checkExist = CouponCart::where([
+//            [CouponCart::ATTR_COUPON_ID, $couponID],
+//            [CouponCart::ATTR_CART_ID, $this->id]
+//        ])->first();
+//
+//        if (null === $checkExist) {
+//            CouponCart::create([
+//                CouponCart::ATTR_COUPON_ID => $couponID,
+//                CouponCart::ATTR_CART_ID => $this->id
+//            ]);
+//
+//            return true;
+//        }
+//
+//        return false;
+    }
 
-            return true;
-        }
-
-        return false;
-
+    public function coupon()
+    {
+        return $this->belongsTo(Coupon::class);
     }
 
     public function unAssignCoupon()

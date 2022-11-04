@@ -132,36 +132,38 @@ class OrderViewModel
      */
     public $delivery_cost;
 
+    public $coupon = '';
+
 
     /**
      * @var CartProperty[]
      */
     public $foodProperties;
 
-    const ATTR_PHONE         = 'phone';
-    const ATTR_ADDRESS       = 'address';
-    const ATTR_CITY          = 'city';
-    const ATTR_HOME          = 'home';
-    const ATTR_FLOOR         = 'floor';
-    const ATTR_PORCH         = 'porch';
+    const ATTR_PHONE = 'phone';
+    const ATTR_ADDRESS = 'address';
+    const ATTR_CITY = 'city';
+    const ATTR_HOME = 'home';
+    const ATTR_FLOOR = 'floor';
+    const ATTR_PORCH = 'porch';
     const ATTR_TIME_DELIVERY = 'time_delivery';
     const ATTR_DATE_DELIVERY = 'date_delivery';
     const ATTR_DELIVERY_TYPE = 'delivery_type';
     const ATTR_DELIVERY_COST = 'delivery_cost';
-    const ATTR_ORGANIZATION  = 'organization';
-    const ATTR_PAY_TYPE      = 'pay_type';
-    const ATTR_USER          = 'user';
-    const ATTR_TOTAL         = 'total';
-    const ATTR_COMMENT       = 'comment';
-    const ATTR_STATUS        = 'status';
-    const ATTR_STREET        = 'street';
-    const ATTR_HOUSE         = 'house';
-    const ATTR_APARTMENT     = 'apartment';
-    const ATTR_ENTRANCE      = 'entrance';
-    const ATTR_INTERCOM      = 'intercom';
-    const ATTR_BUILDING      = 'building';
+    const ATTR_ORGANIZATION = 'organization';
+    const ATTR_PAY_TYPE = 'pay_type';
+    const ATTR_USER = 'user';
+    const ATTR_TOTAL = 'total';
+    const ATTR_COMMENT = 'comment';
+    const ATTR_STATUS = 'status';
+    const ATTR_STREET = 'street';
+    const ATTR_HOUSE = 'house';
+    const ATTR_APARTMENT = 'apartment';
+    const ATTR_ENTRANCE = 'entrance';
+    const ATTR_INTERCOM = 'intercom';
+    const ATTR_BUILDING = 'building';
 
-    const DELIVERY_TYPE_PICKUP  = 'Самовывоз';
+    const DELIVERY_TYPE_PICKUP = 'Самовывоз';
     const DELIVERY_TYPE_COURIER = 'Доставка курьером';
 
 
@@ -194,6 +196,11 @@ class OrderViewModel
             }
         }
 
+        if (!empty($order->cart->coupon->coupon)) {
+            $this->coupon = $order->cart->coupon->coupon;
+        }
+
+
         $propeties = $orderRepository->getOrderProperties($order->cart_id);
 
         if ($propeties->count() > 0) {
@@ -205,33 +212,32 @@ class OrderViewModel
 
     public function paymentAttributes()
     {
-        if($this->delivery_type === self::DELIVERY_TYPE_COURIER)
-        {
+        if ($this->delivery_type === self::DELIVERY_TYPE_COURIER) {
             return [
-                self::ATTR_PAY_TYPE      => 'Тип оплаты',
-                self::ATTR_TOTAL         => 'Сумма заказа',
+                self::ATTR_PAY_TYPE => 'Тип оплаты',
+                self::ATTR_TOTAL => 'Сумма заказа',
                 self::ATTR_DELIVERY_COST => 'Стоимость доставки',
-                self::ATTR_STATUS        => 'Статус',
+                self::ATTR_STATUS => 'Статус',
             ];
         } else {
             return [
-                self::ATTR_PAY_TYPE      => 'Тип оплаты',
-                self::ATTR_TOTAL         => 'Сумма заказа',
+                self::ATTR_PAY_TYPE => 'Тип оплаты',
+                self::ATTR_TOTAL => 'Сумма заказа',
             ];
         }
     }
 
     public function deliveryAttributes()
     {
-        if($this->delivery_type === self::DELIVERY_TYPE_COURIER) {
+        if ($this->delivery_type === self::DELIVERY_TYPE_COURIER) {
             return [
                 self::ATTR_DELIVERY_TYPE => 'Тип доставки',
-                self::ATTR_ADDRESS       => 'Район ЛК',
-                self::ATTR_CITY          => 'Город/село',
-                self::ATTR_STREET        => 'Улица',
-                self::ATTR_HOUSE         => 'Дом',
-                self::ATTR_ENTRANCE      => 'Подъезд',
-                self::ATTR_APARTMENT     => 'Квартира',
+                self::ATTR_ADDRESS => 'Район ЛК',
+                self::ATTR_CITY => 'Город/село',
+                self::ATTR_STREET => 'Улица',
+                self::ATTR_HOUSE => 'Дом',
+                self::ATTR_ENTRANCE => 'Подъезд',
+                self::ATTR_APARTMENT => 'Квартира',
             ];
         } else {
             return [
@@ -242,14 +248,14 @@ class OrderViewModel
 
     public function orderAttributes()
     {
-        if($this->delivery_type === self::DELIVERY_TYPE_COURIER) {
+        if ($this->delivery_type === self::DELIVERY_TYPE_COURIER) {
             return [
                 self::ATTR_TIME_DELIVERY => 'Время заказа',
                 self::ATTR_DATE_DELIVERY => 'Дата заказа',
 //                self::ATTR_DELIVERY_TYPE => 'Тип доставки',
-                self::ATTR_NAME          => 'Имя',
-                self::ATTR_PHONE         => 'Телефон',
-                self::ATTR_COMMENT       => 'Комментарий',
+                self::ATTR_NAME => 'Имя',
+                self::ATTR_PHONE => 'Телефон',
+                self::ATTR_COMMENT => 'Комментарий',
 //                self::ATTR_ADDRESS       => 'Район ЛК',
 //                self::ATTR_CITY          => 'Город/село',
 //                self::ATTR_STREET        => 'Улица',
@@ -262,36 +268,37 @@ class OrderViewModel
                 self::ATTR_TIME_DELIVERY => 'Время заказа',
                 self::ATTR_DATE_DELIVERY => 'Дата заказа',
 //                self::ATTR_DELIVERY_TYPE => 'Тип доставки',
-                self::ATTR_NAME          => 'Имя',
-                self::ATTR_PHONE         => 'Телефон',
-                self::ATTR_COMMENT       => 'Комментарий',
+                self::ATTR_NAME => 'Имя',
+                self::ATTR_PHONE => 'Телефон',
+                self::ATTR_COMMENT => 'Комментарий',
             ];
         }
     }
 
     public function attributes()
     {
-        if($this->delivery_type === self::DELIVERY_TYPE_COURIER) {
+        if ($this->delivery_type === self::DELIVERY_TYPE_COURIER) {
             return [
                 self::ATTR_TIME_DELIVERY => 'Время заказа',
                 self::ATTR_DATE_DELIVERY => 'Дата заказа',
                 self::ATTR_DELIVERY_TYPE => 'Тип доставки',
 //            self::ATTR_ORGANIZATION  => 'Организация',
-                self::ATTR_PAY_TYPE      => 'Тип оплаты',
-                self::ATTR_TOTAL         => 'Сумма заказа',
+                self::ATTR_PAY_TYPE => 'Тип оплаты',
+                self::ATTR_TOTAL => 'Сумма заказа',
                 self::ATTR_DELIVERY_COST => 'Стоимость доставки',
-                self::ATTR_COMMENT       => 'Комментарий',
-                self::ATTR_STATUS        => 'Статус',
+                self::ATTR_COMMENT => 'Комментарий',
+                self::ATTR_STATUS => 'Статус',
 //            self::ATTR_ADDRESS       => 'Адрес',
-                self::ATTR_NAME          => 'Имя',
-                self::ATTR_PHONE         => 'Телефон',
-                self::ATTR_ADDRESS       => 'Район ЛК',
-                self::ATTR_CITY          => 'Город/село',
-                self::ATTR_STREET        => 'Улица',
-                self::ATTR_HOUSE         => 'Дом',
+                self::ATTR_NAME => 'Имя',
+                self::ATTR_PHONE => 'Телефон',
+                self::ATTR_ADDRESS => 'Район ЛК',
+                self::ATTR_CITY => 'Город/село',
+                self::ATTR_STREET => 'Улица',
+                self::ATTR_HOUSE => 'Дом',
 //            self::ATTR_BUILDING      => 'Корпус',
-                self::ATTR_ENTRANCE      => 'Подъезд',
-                self::ATTR_APARTMENT     => 'Квартира',
+                self::ATTR_ENTRANCE => 'Подъезд',
+                self::ATTR_APARTMENT => 'Квартира',
+                'coupon' => 'Купон',
 //            self::ATTR_USER          => 'Пользователь',
             ];
         } else {
@@ -299,14 +306,15 @@ class OrderViewModel
                 self::ATTR_TIME_DELIVERY => 'Время заказа',
                 self::ATTR_DATE_DELIVERY => 'Дата заказа',
                 self::ATTR_DELIVERY_TYPE => 'Тип доставки',
-                self::ATTR_PAY_TYPE      => 'Тип оплаты',
-                self::ATTR_TOTAL         => 'Сумма заказа',
-                self::ATTR_COMMENT       => 'Комментарий',
-                self::ATTR_STATUS        => 'Статус',
-                self::ATTR_NAME          => 'Имя',
-                self::ATTR_PHONE         => 'Телефон',
+                self::ATTR_PAY_TYPE => 'Тип оплаты',
+                self::ATTR_TOTAL => 'Сумма заказа',
+                self::ATTR_COMMENT => 'Комментарий',
+                self::ATTR_STATUS => 'Статус',
+                self::ATTR_NAME => 'Имя',
+                self::ATTR_PHONE => 'Телефон',
+                'coupon' => 'Купон',
+
             ];
         }
-
     }
 }

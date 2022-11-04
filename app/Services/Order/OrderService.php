@@ -11,8 +11,11 @@ namespace App\Services\Order;
 
 use App\Http\Requests\Order\OrderRequest;
 use App\Models\Cart\Cart;
+use App\Models\Coupon\Coupon;
 use App\Models\Order\Order;
+use App\Repositories\Coupon\CouponRepository;
 use App\Repositories\Order\OrderRepository;
+use App\Services\Coupon\CouponService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
@@ -20,17 +23,7 @@ use Idma\Robokassa\Payment;
 
 class OrderService
 {
-    /**
-     * @var OrderRepository
-     */
-    private $orderRepository;
-
-    /**
-     * @var mixed
-     */
-    private $payment;
-
-    public function __construct(OrderRepository $orderRepository)
+    public function __construct(public OrderRepository $orderRepository, public CouponService $couponService)
     {
         $this->orderRepository = $orderRepository;
 //        $this->payment         = app()->make('Payment');
@@ -43,12 +36,11 @@ class OrderService
      */
     public function save(OrderRequest $request)
     {
-
         try {
             /**
              * @var Cart $cart
              */
-            $cart       = Cart::where(Cart::ATTR_SESSION, $request->get(Cart::SESSION_KEY))->first();
+            $cart = Cart::where(Cart::ATTR_SESSION, $request->get(Cart::SESSION_KEY))->first();
             $attributes = $request->all([
                 Order::ATTR_NAME,
                 Order::ATTR_PHONE,
@@ -67,19 +59,29 @@ class OrderService
                 Order::ATTR_ADDRESS
             ]);
 
+            $total = $cart->total;
+
+
+            if ($request->post('coupon')) {
+                $coupon = Coupon::query()->where('coupon', '=', $request->post('coupon'))->first();
+                $cart->assignCoupon($coupon->id);
+                $total = $this->couponService->checkCoupon($coupon)['resultSum'];
+                $cart->total = $total;
+                $cart->save();
+            }
+
 
             $attributes['cart_id'] = $cart->id;
-            $attributes['total']   = $cart->total;
+            $attributes['total'] = $total;
+
             $order = $this->orderRepository->store($attributes);
             //$cart->status = Cart::STATUS_INACTIVE;
 
             //$cart->delete();
             return $order;
         } catch (\Throwable $exception) {
-
             throw new \Exception($exception->getMessage());
         }
-
     }
 
     /**

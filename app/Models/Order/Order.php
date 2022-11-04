@@ -2,6 +2,7 @@
 
 namespace App\Models\Order;
 
+use App\Models\Cart\Cart;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -150,6 +151,10 @@ class Order extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function cart() {
+        return $this->belongsTo(Cart::class);
     }
 
 }

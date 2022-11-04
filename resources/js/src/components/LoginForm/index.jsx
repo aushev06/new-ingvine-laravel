@@ -6,11 +6,10 @@ import {FormField} from "../FormField";
 
 export const LoginForm = () => {
     const {control, register, formState, getValues} = useFormContext();
-    console.log(formState.errors)
     return (
         <div className={styles.formControl}>
             <FormControl className={styles.formControl}>
-                <FormField showError={true} error={formState.errors?.email?.message} autocomplete={false} register={register} placeholder={'Телефон'} name={'email'}/>
+                <FormField showError={true} error={formState.errors?.email?.message} autocomplete={false} register={register} placeholder={"+7 ___ ___ __ __"} name={'phone'}/>
                 <FormField error={formState.errors?.password?.message} register={register} placeholder={'Пароль'} name={'password'} type={'password'}/>
 
 
@@ -22,16 +21,17 @@ export const LoginForm = () => {
 
 
 export const RegistrationForm = () => {
-    const {register} = useFormContext();
+    const {register, formState} = useFormContext();
 
     return (
         <div className={styles.formControl}>
             <FormControl className={styles.formControl}>
-                <FormField autocomplete={false} register={register} placeholder={'Имя'} name={'name'}/>
-                <FormField register={register} placeholder={'Телефон'} name={'phone'}/>
-                <FormField register={register} placeholder={'Пароль'} name={'password'} type={'password'}/>
+                <FormField error={formState.errors?.name?.message} autocomplete={false} register={register} placeholder={'Имя'} name={'name'}/>
+                <FormField error={formState.errors?.phone?.message} register={register} placeholder={"+7 ___ ___ __ __"} name={'phone'}/>
+                <FormField error={formState.errors?.password?.message} register={register} placeholder={'Пароль'} name={'password'} type={'password'}/>
+                <FormField error={formState.errors?.password_confirmation?.message} register={register} placeholder={'Подтвердите пароль'} name={'password_confirmation'} type={'password'}/>
 
-                <FormField register={register} type={'date'} placeholder={'Дата рождения'} name={'birthday'}/>
+                <FormField error={formState.errors?.birthday?.message} register={register} type={'date'} placeholder={'Дата рождения'} name={'birthday'}/>
 
             </FormControl>
 

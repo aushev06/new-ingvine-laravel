@@ -3,5 +3,14 @@
 }
 
 .input {
-  width: 100% !important;
+    background: #F5F5F5 !important;
+    border-radius: 15px !important;
+    width: 100%;
+    font-size: 16px;
+    resize: none;
+    border: 0;
+    padding-right: 15px;
+    &::placeholder {
+        font-size: 14px;
+    }
 }

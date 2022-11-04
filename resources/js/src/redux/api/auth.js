@@ -11,10 +11,17 @@ export const authApi = createApi({
                 return ({url: `/login`, method: 'POST', data})
             },
         }),
+
+        register: builder.mutation({
+            query: (data) => {
+                return ({url: `/register`, method: 'POST', data})
+            },
+        }),
+
         getMe: builder.query({
             query: () => ({url: '/api/me'}),
         })
     }),
 })
 
-export const {useLoginMutation, useGetMeQuery} = authApi
+export const {useLoginMutation, useRegisterMutation, useGetMeQuery} = authApi

@@ -22,11 +22,12 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import {SelectCity} from "../../components/SelectCity";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {cartApi} from "../../service/cart";
 import {useAlert} from "../../hooks/useAlert";
 import {usePage} from '@inertiajs/inertia-react'
 import {axios} from '../../core/axios'
+import {selectUser} from "@/src/features/userSlice";
 
 
 const DELIVERY_TYPE_PICKUP = 1;
@@ -34,6 +35,7 @@ const DELIVERY_TYPE_COURIER = 2;
 const TYPE_CASH = 0;
 const isTg = window.location.search.includes('token');
 export const Pay = () => {
+    const user = useSelector(selectUser);
     const cart = useSelector(selectCart);
     const city = useSelector(selectSelectedCity);
     const dispatch = useDispatch();
@@ -48,7 +50,7 @@ export const Pay = () => {
         mode: "onBlur",
         resolver: yupResolver(PaySchema),
         defaultValues: {
-            name: '',
+            name: user?.name,
             phone: '',
             address: '',
             delivery_type: 2,
@@ -62,6 +64,13 @@ export const Pay = () => {
         },
     });
     const values = getValues();
+
+    useEffect(() => {
+        console.log(123);
+        if (user) {
+            setValue('name', user.name);
+        }
+    }, [user])
 
 
     const handleCheckCoupon = () => {

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Foundation\Application;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -51,6 +52,10 @@ Route::get('/', function () {
     ]);
 });
 
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return $request->user('web');
+});
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -63,8 +68,23 @@ Route::get('/pay', function () {
     return Inertia::render('PayPage');
 })->name('pay');
 
+Route::get('/success', function () {
+    return Inertia::render('SuccessPage');
+})->name('result');
+
 Route::get('/profile', function () {
     return Inertia::render('Profile');
-})->name('profile');
+})
+    ->middleware('auth:sanctum')
+    ->name('profile');
 
 require __DIR__ . '/auth.php';
+
+
+Route::post('register', [\App\Http\Controllers\Auth\RegisterController::class, 'store']);
+Route::post('login', [\App\Http\Controllers\Auth\LoginController::class, 'login']);
+
+Route::get('/login', function (Request $request) {
+    return redirect('/');
+})->name('login');
+

@@ -15,9 +15,12 @@ import {useForm, FormProvider} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
 import {LoginSchema} from "../../schemas/LoginSchema";
 import {useLoginMutation} from "../../redux/api/auth";
-import {getMe} from "@/src/service/auth";
-import {selectUser} from "@/src/features/userSlice";
+import {getMe, logout, register} from "@/src/service/auth";
+import {selectUser, setUser} from "@/src/features/userSlice";
 import {Link} from "@inertiajs/inertia-react";
+import PopupState, {bindMenu, bindTrigger} from "material-ui-popup-state";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
 
 export const LoginButton = () => {
     const isMobile = useMediaQuery('(max-width:768px)');
@@ -29,7 +32,7 @@ export const LoginButton = () => {
         mode: "onBlur",
         resolver: yupResolver(LoginSchema),
         defaultValues: {
-            email: '',
+            phone: '',
             password: '',
         },
     });
@@ -52,10 +55,27 @@ export const LoginButton = () => {
     };
 
     const onSubmitLogin = async (data) => {
-        console.log(data)
-        await login(data);
-        await getMe();
+        await login({...data, remember: true});
+        dispatch(setUser(await getMe()));
+        dispatch(setShowLoginModal(false));
     }
+
+    const onRegister = async (data) => {
+       try {
+           await register({...data, remember: true});
+           dispatch(setUser(await getMe()));
+           dispatch(setShowLoginModal(false));
+       } catch (e) {
+           for (const field in e.response.data.errors) {
+               form.setError(field, { message: e.response.data.errors[field][0] })
+           }
+       }
+    }
+
+    const handleLogout = async () => {
+        await logout();
+    }
+
     const title = {
         login: 'Вход в личный кабинет',
         registration: 'Регистрация',
@@ -74,7 +94,7 @@ export const LoginButton = () => {
                     }
                 </div>
 
-                <Button onClick={form.handleSubmit(onSubmitLogin)} className={styles.button}>
+                <Button onClick={form.handleSubmit(screen === 'login' ? onSubmitLogin : onRegister)} className={styles.button}>
                     <span className={styles.btnText}>
                         {screen === 'login' ? 'Войти' : 'Зарегистрироваться'}
                     </span>
@@ -104,7 +124,6 @@ export const LoginButton = () => {
         )
     }
 
-
     return (
         <>
             {
@@ -113,9 +132,31 @@ export const LoginButton = () => {
                         <Icon type={'profile'}/>
                     </i>
                 ) : (
-                    <Link href={'/profile'}  className={styles.root}>
-                        <Icon type={'profile'}/>
-                    </Link>
+                    <PopupState variant="popover" popupId="demo-popup-menu">
+                        {(popupState) => (
+                            <>
+                                <i  {...bindTrigger(popupState)} className={styles.root}>
+                                    <Icon type={'profile'}/>
+                                </i>
+                                <Menu {...bindMenu(popupState)}>
+                                    <MenuItem onClick={popupState.close}>
+                                        <Link href={'/'}>
+                                            Заказы
+                                        </Link>
+                                    </MenuItem>
+
+                                    <MenuItem className={styles.item} onClick={() => {
+                                        handleLogout()
+                                        dispatch(setUser(null));
+                                        popupState.close()
+                                    }}>
+                                        Выйти
+                                    </MenuItem>
+
+                                </Menu>
+                            </>
+                        )}
+                    </PopupState>
                 )
             }
 

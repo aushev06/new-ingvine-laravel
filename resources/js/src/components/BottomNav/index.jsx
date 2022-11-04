@@ -12,11 +12,13 @@ import {useDispatch, useSelector} from "react-redux";
 import {selectCart, setOpen} from "../../features/cart/cartSlice";
 import {CartButton} from "../CartButton";
 import {CartDrawer} from "../CartDrawer";
+import {selectUser} from "@/src/features/userSlice";
+import {LoginButton} from "@/src/components/LoginButton";
 
 export const BottomNav = () => {
     const dispatch = useDispatch();
     const [openedMenu, setOpenedMenu] = React.useState('home');
-    const user = {};
+    const user = useSelector(selectUser);
 
     const [totalCount] = useState(0)
     const [cartOpened, setCartOpened] = useState(false);
@@ -51,7 +53,7 @@ export const BottomNav = () => {
                     <BottomNavigationAction
                         onClick={onClickLogin}
                         icon={
-                            <ExitToAppOutlinedIcon color={'#6F6F6F'}/>
+                            <LoginButton />
                         }
                     />
                 </BottomNavigation>
