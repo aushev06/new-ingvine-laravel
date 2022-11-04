@@ -14,19 +14,20 @@ import {LoginForm, RegistrationForm} from "../LoginForm";
 import {useForm, FormProvider} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
 import {LoginSchema} from "../../schemas/LoginSchema";
-import {useLoginMutation} from "../../redux/api/auth";
-import {getMe, logout, register} from "@/src/service/auth";
+import {getMe, login, logout, register} from "@/src/service/auth";
 import {selectUser, setUser} from "@/src/features/userSlice";
 import {Link} from "@inertiajs/inertia-react";
 import PopupState, {bindMenu, bindTrigger} from "material-ui-popup-state";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import {useAlert} from "@/src/hooks/useAlert";
 
 export const LoginButton = () => {
     const isMobile = useMediaQuery('(max-width:768px)');
     const [screen, setScreen] = useState('login');
-    const [login] = useLoginMutation()
     const user = useSelector(selectUser);
+
+    const { openAlert } = useAlert()
 
     const form = useForm({
         mode: "onBlur",
@@ -55,9 +56,16 @@ export const LoginButton = () => {
     };
 
     const onSubmitLogin = async (data) => {
-        await login({...data, remember: true});
-        dispatch(setUser(await getMe()));
-        dispatch(setShowLoginModal(false));
+        try {
+            await login({...data, remember: true});
+            dispatch(setUser(await getMe()));
+            dispatch(setShowLoginModal(false));
+
+        } catch (e) {
+            console.log(e)
+            openAlert('Не удалось войти', 'error')
+
+        }
     }
 
     const onRegister = async (data) => {
