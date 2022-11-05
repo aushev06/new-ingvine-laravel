@@ -270,10 +270,10 @@ export const Pay = () => {
                             <span>{cart?.total || 0}р</span>
                         </div>
 
-                        <div className={styles.item}>
-                            <span>Доставка</span>
-                            <span>820р</span>
-                        </div>
+                        {/*<div className={styles.item}>*/}
+                        {/*    <span>Доставка</span>*/}
+                        {/*    <span>820р</span>*/}
+                        {/*</div>*/}
 
                         <div className={clsx(styles.item, styles.total)}>
                             <span>Итого</span>
