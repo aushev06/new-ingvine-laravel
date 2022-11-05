@@ -42,6 +42,24 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'check.admin']], fun
         [\App\Http\Controllers\Admin\IngridientController::class, 'updateStatus'])->name('ingridients.update-status');
 });
 
+Route::group(['prefix' => 'api'], function () {
+    Route::get('/success-pay', 'OrderController@webhook');
+
+    Route::group(['prefix' => 'cart'], function () {
+
+
+    });
+});
+
+Route::get('/order/{id}', 'Admin\OrderController@show');
+
+Route::post('/app/settings', 'Api\V1\AppController@settings');
+Route::post('/app/siteSettings', 'Api\V1\AppController@siteSettings');
+Route::get('/app/cacheClear', 'Api\V1\AppController@cacheClear')->middleware('check.admin')->name('cache:clear');
+
+Route::post('/promotions/cards', 'Api\V1\PromotionCardsApiController@index');
+
+
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
