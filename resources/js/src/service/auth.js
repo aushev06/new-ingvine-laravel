@@ -1,7 +1,7 @@
 import {axios} from "../core/axios";
 
 export const login = fields => {
-    const {data} = axios.post('/auth/login', fields)
+    const {data} = axios.post('/login', fields)
 
     return data
 }
