@@ -1,19 +1,17 @@
 import clsx from 'clsx';
-import React, {useState} from 'react';
+import React, {useState, Suspense} from 'react';
 import styles from './Header.module.scss';
-import {CartButton} from "../CartButton";
-import {LoginButton} from "../LoginButton";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import {NavigationDrawer} from "../NavigationDrawer";
-import {IconButton} from "../IconButton";
 import {SelectCity} from "../SelectCity";
-import {Icon} from "../Icon";
 import {Link} from "@inertiajs/inertia-react";
 import NavLink from "@/Components/NavLink";
-import {useSelector} from "react-redux";
-import {selectUser} from "@/src/features/userSlice";
+
+const CartButton = React.lazy(() => import('../CartButton'));
+
+const LoginButton = React.lazy(() => import('../LoginButton'));
 
 
 export const Header = React.memo(function Header({className, onMenuClick}) {
@@ -36,6 +34,7 @@ export const Header = React.memo(function Header({className, onMenuClick}) {
                 </header>
 
                 <NavigationDrawer menuOpened={opened} onClose={() => setIsOpened(false)}/>
+
                 <div style={{display: 'none'}}>
                     <SelectCity/>
                 </div>
@@ -74,16 +73,18 @@ export const Header = React.memo(function Header({className, onMenuClick}) {
                     </ListItem>
                 </List>
 
-                <div className={styles.btns}>
-                    <SelectCity/>
-                    <div>
-                        <CartButton/>
-                    </div>
+                <Suspense fallback={null}>
+                    <div className={styles.btns}>
+                        <SelectCity/>
+                        <div>
+                            <CartButton/>
+                        </div>
 
-                    <div>
-                        <LoginButton/>
+                        <div>
+                            <LoginButton/>
+                        </div>
                     </div>
-                </div>
+                </Suspense>
 
             </div>
 

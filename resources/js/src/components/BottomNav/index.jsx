@@ -1,19 +1,19 @@
-import React, {useState} from "react";
+import React, {useState, Suspense} from "react";
 
 import BottomNavigation from '@mui/material/BottomNavigation'
 import BottomNavigationAction from '@mui/material/BottomNavigationAction'
 import Paper from '@mui/material/Paper'
 
-import ExitToAppOutlinedIcon from "@mui/icons-material/ExitToAppOutlined";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 
 import styles from "./BottomNav.module.scss";
 import {useDispatch, useSelector} from "react-redux";
 import {selectCart, setOpen} from "../../features/cart/cartSlice";
-import {CartButton} from "../CartButton";
-import {CartDrawer} from "../CartDrawer";
 import {selectUser} from "@/src/features/userSlice";
-import {LoginButton} from "@/src/components/LoginButton";
+
+const CartButton = React.lazy(() => import('../CartButton'));
+const LoginButton = React.lazy(() => import('../LoginButton'));
+
 
 export const BottomNav = () => {
     const dispatch = useDispatch();
@@ -46,16 +46,18 @@ export const BottomNav = () => {
                         icon={<HomeOutlinedIcon
                             style={{fontSize: 28, color: openedMenu === 'home' ? '#EB3800' : '#6F6F6F'}}/>}
                     />
-                    <BottomNavigationAction
-                        onClick={() => dispatch(setOpen(true))}
-                        icon={<CartButton />}
-                    />
-                    <BottomNavigationAction
-                        onClick={onClickLogin}
-                        icon={
-                            <LoginButton />
-                        }
-                    />
+                    <Suspense>
+                        <BottomNavigationAction
+                            onClick={() => dispatch(setOpen(true))}
+                            icon={<CartButton />}
+                        />
+                        <BottomNavigationAction
+                            onClick={onClickLogin}
+                            icon={
+                                <LoginButton />
+                            }
+                        />
+                    </Suspense>
                 </BottomNavigation>
             </Paper>
         </>

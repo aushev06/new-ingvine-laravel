@@ -3,9 +3,10 @@ import styles from './NavigationDrawer.module.scss'
 import Typography from "@mui/material/Typography";
 import MenuItem from "@mui/material/MenuItem";
 import {SelectCity} from "../SelectCity";
-import {CartButton} from "../CartButton";
 import React from "react";
 import NavLink from "@/Components/NavLink";
+
+const CartButton = React.lazy(() => import('../CartButton'));
 
 export const NavigationDrawer = ({menuOpened, onClose}) => {
     return (
@@ -42,7 +43,9 @@ export const NavigationDrawer = ({menuOpened, onClose}) => {
             <div className={styles.btns}>
                 <SelectCity/>
                 <div>
-                    <CartButton/>
+                    <React.Suspense>
+                        <CartButton/>
+                    </React.Suspense>
                 </div>
             </div>
 

@@ -22,7 +22,7 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import {useAlert} from "@/src/hooks/useAlert";
 
-export const LoginButton = () => {
+export default function LoginButton() {
     const isMobile = useMediaQuery('(max-width:768px)');
     const [screen, setScreen] = useState('login');
     const user = useSelector(selectUser);

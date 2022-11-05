@@ -4,7 +4,7 @@ import {useSelector} from "react-redux";
 import {selectCart} from "../../features/cart/cartSlice";
 import {IconButton} from "../IconButton";
 
-export const CartButton = () => {
+export default function CartButton() {
     const isRoot = window.location.pathname;
     const [totalCount] = useState(0)
     const [cartOpened, setCartOpened] = useState(isRoot && window.location.search.includes('token'));
