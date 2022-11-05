@@ -1,1 +1,0 @@
-import{j as a,F as e,a as u,H as r,M as s}from"./app.25f0cfc2.js";function n(i){return a(e,{children:[u(r,{title:"\u041C\u043E\u0439 \u043F\u0440\u043E\u0444\u0438\u043B\u044C"}),u(s,{disableCategories:!0,children:u("div",{children:"213"})})]})}export{n as default};
