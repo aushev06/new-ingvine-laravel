@@ -21,7 +21,7 @@ class TelegramService
             'http_errors' => false
         ]);
         Log::info('tes', [$chatId, $botId]);
-//        $response = $client->get('https://api.telegram.org/' . $botId . '/sendMessage?chat_id=' . $chatId . '&text=' . $message);
+        $response = $client->get('https://api.telegram.org/' . $botId . '/sendMessage?chat_id=' . $chatId . '&text=' . $message);
 
     }
 }
