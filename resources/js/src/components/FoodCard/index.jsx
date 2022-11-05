@@ -95,7 +95,7 @@ export const FoodCard = ({food}) => {
                 <div className={styles.container}>
                     <div>
                         <div className={styles.foodCard__image}>
-                            <img src={img} alt=""/>
+                            <img src={img} alt="" loading="lazy"/>
                         </div>
                     </div>
 
@@ -160,7 +160,7 @@ export const FoodCard = ({food}) => {
         <FoodCardContext.Provider value={{selectedOptions, setSelectedOptions, price, setPrice}}>
             <div className={styles.foodCard}>
                 <div className={styles.foodCard__image}>
-                    <img src={img} alt=""/>
+                    <img loading="lazy" src={img} alt=""/>
                 </div>
 
                 <div className={styles.foodCard__title} title={name}>
