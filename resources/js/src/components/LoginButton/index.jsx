@@ -14,7 +14,7 @@ import {LoginForm, RegistrationForm} from "../LoginForm";
 import {useForm, FormProvider} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
 import {LoginSchema} from "../../schemas/LoginSchema";
-import {getMe, login, logout, register} from "@/src/service/auth";
+import {getCsrf, getMe, login, logout, register} from "@/src/service/auth";
 import {selectUser, setUser} from "@/src/features/userSlice";
 import {Link} from "@inertiajs/inertia-react";
 import PopupState, {bindMenu, bindTrigger} from "material-ui-popup-state";
