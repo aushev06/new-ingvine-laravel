@@ -4,7 +4,7 @@ import React from "react";
 export default function Welcome (props) {
     return (
         <>
-            <Head title={'Ingvine Food - Доставка вкусной еды'} />
+            <Head title={'Meatpoint - Доставка вкусной еды'} />
             <Home />
         </>
     )
