@@ -44,6 +44,7 @@ export const Pay = () => {
     const [sum, setSum] = useState(cart?.total);
 
     const [coupon, setCoupon] = useState('');
+    const [couponStatus, setCouponStatus] = useState('');
 
 
     const {register, handleSubmit, control, formState, setValue, getValues, setError} = useForm({
@@ -66,7 +67,6 @@ export const Pay = () => {
     const values = getValues();
 
     useEffect(() => {
-        console.log(123);
         if (user) {
             setValue('name', user.name);
             setValue('phone', user.phone);
@@ -74,10 +74,17 @@ export const Pay = () => {
     }, [user])
 
 
+    useEffect(() => {
+        setSum(cart?.total);
+    }, [cart])
+
     const handleCheckCoupon = () => {
         cartApi.checkCoupon(coupon).then(response => {
             setSum(response.data.resultSum);
-            setValue('coupon', coupon)
+            setValue('coupon', coupon);
+            setCouponStatus('success');
+        }).catch(() => {
+            setCouponStatus('error')
         });
     }
 
@@ -189,7 +196,6 @@ export const Pay = () => {
                     </FormControl>
 
 
-
                     <FormControl className={styles.formControl}>
                         <FormLabel className={styles.radioTitle} id="demo-controlled-radio-buttons-group">Способ
                             доставки</FormLabel>
@@ -290,6 +296,10 @@ export const Pay = () => {
                                 endAdornment={<Button onClick={handleCheckCoupon}
                                                       className={styles.btn}>Применить</Button>}
                             />
+                            <div className={styles.coupon}>
+                                {couponStatus === 'success' && <span className={styles.success}>Купон применен</span>}
+                                {couponStatus === 'error' && <span className={styles.error}>Купон не применен</span>}
+                            </div>
                         </FormControl>
 
                         <div className={styles.payContainer}>
