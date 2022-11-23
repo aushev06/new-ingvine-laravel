@@ -78,7 +78,7 @@ use App\Http\Controllers\Admin\OrderController as Controller;
                     </thead>
 
                     <tbody>
-                    @foreach($model->foodProperties as $property)
+                    @foreach($model->foodProperties ?? [] as $property)
                         <tr class="text-center">
                             <td><img src="{{$property->img}}" class="img-thumbnail" width="150"></td>
                             <td>
