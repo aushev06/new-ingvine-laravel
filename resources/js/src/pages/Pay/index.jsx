@@ -42,6 +42,7 @@ export const Pay = () => {
     const [isDelivery, setIsDelivery] = useState(true)
     const {openAlert} = useAlert();
     const [sum, setSum] = useState(cart?.total);
+    const [isLoading, setIsLoading] = useState(false);
 
     const [coupon, setCoupon] = useState('');
     const [couponStatus, setCouponStatus] = useState('');
@@ -142,6 +143,7 @@ export const Pay = () => {
             return;
         }
         try {
+            setIsLoading(true);
             await cartApi.save(data);
             localStorage.setItem('token', new Date().getTime());
             dispatch(getCartAsync())
@@ -150,6 +152,8 @@ export const Pay = () => {
 
         } catch (e) {
 
+        } finally {
+            setIsLoading(false);
         }
 
     }
@@ -303,7 +307,7 @@ export const Pay = () => {
                         </FormControl>
 
                         <div className={styles.payContainer}>
-                            <Button onClick={handleSubmit(onSubmit)} className={styles.pay}>Оплатить</Button>
+                            <Button disabled={isLoading} onClick={handleSubmit(onSubmit)} className={styles.pay}>Оплатить</Button>
                         </div>
 
                     </div>
