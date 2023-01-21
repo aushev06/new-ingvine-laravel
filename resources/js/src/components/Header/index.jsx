@@ -56,7 +56,7 @@ export const Header = React.memo(function Header({className, onMenuClick}) {
                 <List className={styles.list}>
                     <ListItem>
                         <Link className={window.location.pathname == '/' ? styles.active : ''}
-                              href={'/'}>Гланая</Link>
+                              href={'/'}>Главная</Link>
                     </ListItem>
 
                     <ListItem>
