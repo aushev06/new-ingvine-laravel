@@ -180,7 +180,7 @@ export const FoodCard = ({food}) => {
 
                     <div className={styles.foodCard__footer_action}>
                         <AddToCartButton
-                            onAdd={properties.length > 2 || options.length ? handleOpen : handleAddToCart}/>
+                            onAdd={properties.length > 1 || options.length ? handleOpen : handleAddToCart}/>
                     </div>
                 </div>
             </div>
