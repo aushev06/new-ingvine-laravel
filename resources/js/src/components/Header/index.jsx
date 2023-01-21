@@ -46,10 +46,19 @@ export const Header = React.memo(function Header({className, onMenuClick}) {
     return (
         <header className={clsx(styles.header, 'layout')}>
             <div className={styles.left}>
-                <Link href={'/'} className={styles.logo}>
-                    <i>
-                        <img src="logo.png" alt=""/>
-                    </i>
+                <Link href={'/'} className={styles.logoContainer}>
+                    <span className={styles.logo}>
+                        <i>
+                            <img src="logo.png" alt=""/>
+                        </i>
+                    </span>
+                    <div className={styles.logoText}>
+                        <b>WaySub</b>
+                        <div>
+                            Доставка вкусных сэндвичей
+                        </div>
+                    </div>
+
                 </Link>
             </div>
             <div className={styles.right}>

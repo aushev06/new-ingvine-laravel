@@ -77,7 +77,6 @@
 
 .logo {
   display: block;
-  width: 250px;
   font-size: 0px;
   line-height: 0;
   font-style: normal;
@@ -103,6 +102,23 @@
       height: 52px;
     }
   }
+}
+
+.logoContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logoText {
+    b {
+        text-transform: uppercase;
+    }
+
+    div {
+        color: #8b8b8b;
+        font-size: 12px;
+    }
 }
 
 .location {
