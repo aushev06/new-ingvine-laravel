@@ -38,7 +38,7 @@ class CategoryRepository
     public function builder()
     {
 
-        return Category::with('foods.options')->with('childCategories')->whereNull('parent_id')->where('status', 1);
+        return Category::with('foods.options')->with('childCategories')->whereNull('parent_id')->where('status', 1)->orderBy('order');
 
     }
 

@@ -109,5 +109,8 @@
 
 <script src="{{asset('js/app.js')}}"></script>
 
+<script src="{{ asset('admin_assets/js/jquery-ui.min.js')}}"></script>
+
+
 </body>
 </html>

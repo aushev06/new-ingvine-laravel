@@ -1,4 +1,8 @@
-<tr>
+<tr data-id="{{$category->id}}">
+    <td>
+        <i class="fa fa-arrows-alt"></i>
+    </td>
+
     <td>
         {{$category->id}}
     </td>

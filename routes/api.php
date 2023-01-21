@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
@@ -34,24 +35,31 @@ Route::post('/check-coupon/{coupon}', [\App\Http\Controllers\Api\V1\CouponContro
     ->name('coupon.check');
 
 Route::group(['prefix' => 'cart'], function () {
+    Route::options('/cart-property', [\App\Http\Controllers\CartController::class, 'store']);
+    Route::options('/', [\App\Http\Controllers\CartController::class, 'store']);
+    Route::options('/add-order', [\App\Http\Controllers\CartController::class, 'store']);
 
-    Route::options('/cart-property',  [\App\Http\Controllers\CartController::class, 'store']);
-    Route::options('/',  [\App\Http\Controllers\CartController::class, 'store']);
-    Route::options('/add-order',  [\App\Http\Controllers\CartController::class, 'store']);
-
-    Route::post('/',  [\App\Http\Controllers\CartController::class, 'store']);
+    Route::post('/', [\App\Http\Controllers\CartController::class, 'store']);
     Route::post('/add-to-cart', [\App\Http\Controllers\CartController::class, 'store'])->name('cart.add-to-cart');
     Route::post('/get', [\App\Http\Controllers\CartController::class, 'show'])->name('cart.get');
     Route::post('/add-order', [\App\Http\Controllers\OrderController::class, 'addOrder'])->name('cart.addOrder');
-    Route::post('/activate-coupon', [\App\Http\Controllers\CartController::class, 'activateCoupon'])->name('cart.activate-coupon');
+    Route::post('/activate-coupon', [\App\Http\Controllers\CartController::class, 'activateCoupon'])->name(
+        'cart.activate-coupon'
+    );
 
-    Route::delete('/{id}', [\App\Http\Controllers\CartController::class, 'destroy'])->name('cart.destroy'); // Удаление корзины
+    Route::delete('/{id}', [\App\Http\Controllers\CartController::class, 'destroy'])->name(
+        'cart.destroy'
+    ); // Удаление корзины
 
-    Route::put('/cart-property',
-        [\App\Http\Controllers\CartController::class, 'updateProperty'])->name('cart.updateProperty'); // Обновление проперти в корзине
+    Route::put(
+        '/cart-property',
+        [\App\Http\Controllers\CartController::class, 'updateProperty']
+    )->name('cart.updateProperty'); // Обновление проперти в корзине
 
-    Route::delete('/cart-property/{cartPropertyId}',
-        [\App\Http\Controllers\CartController::class, 'destroyProperty'])->name('cart.destroyProperty'); // Удаление проперти у корзины
+    Route::delete(
+        '/cart-property/{cartPropertyId}',
+        [\App\Http\Controllers\CartController::class, 'destroyProperty']
+    )->name('cart.destroyProperty'); // Удаление проперти у корзины
 
 
 });
@@ -72,3 +80,5 @@ Route::get('/console/php', function () {
     phpinfo();
 });
 
+
+Route::post("categories/set-position", [CategoryController::class, 'setPosition']);  // Сортировка категорий

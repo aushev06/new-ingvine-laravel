@@ -40,12 +40,14 @@ class CategoryService
     public function edit($id, CategoryRequest $request): Category
     {
         $category = Category::findOrFail($id);
-        $category->fill($request->all([
-            Category::ATTR_NAME,
-            Category::ATTR_DESCRIPTION,
-            Category::ATTR_PARENT_ID,
-            Category::ATTR_STATUS,
-        ]));
+        $category->fill(
+            $request->all([
+                Category::ATTR_NAME,
+                Category::ATTR_DESCRIPTION,
+                Category::ATTR_PARENT_ID,
+                Category::ATTR_STATUS,
+            ])
+        );
 
 
         if ($request->file('img')) {
@@ -59,5 +61,14 @@ class CategoryService
         $category->save();
 
         return $category;
+    }
+
+    public function setPositions(array $data)
+    {
+        foreach ($data as $item) {
+            $model = Category::findOrFail($item['id']);
+            $model->order = $item['position'];
+            $model->save();
+        }
     }
 }

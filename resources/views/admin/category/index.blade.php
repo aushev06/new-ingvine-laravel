@@ -30,13 +30,19 @@
 
                 <div class="categories">
                     <table class="table">
-                        <tbody>
+                        <thead>
                         <tr>
+                            <td>
+
+                            </td>
                             <th>#</th>
                             <th>Название</th>
                             <th>Действие</th>
                         </tr>
 
+                        </thead>
+
+                        <tbody id="sortable">
                         @foreach($categories as $category)
                             @include('admin.category.categories', [$category, 'name' => ''])
                         @endforeach
@@ -50,6 +56,30 @@
         </div>
         <!-- /.container-fluid-->
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            $("#sortable").sortable({
+                stop: function (evt, ui) {
+                    let blocks = [];
+                    $("#sortable > tr").each((key, item) => {
+                        blocks.push({position: key, id: $(item).attr('data-id')})
+                    });
+
+                    $.ajax({
+                        url: "/api/categories/set-position",
+                        type: "POST",
+                        data: {blocks: blocks},
+                        success: function () {
+                            // location.reload();
+                        }
+                    })
+                }
+            });
+            $("#sortable").disableSelection();
+        })
+    </script>
+
 @endsection
 
 

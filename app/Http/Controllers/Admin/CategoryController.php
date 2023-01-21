@@ -35,7 +35,7 @@ class CategoryController extends Controller
     {
         $categories = Category::query()
             ->whereNull('parent_id')
-            ->orderBy('id')
+            ->orderBy('order')
             ->paginate(15);
 
         return view('admin.category.index', ['categories' => $categories]);
@@ -118,5 +118,10 @@ class CategoryController extends Controller
         $this->model::find($id)->delete();
 
         return redirect()->route('categories.index');
+    }
+
+    public function setPosition(Request $request)
+    {
+        $this->categoryService->setPositions($request->post('blocks') ?? []);
     }
 }
