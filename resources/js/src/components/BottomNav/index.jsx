@@ -44,7 +44,7 @@ export const BottomNav = () => {
                             setOpenedMenu('home')
                         }}
                         icon={<HomeOutlinedIcon
-                            style={{fontSize: 28, color: openedMenu === 'home' ? '#EB3800' : '#6F6F6F'}}/>}
+                            style={{fontSize: 28, color: openedMenu === 'home' ? '#efbe6f' : '#6F6F6F'}}/>}
                     />
                     <Suspense>
                         <BottomNavigationAction
