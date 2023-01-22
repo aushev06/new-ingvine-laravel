@@ -14,7 +14,7 @@ class TelegramService
     public function sendToTelegram(Order $order, array $properties)
     {
         $setting = Cache::get('settings');
-        $message = "Новый заказ на сайте. Ссылка на заказ - " . 'http://ingvine-food.ru/order/' . $order['id'];
+        $message = "Новый заказ на сайте. Ссылка на заказ - " . 'http://waysub.ru/order/' . $order['id'];
         $chatId  = $setting[Setting::SETTING_TELEGRAM_CHAT_ID]['value'];
         $botId   = $setting[Setting::SETTING_TELEGRAM_BOT_ID]['value'];
         $client  = new Client([
