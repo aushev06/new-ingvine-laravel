@@ -131,7 +131,7 @@ class Food extends Model
 
     public function getImgAttribute($value)
     {
-        return !$value ? asset('admin_assets/img/no_image.png') : url('storage/' . $value);
+        return !$value ? asset('admin_assets/img/no_image.jpg') : url('storage/' . $value);
     }
 
     public function getDescriptionAttribute($value)

@@ -73,7 +73,7 @@ class CartPropertyViewModel
 
     public function __construct(CartProperty $cartProperty)
     {
-        $img = asset('admin_assets/img/no_image.png');
+        $img = asset('admin_assets/img/no_image.jpg');
         if( !empty($cartProperty->img) || !empty($cartProperty->mainIMG) )
         {
             if ( empty($cartProperty->img) ) $img = url('storage/' . $cartProperty->mainIMG);
