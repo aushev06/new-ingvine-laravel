@@ -53,7 +53,7 @@ export const Header = React.memo(function Header({className, onMenuClick}) {
                         </i>
                     </span>
                     <div className={styles.logoText}>
-                        <b>WaySub</b>
+                        <b>Vanilla Cake</b>
                         <div>
                             Доставка вкусных сэндвичей
                         </div>
