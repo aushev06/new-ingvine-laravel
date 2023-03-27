@@ -98,4 +98,37 @@
         placeholder: 'Выберите опции'
     });
 
+    $('.generate').on('click', function (e) {
+        const name = $('input[name="name"]').val();
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        myHeaders.append("Authorization", "Bearer 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");
+
+        var raw = JSON.stringify({
+            "model": "gpt-3.5-turbo",
+            "messages": [
+                {
+                    "role": "user",
+                    "content": `Напиши короткое описание для блюда ${name}`
+                }
+            ]
+        });
+
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        };
+
+        fetch("https://api.openai.com/v1/chat/completions", requestOptions)
+            .then(response => response.json())
+            .then(result => {
+                $('textarea[name="description"]').val(result.choices[0].message.content)
+            })
+            .catch(error => console.log('error', error));
+
+
+    })
+
 })(jQuery); // End of use strict
