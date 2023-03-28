@@ -79,6 +79,7 @@ class Order extends Model
 
     const DELIVERY_TYPE_PICKUP  = 1;
     const DELIVERY_TYPE_COURIER = 2;
+    const DELIVERY_TYPE_RESERVED = 3;
 
     const WITH_USER = 'user';
 
@@ -139,7 +140,8 @@ class Order extends Model
     {
         return [
             self::DELIVERY_TYPE_PICKUP  => 'Самовывоз',
-            self::DELIVERY_TYPE_COURIER => 'Доставка курьером'
+            self::DELIVERY_TYPE_COURIER => 'Доставка курьером',
+            self::DELIVERY_TYPE_RESERVED => 'Бронь',
         ];
     }
 

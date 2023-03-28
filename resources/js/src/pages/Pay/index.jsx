@@ -32,6 +32,7 @@ import {selectUser} from "@/src/features/userSlice";
 
 const DELIVERY_TYPE_PICKUP = 1;
 const DELIVERY_TYPE_COURIER = 2;
+const DELIVERY_TYPE_RESERVED = 3;
 const TYPE_CASH = 0;
 const isTg = window.location.search.includes('token');
 export const Pay = () => {
@@ -63,6 +64,8 @@ export const Pay = () => {
             entrance: "",
             apartment: "",
             coupon: '',
+            reservedDate: '',
+            reservedPeoples: 1,
         },
     });
     const values = getValues();
@@ -92,7 +95,7 @@ export const Pay = () => {
     const checkClientEmptyFields = () => {
         const clientErrors = [];
 
-        if (values.delivery_type === DELIVERY_TYPE_PICKUP) {
+        if (values.delivery_type === DELIVERY_TYPE_PICKUP || values.delivery_type === DELIVERY_TYPE_RESERVED) {
 
             if (!values.name) {
                 clientErrors.push('Необходимо указать Имя');
@@ -134,9 +137,15 @@ export const Pay = () => {
 
 
     const onSubmit = async (data) => {
-        if (!isTg && data.delivery_type !== DELIVERY_TYPE_PICKUP && cart?.total < 500) {
+        if (!isTg && data.delivery_type !== DELIVERY_TYPE_PICKUP && data.delivery_type !== DELIVERY_TYPE_RESERVED && cart?.total < 500) {
             openAlert('Доставка от 500 рублей', 'error');
             return;
+        }
+
+        if (data.delivery_type === DELIVERY_TYPE_RESERVED) {
+            data.comment = `${data.comment} \n Время бронирования: ${data.reservedDate} \n Количество человек: ${data.reservedPeoples}`;
+            delete data.reservedDate;
+            delete data.reservedPeoples;
         }
 
         if (!checkClientEmptyFields()) {
@@ -214,6 +223,7 @@ export const Pay = () => {
                         >
                             <FormControlLabel value="2" control={<Radio/>} label="Доставка"/>
                             <FormControlLabel value="1" control={<Radio/>} label="Самовывоз"/>
+                            <FormControlLabel value="3" control={<Radio/>} label="Забронировать"/>
                         </RadioGroup>
                     </FormControl>
 
@@ -266,6 +276,50 @@ export const Pay = () => {
                         </>
                     )}
 
+                    {
+                        values.delivery_type === DELIVERY_TYPE_RESERVED && (
+                            <>
+                                <FormControl className={styles.formControl}>
+                                    <TextField
+                                        type={'datetime-local'}
+                                        {...register("reservedDate")}
+                                        error={!!formState?.errors?.reservedDate?.message}
+                                        helperText={formState?.errors?.reservedDate?.message}
+                                        className={styles.input}
+                                        label={<span className={styles.label}>Дата и время</span>}
+                                        variant="filled"
+                                        InputProps={{disableUnderline: true}}
+                                    />
+                                </FormControl>
+
+                                <FormControl className={styles.formControl}>
+                                    <TextField
+                                        type={'number'}
+                                        {...register("reservedPeoples")}
+                                        error={!!formState?.errors?.reservedPeoples?.message}
+                                        helperText={formState?.errors?.reservedPeoples?.message}
+                                        className={styles.input}
+                                        label={<span className={styles.label}>Количество персон</span>}
+                                        variant="filled"
+                                        InputProps={{disableUnderline: true}}
+                                    />
+                                </FormControl>
+
+                                <FormControl className={styles.formControl}>
+                                    <TextField
+                                        {...register("comment")}
+                                        error={!!formState?.errors?.comment?.message}
+                                        helperText={formState?.errors?.comment?.message}
+                                        className={styles.input}
+                                        label={<span className={styles.label}>Комментарий</span>}
+                                        variant="filled"
+                                        InputProps={{disableUnderline: true}}
+                                    />
+                                </FormControl>
+
+                            </>
+                        )
+                    }
 
                 </div>
 
@@ -307,7 +361,8 @@ export const Pay = () => {
                         </FormControl>
 
                         <div className={styles.payContainer}>
-                            <Button disabled={isLoading} onClick={handleSubmit(onSubmit)} className={styles.pay}>Оплатить</Button>
+                            <Button disabled={isLoading} onClick={handleSubmit(onSubmit)}
+                                    className={styles.pay}>Оплатить</Button>
                         </div>
 
                     </div>
