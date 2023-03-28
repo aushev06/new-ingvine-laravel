@@ -27,10 +27,6 @@ export const Header = React.memo(function Header({className, onMenuClick}) {
                             <img className={styles.mobileLogo} src="/logo.png" alt=""/>
                         </Link>
                     </div>
-
-                    <div>
-                        <img onClick={() => setIsOpened(true)} src="/burger.svg" alt=""/>
-                    </div>
                 </header>
 
                 <NavigationDrawer menuOpened={opened} onClose={() => setIsOpened(false)}/>
