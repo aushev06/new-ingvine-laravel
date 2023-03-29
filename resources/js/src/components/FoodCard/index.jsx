@@ -168,7 +168,7 @@ export const FoodCard = ({food}) => {
                 </div>
                 <div className={styles.foodCard__description}>
                     {showDescription ? description || 'Описание отсутсвует' : sliceDescription || 'Описание отсутсвует'} {!showDescription && sliceDescription.length === 97 ?
-                    <span className={styles.span} onClick={() => setShowDescription(true)}>...</span> : ''}
+                    <span className={styles.span} onClick={() => handleOpen()}>...</span> : ''}
                 </div>
                 <div className={styles.foodCard__footer}>
                     <div>
