@@ -41,6 +41,7 @@ export const Pay = () => {
     const city = useSelector(selectSelectedCity);
     const dispatch = useDispatch();
     const [isDelivery, setIsDelivery] = useState(true)
+    const [isReserved, setIsReserved] = useState(false)
     const {openAlert} = useAlert();
     const [sum, setSum] = useState(cart?.total);
     const [isLoading, setIsLoading] = useState(false);
@@ -69,6 +70,7 @@ export const Pay = () => {
         },
     });
     const values = getValues();
+
 
     useEffect(() => {
         if (user) {
@@ -215,10 +217,11 @@ export const Pay = () => {
                         <RadioGroup
                             aria-labelledby="demo-controlled-radio-buttons-group"
                             name="controlled-radio-buttons-group"
-                            value={`${values.delivery_type}`}
+                            defaultValue={`${values.delivery_type}`}
                             onChange={(e) => {
                                 setValue('delivery_type', +e.target.value);
                                 setIsDelivery(+e.target.value === 2);
+                                setIsReserved(+e.target.value === 3);
                             }}
                         >
                             <FormControlLabel value="2" control={<Radio/>} label="Доставка"/>
@@ -261,23 +264,11 @@ export const Pay = () => {
                                     </FormControl>
                                 </div>
                             </div>
-
-                            <FormControl className={styles.formControl}>
-                                <TextField
-                                    {...register("comment")}
-                                    error={!!formState?.errors?.comment?.message}
-                                    helperText={formState?.errors?.comment?.message}
-                                    className={styles.input}
-                                    label={<span className={styles.label}>Комментарий к доставке</span>}
-                                    variant="filled"
-                                    InputProps={{disableUnderline: true}}
-                                />
-                            </FormControl>
                         </>
                     )}
 
                     {
-                        values.delivery_type === DELIVERY_TYPE_RESERVED && (
+                        isReserved && (
                             <>
                                 <FormControl className={styles.formControl}>
                                     <TextField
@@ -305,21 +296,21 @@ export const Pay = () => {
                                     />
                                 </FormControl>
 
-                                <FormControl className={styles.formControl}>
-                                    <TextField
-                                        {...register("comment")}
-                                        error={!!formState?.errors?.comment?.message}
-                                        helperText={formState?.errors?.comment?.message}
-                                        className={styles.input}
-                                        label={<span className={styles.label}>Комментарий</span>}
-                                        variant="filled"
-                                        InputProps={{disableUnderline: true}}
-                                    />
-                                </FormControl>
-
                             </>
                         )
                     }
+
+                    <FormControl className={styles.formControl}>
+                        <TextField
+                            {...register("comment")}
+                            error={!!formState?.errors?.comment?.message}
+                            helperText={formState?.errors?.comment?.message}
+                            className={styles.input}
+                            label={<span className={styles.label}>Комментарий</span>}
+                            variant="filled"
+                            InputProps={{disableUnderline: true}}
+                        />
+                    </FormControl>
 
                 </div>
 
