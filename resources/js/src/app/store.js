@@ -1,6 +1,7 @@
 import {configureStore} from '@reduxjs/toolkit'
 import cartReducer from "../features/cart/cartSlice";
 import cityReducer from "../features/city/citySlice";
+import settingsReducer from "../features/city/settingsSlice";
 import loginReducer from "../features/loginSlice";
 import userReducer from "../features/userSlice";
 import {categoryApi} from "../redux/api/category";
@@ -15,6 +16,7 @@ export const store = configureStore({
         city: cityReducer,
         login: loginReducer,
         user: userReducer,
+        settings: settingsReducer,
         [categoryApi.reducerPath]: categoryApi.reducer,
         [cartApi.reducerPath]: cartApi.reducer,
         [authApi.reducerPath]: authApi.reducer,
