@@ -10,28 +10,9 @@ import PopupState, {bindTrigger, bindMenu} from 'material-ui-popup-state';
 import {useEffect, useRef, useState} from "react";
 import {Link} from 'react-scroll';
 import {Icon} from "../Icon";
-import {useSelector} from "react-redux";
-import {selectActiveCategory} from "@/src/features/city/settingsSlice";
 
 
 export const Categories = ({categories}) => {
-    const navRef = useRef(null);
-
-    const activeSection = useSelector(selectActiveCategory);
-    const sectionRefs = useRef({});
-
-
-    useEffect(() => {
-        if (navRef.current && sectionRefs.current[activeSection]) {
-            const navWidth = navRef.current.clientWidth;
-            const activeSectionLeft = sectionRefs.current[activeSection].offsetLeft;
-            const activeSectionWidth = sectionRefs.current[activeSection].clientWidth;
-
-            const scrollLeft = activeSectionLeft - (navWidth - activeSectionWidth) / 2;
-            navRef.current.scrollLeft = scrollLeft;
-        }
-    }, [activeSection]);
-
     const isMobile = useMediaQuery('(max-width:768px)');
     const categoryBlockRef = useRef(null);
     const firstCategories = categories?.slice(0, isMobile ? 7 : 10) || [];
@@ -40,18 +21,27 @@ export const Categories = ({categories}) => {
     const [activeCategory, setActiveCategory] = useState(categories[0]?.id)
     const [fixedClass] = useState('');
 
+    useEffect(() => {
+        const element = document.querySelector(`#category-${activeCategory}`);
+        if (firstCategories.find((item) => item.id === activeCategory) && element && window && window.pageYOffset > 130) {
+            element.scrollIntoView(true)
+        }
+    }, [activeCategory])
+
     return (
         <div ref={categoryBlockRef}
-             className={clsx(styles.root, fixedClass)} ref={navRef}>
+             className={clsx(styles.root, fixedClass)}>
             <List className={styles.list}>
                 {
                     firstCategories?.map((item) => {
                         return (
                             <ListItem id={'category-' + item.id} key={item.id}
-                                      className={clsx(styles.item, item.id == activeSection ? styles.active : '')}
-                                      ref={(el) => (sectionRefs.current[item.id] = el)}
-                            >
-                                {item.name}
+                                      className={clsx(styles.item, item.id === activeCategory ? styles.active : '')}>
+                                <Link onSetActive={() => setActiveCategory(item.id)} activeClass={styles.active}
+                                      to={item.slug} spy={true} smooth={true} offset={50}
+                                      duration={500}>
+                                    {item.name}
+                                </Link>
                             </ListItem>
                         )
                     })

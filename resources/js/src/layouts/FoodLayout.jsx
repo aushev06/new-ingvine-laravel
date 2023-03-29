@@ -4,12 +4,9 @@ import {FoodCard} from "../components/FoodCard";
 import {CardsList} from "./CardListLayout";
 import styles from './ChefList.module.scss'
 import {CardSkeleton} from "../components/FoodCard/Skeleton";
-import {InView} from "react-intersection-observer";
-import {useDispatch} from "react-redux";
-import {setActiveCategory} from "@/src/features/city/settingsSlice";
 
 export const FoodLayout = ({categories, isLoading}) => {
-    const dispatch = useDispatch();
+
     if (isLoading) {
         return (
             <div>
@@ -24,18 +21,12 @@ export const FoodLayout = ({categories, isLoading}) => {
         )
     }
 
-    const handleSectionInView = (inView, entry) => {
-        if (inView) {
-            dispatch(setActiveCategory(entry.target.id));
-        }
-    };
-
     return (
         <div>
             {
                 categories.map(category => {
                     return (
-                        <InView as={'div'} className={styles.items} id={category.id} key={category.id} onChange={handleSectionInView} rootMargin="0% 0px" threshold={0.5}>
+                        <div className={styles.items} id={category.slug} key={category.id}>
                             <Typography variant={'h6'} style={{fontSize: 36}}>
                                 {category.name}
                             </Typography>
@@ -52,7 +43,7 @@ export const FoodLayout = ({categories, isLoading}) => {
                                     )
                                 })}
                             </CardsList>
-                        </InView>
+                        </div>
                     )
                 })
             }
