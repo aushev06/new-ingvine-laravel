@@ -45,6 +45,8 @@ export const FoodCard = ({food}) => {
     ] = useAddToCartMutation()
 
     const [showDescription, setShowDescription] = useState(false);
+    const isMobile = useMediaQuery('(max-width:768px)');
+
 
     const sliceMobileNameLength = isMobile ? 10 : 18;
 
@@ -52,7 +54,6 @@ export const FoodCard = ({food}) => {
     const sliceDescription = description.slice(0, 21);
 
     const [selectedOptions, setSelectedOptions] = useState([]);
-    const isMobile = useMediaQuery('(max-width:768px)');
     const dispatch = useDispatch();
     const [open, setOpen] = useState(false);
     const [selectedFoodPropertyId, setSelectedFoodPropertyId] = useState(properties[0].id);

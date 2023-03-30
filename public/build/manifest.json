@@ -1,8 +1,4 @@
 {
-  "resources/js/src/assets/icons/empty-cart.svg": {
-    "file": "assets/empty-cart.053199bd.svg",
-    "src": "resources/js/src/assets/icons/empty-cart.svg"
-  },
   "resources/js/src/assets/icons/about/innovate-big.svg": {
     "file": "assets/innovate-big.07679bfe.svg",
     "src": "resources/js/src/assets/icons/about/innovate-big.svg"
@@ -11,13 +7,13 @@
     "file": "assets/learn-non-stop.5b9be1b7.svg",
     "src": "resources/js/src/assets/icons/about/learn-non-stop.svg"
   },
-  "resources/js/src/assets/icons/about/love-customer.svg": {
-    "file": "assets/love-customer.f5648f74.svg",
-    "src": "resources/js/src/assets/icons/about/love-customer.svg"
-  },
   "resources/js/src/assets/icons/about/love-partners.svg": {
     "file": "assets/love-partners.cce47a1b.svg",
     "src": "resources/js/src/assets/icons/about/love-partners.svg"
+  },
+  "resources/js/src/assets/icons/about/love-customer.svg": {
+    "file": "assets/love-customer.f5648f74.svg",
+    "src": "resources/js/src/assets/icons/about/love-customer.svg"
   },
   "resources/js/src/assets/icons/about/make-simple.svg": {
     "file": "assets/make-simple.2f01f36c.svg",
@@ -35,6 +31,10 @@
     "file": "assets/chefs.333b9865.svg",
     "src": "resources/js/src/assets/icons/admin/chefs.svg"
   },
+  "resources/js/src/assets/icons/admin/chefsTable.svg": {
+    "file": "assets/chefsTable.befae278.svg",
+    "src": "resources/js/src/assets/icons/admin/chefsTable.svg"
+  },
   "resources/js/src/assets/icons/admin/filter.svg": {
     "file": "assets/filter.72ffcde4.svg",
     "src": "resources/js/src/assets/icons/admin/filter.svg"
@@ -43,13 +43,13 @@
     "file": "assets/home.f324f6d8.svg",
     "src": "resources/js/src/assets/icons/admin/home.svg"
   },
-  "resources/js/src/assets/icons/admin/chefsTable.svg": {
-    "file": "assets/chefsTable.befae278.svg",
-    "src": "resources/js/src/assets/icons/admin/chefsTable.svg"
-  },
   "resources/js/src/assets/icons/admin/masterClass.svg": {
     "file": "assets/masterClass.4e34cb8e.svg",
     "src": "resources/js/src/assets/icons/admin/masterClass.svg"
+  },
+  "resources/js/src/assets/icons/admin/mealKits.svg": {
+    "file": "assets/mealKits.504248af.svg",
+    "src": "resources/js/src/assets/icons/admin/mealKits.svg"
   },
   "resources/js/src/assets/icons/admin/menu.svg": {
     "file": "assets/menu.46f9de28.svg",
@@ -59,9 +59,9 @@
     "file": "assets/sort.fa32c99a.svg",
     "src": "resources/js/src/assets/icons/admin/sort.svg"
   },
-  "resources/js/src/assets/icons/admin/mealKits.svg": {
-    "file": "assets/mealKits.504248af.svg",
-    "src": "resources/js/src/assets/icons/admin/mealKits.svg"
+  "resources/js/src/assets/icons/admin/store.svg": {
+    "file": "assets/store.2e1b8d25.svg",
+    "src": "resources/js/src/assets/icons/admin/store.svg"
   },
   "resources/js/src/assets/icons/admin/warehouse.svg": {
     "file": "assets/warehouse.72903b75.svg",
@@ -83,10 +83,6 @@
     "file": "assets/nut.785f6d65.svg",
     "src": "resources/js/src/assets/icons/allergens/nut.svg"
   },
-  "resources/js/src/assets/icons/admin/store.svg": {
-    "file": "assets/store.2e1b8d25.svg",
-    "src": "resources/js/src/assets/icons/admin/store.svg"
-  },
   "resources/js/src/assets/icons/allergens/peanuts.svg": {
     "file": "assets/peanuts.52da950a.svg",
     "src": "resources/js/src/assets/icons/allergens/peanuts.svg"
@@ -94,10 +90,6 @@
   "resources/js/src/assets/icons/allergens/shellfish.svg": {
     "file": "assets/shellfish.f8a6250d.svg",
     "src": "resources/js/src/assets/icons/allergens/shellfish.svg"
-  },
-  "resources/js/src/assets/icons/allergens/seefood.svg": {
-    "file": "assets/seefood.8f0ac217.svg",
-    "src": "resources/js/src/assets/icons/allergens/seefood.svg"
   },
   "resources/js/src/assets/icons/allergens/soy.svg": {
     "file": "assets/soy.b9461bd4.svg",
@@ -123,17 +115,17 @@
     "file": "assets/arrow-bottom.cf7c660d.svg",
     "src": "resources/js/src/assets/icons/arrow-bottom.svg"
   },
-  "resources/js/src/assets/icons/arrow-down.svg": {
-    "file": "assets/arrow-down.30179d46.svg",
-    "src": "resources/js/src/assets/icons/arrow-down.svg"
+  "resources/js/src/assets/icons/allergens/seefood.svg": {
+    "file": "assets/seefood.8f0ac217.svg",
+    "src": "resources/js/src/assets/icons/allergens/seefood.svg"
   },
   "resources/js/src/assets/icons/arrow-slider-right.svg": {
     "file": "assets/arrow-slider-right.2c16525c.svg",
     "src": "resources/js/src/assets/icons/arrow-slider-right.svg"
   },
-  "resources/js/src/assets/icons/big-video.svg": {
-    "file": "assets/big-video.4450ad1a.svg",
-    "src": "resources/js/src/assets/icons/big-video.svg"
+  "resources/js/src/assets/icons/arrow-down.svg": {
+    "file": "assets/arrow-down.30179d46.svg",
+    "src": "resources/js/src/assets/icons/arrow-down.svg"
   },
   "resources/js/src/assets/icons/arrow-top.svg": {
     "file": "assets/arrow-top.9cc47a9d.svg",
@@ -143,6 +135,14 @@
     "file": "assets/bank_cards.c676ec54.svg",
     "src": "resources/js/src/assets/icons/bank_cards.svg"
   },
+  "resources/js/src/assets/icons/big-video.svg": {
+    "file": "assets/big-video.4450ad1a.svg",
+    "src": "resources/js/src/assets/icons/big-video.svg"
+  },
+  "resources/js/src/assets/icons/blog-icon.svg": {
+    "file": "assets/blog-icon.ebc3ad9b.svg",
+    "src": "resources/js/src/assets/icons/blog-icon.svg"
+  },
   "resources/js/src/assets/icons/calendar-simple.svg": {
     "file": "assets/calendar-simple.90b45134.svg",
     "src": "resources/js/src/assets/icons/calendar-simple.svg"
@@ -151,45 +151,37 @@
     "file": "assets/camera.bcc00bdb.svg",
     "src": "resources/js/src/assets/icons/camera.svg"
   },
-  "resources/js/src/assets/icons/cart.svg": {
-    "file": "assets/cart.499f632b.svg",
-    "src": "resources/js/src/assets/icons/cart.svg"
-  },
   "resources/js/src/assets/icons/bottomCart.svg": {
     "file": "assets/bottomCart.3ab22a8e.svg",
     "src": "resources/js/src/assets/icons/bottomCart.svg"
-  },
-  "resources/js/src/assets/icons/blog-icon.svg": {
-    "file": "assets/blog-icon.ebc3ad9b.svg",
-    "src": "resources/js/src/assets/icons/blog-icon.svg"
   },
   "resources/js/src/assets/icons/down.svg": {
     "file": "assets/down.ff0a9f27.svg",
     "src": "resources/js/src/assets/icons/down.svg"
   },
-  "resources/js/src/assets/icons/cats-drawer.svg": {
-    "file": "assets/cats-drawer.e5b7c0cc.svg",
-    "src": "resources/js/src/assets/icons/cats-drawer.svg"
-  },
-  "resources/js/src/assets/icons/chat-input-sent.svg": {
-    "file": "assets/chat-input-sent.373652ec.svg",
-    "src": "resources/js/src/assets/icons/chat-input-sent.svg"
-  },
   "resources/js/src/assets/icons/cash.svg": {
     "file": "assets/cash.f2f6c9e8.svg",
     "src": "resources/js/src/assets/icons/cash.svg"
   },
-  "resources/js/src/assets/icons/chat-input-smile.svg": {
-    "file": "assets/chat-input-smile.ac8d6084.svg",
-    "src": "resources/js/src/assets/icons/chat-input-smile.svg"
+  "resources/js/src/assets/icons/cats-drawer.svg": {
+    "file": "assets/cats-drawer.e5b7c0cc.svg",
+    "src": "resources/js/src/assets/icons/cats-drawer.svg"
   },
   "resources/js/src/assets/icons/chat-reply.svg": {
     "file": "assets/chat-reply.e317c9a5.svg",
     "src": "resources/js/src/assets/icons/chat-reply.svg"
   },
+  "resources/js/src/assets/icons/chat-input-sent.svg": {
+    "file": "assets/chat-input-sent.373652ec.svg",
+    "src": "resources/js/src/assets/icons/chat-input-sent.svg"
+  },
   "resources/js/src/assets/icons/chat-show.svg": {
     "file": "assets/chat-show.74688f3a.svg",
     "src": "resources/js/src/assets/icons/chat-show.svg"
+  },
+  "resources/js/src/assets/icons/cart.svg": {
+    "file": "assets/cart.499f632b.svg",
+    "src": "resources/js/src/assets/icons/cart.svg"
   },
   "resources/js/src/assets/icons/close.svg": {
     "file": "assets/close.4bde8f5d.svg",
@@ -207,17 +199,21 @@
     "file": "assets/Bahrain.cf401129.svg",
     "src": "resources/js/src/assets/icons/country-flag/Bahrain.svg"
   },
-  "resources/js/src/assets/icons/country-flag/Britain.svg": {
-    "file": "assets/Britain.e113f699.svg",
-    "src": "resources/js/src/assets/icons/country-flag/Britain.svg"
-  },
   "resources/js/src/assets/icons/country-flag/Belgium.svg": {
     "file": "assets/Belgium.4cea6139.svg",
     "src": "resources/js/src/assets/icons/country-flag/Belgium.svg"
   },
+  "resources/js/src/assets/icons/chat-input-smile.svg": {
+    "file": "assets/chat-input-smile.ac8d6084.svg",
+    "src": "resources/js/src/assets/icons/chat-input-smile.svg"
+  },
   "resources/js/src/assets/icons/country-flag/Brazil.svg": {
     "file": "assets/Brazil.94c68d7f.svg",
     "src": "resources/js/src/assets/icons/country-flag/Brazil.svg"
+  },
+  "resources/js/src/assets/icons/country-flag/Britain.svg": {
+    "file": "assets/Britain.e113f699.svg",
+    "src": "resources/js/src/assets/icons/country-flag/Britain.svg"
   },
   "resources/js/src/assets/icons/country-flag/Canada.svg": {
     "file": "assets/Canada.9bc97c2d.svg",
@@ -239,10 +235,6 @@
     "file": "assets/Germany.c0f24075.svg",
     "src": "resources/js/src/assets/icons/country-flag/Germany.svg"
   },
-  "resources/js/src/assets/icons/country-flag/India.svg": {
-    "file": "assets/India.a0c443f3.svg",
-    "src": "resources/js/src/assets/icons/country-flag/India.svg"
-  },
   "resources/js/src/assets/icons/country-flag/Israel.svg": {
     "file": "assets/Israel.7ba8cf9b.svg",
     "src": "resources/js/src/assets/icons/country-flag/Israel.svg"
@@ -255,37 +247,49 @@
     "file": "assets/Japan.e308f0b4.svg",
     "src": "resources/js/src/assets/icons/country-flag/Japan.svg"
   },
-  "resources/js/src/assets/icons/country-flag/KSA.svg": {
-    "file": "assets/KSA.7c22bbce.svg",
-    "src": "resources/js/src/assets/icons/country-flag/KSA.svg"
+  "resources/js/src/assets/icons/country-flag/India.svg": {
+    "file": "assets/India.a0c443f3.svg",
+    "src": "resources/js/src/assets/icons/country-flag/India.svg"
   },
   "resources/js/src/assets/icons/country-flag/Korea.svg": {
     "file": "assets/Korea.f26eb53f.svg",
     "src": "resources/js/src/assets/icons/country-flag/Korea.svg"
   },
+  "resources/js/src/assets/icons/country-flag/KSA.svg": {
+    "file": "assets/KSA.7c22bbce.svg",
+    "src": "resources/js/src/assets/icons/country-flag/KSA.svg"
+  },
   "resources/js/src/assets/icons/country-flag/Kuwait.svg": {
     "file": "assets/Kuwait.3b81c50f.svg",
     "src": "resources/js/src/assets/icons/country-flag/Kuwait.svg"
-  },
-  "resources/js/src/assets/icons/country-flag/Mexico.svg": {
-    "file": "assets/Mexico.9069bf81.svg",
-    "src": "resources/js/src/assets/icons/country-flag/Mexico.svg"
-  },
-  "resources/js/src/assets/icons/country-flag/Oman.svg": {
-    "file": "assets/Oman.4cba2b21.svg",
-    "src": "resources/js/src/assets/icons/country-flag/Oman.svg"
   },
   "resources/js/src/assets/icons/country-flag/Qatar.svg": {
     "file": "assets/Qatar.7ba80e18.svg",
     "src": "resources/js/src/assets/icons/country-flag/Qatar.svg"
   },
+  "resources/js/src/assets/icons/country-flag/Singapore.svg": {
+    "file": "assets/Singapore.d89b7b8d.svg",
+    "src": "resources/js/src/assets/icons/country-flag/Singapore.svg"
+  },
   "resources/js/src/assets/icons/country-flag/Russia.svg": {
     "file": "assets/Russia.dc066c81.svg",
     "src": "resources/js/src/assets/icons/country-flag/Russia.svg"
   },
+  "resources/js/src/assets/icons/country-flag/Oman.svg": {
+    "file": "assets/Oman.4cba2b21.svg",
+    "src": "resources/js/src/assets/icons/country-flag/Oman.svg"
+  },
   "resources/js/src/assets/icons/country-flag/Switzerland.svg": {
     "file": "assets/Switzerland.da2d352b.svg",
     "src": "resources/js/src/assets/icons/country-flag/Switzerland.svg"
+  },
+  "resources/js/src/assets/icons/country-flag/Mexico.svg": {
+    "file": "assets/Mexico.9069bf81.svg",
+    "src": "resources/js/src/assets/icons/country-flag/Mexico.svg"
+  },
+  "resources/js/src/assets/icons/country-flag/Spain.svg": {
+    "file": "assets/Spain.dae0c6d3.svg",
+    "src": "resources/js/src/assets/icons/country-flag/Spain.svg"
   },
   "resources/js/src/assets/icons/country-flag/UAE.svg": {
     "file": "assets/UAE.4434fe83.svg",
@@ -295,10 +299,6 @@
     "file": "assets/US.9e5ffcfb.svg",
     "src": "resources/js/src/assets/icons/country-flag/US.svg"
   },
-  "resources/js/src/assets/icons/country-flag/Spain.svg": {
-    "file": "assets/Spain.dae0c6d3.svg",
-    "src": "resources/js/src/assets/icons/country-flag/Spain.svg"
-  },
   "resources/js/src/assets/icons/declined.svg": {
     "file": "assets/declined.bb36cdec.svg",
     "src": "resources/js/src/assets/icons/declined.svg"
@@ -307,21 +307,13 @@
     "file": "assets/favorite.4c479af4.svg",
     "src": "resources/js/src/assets/icons/favorite.svg"
   },
-  "resources/js/src/assets/icons/country-flag/Singapore.svg": {
-    "file": "assets/Singapore.d89b7b8d.svg",
-    "src": "resources/js/src/assets/icons/country-flag/Singapore.svg"
-  },
-  "resources/js/src/assets/icons/flag-gbr.svg": {
-    "file": "assets/flag-gbr.d8b67f23.svg",
-    "src": "resources/js/src/assets/icons/flag-gbr.svg"
+  "resources/js/src/assets/icons/flag-uae.svg": {
+    "file": "assets/flag-uae.88532029.svg",
+    "src": "resources/js/src/assets/icons/flag-uae.svg"
   },
   "resources/js/src/assets/icons/gift.svg": {
     "file": "assets/gift.64408489.svg",
     "src": "resources/js/src/assets/icons/gift.svg"
-  },
-  "resources/js/src/assets/icons/flag-uae.svg": {
-    "file": "assets/flag-uae.88532029.svg",
-    "src": "resources/js/src/assets/icons/flag-uae.svg"
   },
   "resources/js/src/assets/icons/info.svg": {
     "file": "assets/info.6faa9854.svg",
@@ -334,6 +326,10 @@
   "resources/js/src/assets/icons/like-outline-dark.svg": {
     "file": "assets/like-outline-dark.3750448a.svg",
     "src": "resources/js/src/assets/icons/like-outline-dark.svg"
+  },
+  "resources/js/src/assets/icons/flag-gbr.svg": {
+    "file": "assets/flag-gbr.d8b67f23.svg",
+    "src": "resources/js/src/assets/icons/flag-gbr.svg"
   },
   "resources/js/src/assets/icons/link.svg": {
     "file": "assets/link.aabdc78a.svg",
@@ -351,10 +347,6 @@
     "file": "assets/heart.be78e7a3.svg",
     "src": "resources/js/src/assets/icons/nav/heart.svg"
   },
-  "resources/js/src/assets/icons/nav/home.svg": {
-    "file": "assets/home.6627f0f7.svg",
-    "src": "resources/js/src/assets/icons/nav/home.svg"
-  },
   "resources/js/src/assets/icons/nav/nav_search.svg": {
     "file": "assets/nav_search.3e696347.svg",
     "src": "resources/js/src/assets/icons/nav/nav_search.svg"
@@ -363,41 +355,41 @@
     "file": "assets/user.92ae8b02.svg",
     "src": "resources/js/src/assets/icons/nav/user.svg"
   },
-  "resources/js/src/assets/icons/notification.svg": {
-    "file": "assets/notification.1ace23a2.svg",
-    "src": "resources/js/src/assets/icons/notification.svg"
+  "resources/js/src/assets/icons/nav/home.svg": {
+    "file": "assets/home.6627f0f7.svg",
+    "src": "resources/js/src/assets/icons/nav/home.svg"
   },
   "resources/js/src/assets/icons/pdf-icon.svg": {
     "file": "assets/pdf-icon.a3fa6cc8.svg",
     "src": "resources/js/src/assets/icons/pdf-icon.svg"
   },
-  "resources/js/src/assets/icons/pin-stroke.svg": {
-    "file": "assets/pin-stroke.1ce0250c.svg",
-    "src": "resources/js/src/assets/icons/pin-stroke.svg"
-  },
-  "resources/js/src/assets/icons/processing.svg": {
-    "file": "assets/processing.61b5def6.svg",
-    "src": "resources/js/src/assets/icons/processing.svg"
-  },
-  "resources/js/src/assets/icons/plus-green.svg": {
-    "file": "assets/plus-green.e16b6b59.svg",
-    "src": "resources/js/src/assets/icons/plus-green.svg"
-  },
-  "resources/js/src/assets/icons/product-categories/chocolate.svg": {
-    "file": "assets/chocolate.145bac91.svg",
-    "src": "resources/js/src/assets/icons/product-categories/chocolate.svg"
-  },
-  "resources/js/src/assets/icons/product-categories/groceries.svg": {
-    "file": "assets/groceries.3d17cab5.svg",
-    "src": "resources/js/src/assets/icons/product-categories/groceries.svg"
+  "resources/js/src/assets/icons/pdf-icon-green.svg": {
+    "file": "assets/pdf-icon-green.111eca2b.svg",
+    "src": "resources/js/src/assets/icons/pdf-icon-green.svg"
   },
   "resources/js/src/assets/icons/pin-green.svg": {
     "file": "assets/pin-green.9db928c5.svg",
     "src": "resources/js/src/assets/icons/pin-green.svg"
   },
-  "resources/js/src/assets/icons/pdf-icon-green.svg": {
-    "file": "assets/pdf-icon-green.111eca2b.svg",
-    "src": "resources/js/src/assets/icons/pdf-icon-green.svg"
+  "resources/js/src/assets/icons/pin-stroke.svg": {
+    "file": "assets/pin-stroke.1ce0250c.svg",
+    "src": "resources/js/src/assets/icons/pin-stroke.svg"
+  },
+  "resources/js/src/assets/icons/notification.svg": {
+    "file": "assets/notification.1ace23a2.svg",
+    "src": "resources/js/src/assets/icons/notification.svg"
+  },
+  "resources/js/src/assets/icons/plus-green.svg": {
+    "file": "assets/plus-green.e16b6b59.svg",
+    "src": "resources/js/src/assets/icons/plus-green.svg"
+  },
+  "resources/js/src/assets/icons/processing.svg": {
+    "file": "assets/processing.61b5def6.svg",
+    "src": "resources/js/src/assets/icons/processing.svg"
+  },
+  "resources/js/src/assets/icons/product-categories/chocolate.svg": {
+    "file": "assets/chocolate.145bac91.svg",
+    "src": "resources/js/src/assets/icons/product-categories/chocolate.svg"
   },
   "resources/js/src/assets/icons/product-categories/kitchen.svg": {
     "file": "assets/kitchen.1fc57b34.svg",
@@ -411,9 +403,9 @@
     "file": "assets/sauces.16574d35.svg",
     "src": "resources/js/src/assets/icons/product-categories/sauces.svg"
   },
-  "resources/js/src/assets/icons/product-categories/tableware.svg": {
-    "file": "assets/tableware.2e5109ea.svg",
-    "src": "resources/js/src/assets/icons/product-categories/tableware.svg"
+  "resources/js/src/assets/icons/product-categories/groceries.svg": {
+    "file": "assets/groceries.3d17cab5.svg",
+    "src": "resources/js/src/assets/icons/product-categories/groceries.svg"
   },
   "resources/js/src/assets/icons/product-categories/vegi.svg": {
     "file": "assets/vegi.409c00d1.svg",
@@ -423,21 +415,21 @@
     "file": "assets/receipt.d0465da3.svg",
     "src": "resources/js/src/assets/icons/receipt.svg"
   },
-  "resources/js/src/assets/icons/recorded-mc.svg": {
-    "file": "assets/recorded-mc.21460420.svg",
-    "src": "resources/js/src/assets/icons/recorded-mc.svg"
-  },
   "resources/js/src/assets/icons/search.svg": {
     "file": "assets/search.01d5ae0a.svg",
     "src": "resources/js/src/assets/icons/search.svg"
   },
+  "resources/js/src/assets/icons/product-categories/tableware.svg": {
+    "file": "assets/tableware.2e5109ea.svg",
+    "src": "resources/js/src/assets/icons/product-categories/tableware.svg"
+  },
+  "resources/js/src/assets/icons/recorded-mc.svg": {
+    "file": "assets/recorded-mc.21460420.svg",
+    "src": "resources/js/src/assets/icons/recorded-mc.svg"
+  },
   "resources/js/src/assets/icons/search-bold.svg": {
     "file": "assets/search-bold.519bf6b2.svg",
     "src": "resources/js/src/assets/icons/search-bold.svg"
-  },
-  "resources/js/src/assets/icons/share.svg": {
-    "file": "assets/share.512b0da6.svg",
-    "src": "resources/js/src/assets/icons/share.svg"
   },
   "resources/js/src/assets/icons/simple-icons/gift-simple.svg": {
     "file": "assets/gift-simple.d402ba1a.svg",
@@ -459,9 +451,17 @@
     "file": "assets/users.328729a3.svg",
     "src": "resources/js/src/assets/icons/simple-icons/users.svg"
   },
+  "resources/js/src/assets/icons/share.svg": {
+    "file": "assets/share.512b0da6.svg",
+    "src": "resources/js/src/assets/icons/share.svg"
+  },
   "resources/js/src/assets/icons/simple-icons/world.svg": {
     "file": "assets/world.7a4792fc.svg",
     "src": "resources/js/src/assets/icons/simple-icons/world.svg"
+  },
+  "resources/js/src/assets/icons/social-icons/facebook.svg": {
+    "file": "assets/facebook.0a0fc4cf.svg",
+    "src": "resources/js/src/assets/icons/social-icons/facebook.svg"
   },
   "resources/js/src/assets/icons/social-icons/instagram.svg": {
     "file": "assets/instagram.fd84f9c3.svg",
@@ -479,9 +479,9 @@
     "file": "assets/telegram.ba37d589.svg",
     "src": "resources/js/src/assets/icons/social-icons/telegram.svg"
   },
-  "resources/js/src/assets/icons/social-icons/facebook.svg": {
-    "file": "assets/facebook.0a0fc4cf.svg",
-    "src": "resources/js/src/assets/icons/social-icons/facebook.svg"
+  "resources/js/src/assets/icons/social-icons/twitter.svg": {
+    "file": "assets/twitter.f2482d6b.svg",
+    "src": "resources/js/src/assets/icons/social-icons/twitter.svg"
   },
   "resources/js/src/assets/icons/social-icons/tiktok.svg": {
     "file": "assets/tiktok.43824dff.svg",
@@ -490,10 +490,6 @@
   "resources/js/src/assets/icons/social-icons/youtube.svg": {
     "file": "assets/youtube.bd2227ac.svg",
     "src": "resources/js/src/assets/icons/social-icons/youtube.svg"
-  },
-  "resources/js/src/assets/icons/social-icons/twitter.svg": {
-    "file": "assets/twitter.f2482d6b.svg",
-    "src": "resources/js/src/assets/icons/social-icons/twitter.svg"
   },
   "resources/js/src/assets/icons/square-pen.svg": {
     "file": "assets/square-pen.2990e6c5.svg",
@@ -507,21 +503,21 @@
     "file": "assets/table-green.784ebd46.svg",
     "src": "resources/js/src/assets/icons/table-green.svg"
   },
-  "resources/js/src/assets/icons/table-green-mini.svg": {
-    "file": "assets/table-green-mini.da432c15.svg",
-    "src": "resources/js/src/assets/icons/table-green-mini.svg"
-  },
   "resources/js/src/assets/icons/table-yellow.svg": {
     "file": "assets/table-yellow.5399d36a.svg",
     "src": "resources/js/src/assets/icons/table-yellow.svg"
   },
-  "resources/js/src/assets/icons/video-white.svg": {
-    "file": "assets/video-white.b5a8c83a.svg",
-    "src": "resources/js/src/assets/icons/video-white.svg"
-  },
   "resources/js/src/assets/icons/thumbs-up.svg": {
     "file": "assets/thumbs-up.5e0ffc16.svg",
     "src": "resources/js/src/assets/icons/thumbs-up.svg"
+  },
+  "resources/js/src/assets/icons/table-green-mini.svg": {
+    "file": "assets/table-green-mini.da432c15.svg",
+    "src": "resources/js/src/assets/icons/table-green-mini.svg"
+  },
+  "resources/js/src/assets/icons/video-white.svg": {
+    "file": "assets/video-white.b5a8c83a.svg",
+    "src": "resources/js/src/assets/icons/video-white.svg"
   },
   "resources/js/src/assets/icons/video-yellow.svg": {
     "file": "assets/video-yellow.29af465d.svg",
@@ -530,6 +526,10 @@
   "resources/js/src/assets/icons/video-yellow-mini.svg": {
     "file": "assets/video-yellow-mini.c5f33f02.svg",
     "src": "resources/js/src/assets/icons/video-yellow-mini.svg"
+  },
+  "resources/js/src/assets/icons/plus.svg": {
+    "file": "assets/plus.712a9661.svg",
+    "src": "resources/js/src/assets/icons/plus.svg"
   },
   "resources/js/src/assets/icons/increment.svg": {
     "file": "assets/increment.930b48bc.svg",
@@ -542,10 +542,6 @@
   "resources/js/src/assets/icons/phone.svg": {
     "file": "assets/phone.c6d96611.svg",
     "src": "resources/js/src/assets/icons/phone.svg"
-  },
-  "resources/js/src/assets/icons/plus.svg": {
-    "file": "assets/plus.712a9661.svg",
-    "src": "resources/js/src/assets/icons/plus.svg"
   },
   "resources/js/src/assets/icons/pin.svg": {
     "file": "assets/pin.36a603a2.svg",
@@ -563,8 +559,12 @@
     "file": "assets/profile.a5952e51.svg",
     "src": "resources/js/src/assets/icons/profile.svg"
   },
+  "resources/js/src/assets/icons/empty-cart.svg": {
+    "file": "assets/empty-cart.053199bd.svg",
+    "src": "resources/js/src/assets/icons/empty-cart.svg"
+  },
   "resources/js/app.jsx": {
-    "file": "assets/app.db582371.js",
+    "file": "assets/app.a9579a6f.js",
     "src": "resources/js/app.jsx",
     "isEntry": true,
     "dynamicImports": [
@@ -588,148 +588,148 @@
     ]
   },
   "resources/js/Pages/Auth/ConfirmPassword.jsx": {
-    "file": "assets/ConfirmPassword.f111ae81.js",
+    "file": "assets/ConfirmPassword.3a997cf0.js",
     "src": "resources/js/Pages/Auth/ConfirmPassword.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_PrimaryButton.acddcbfd.js",
-      "_TextInput.bebb7aa4.js",
-      "_InputLabel.f09a3206.js",
-      "_ApplicationLogo.dfc5e6fe.js"
+      "_PrimaryButton.b5b1be60.js",
+      "_TextInput.98cd099d.js",
+      "_InputLabel.1b86f2fd.js",
+      "_ApplicationLogo.76aa1afe.js"
     ]
   },
-  "_PrimaryButton.acddcbfd.js": {
-    "file": "assets/PrimaryButton.acddcbfd.js",
+  "_PrimaryButton.b5b1be60.js": {
+    "file": "assets/PrimaryButton.b5b1be60.js",
     "imports": [
       "resources/js/app.jsx",
-      "_ApplicationLogo.dfc5e6fe.js"
+      "_ApplicationLogo.76aa1afe.js"
     ]
   },
-  "_TextInput.bebb7aa4.js": {
-    "file": "assets/TextInput.bebb7aa4.js",
+  "_TextInput.98cd099d.js": {
+    "file": "assets/TextInput.98cd099d.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_InputLabel.f09a3206.js": {
-    "file": "assets/InputLabel.f09a3206.js",
+  "_InputLabel.1b86f2fd.js": {
+    "file": "assets/InputLabel.1b86f2fd.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_ApplicationLogo.dfc5e6fe.js": {
-    "file": "assets/ApplicationLogo.dfc5e6fe.js",
+  "_ApplicationLogo.76aa1afe.js": {
+    "file": "assets/ApplicationLogo.76aa1afe.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
   "resources/js/Pages/Auth/ForgotPassword.jsx": {
-    "file": "assets/ForgotPassword.645fd5ef.js",
+    "file": "assets/ForgotPassword.66edb9f7.js",
     "src": "resources/js/Pages/Auth/ForgotPassword.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_PrimaryButton.acddcbfd.js",
-      "_TextInput.bebb7aa4.js",
-      "_ApplicationLogo.dfc5e6fe.js"
+      "_PrimaryButton.b5b1be60.js",
+      "_TextInput.98cd099d.js",
+      "_ApplicationLogo.76aa1afe.js"
     ]
   },
   "resources/js/Pages/Auth/Login.jsx": {
-    "file": "assets/Login.e425ace1.js",
+    "file": "assets/Login.caabdcc8.js",
     "src": "resources/js/Pages/Auth/Login.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_PrimaryButton.acddcbfd.js",
-      "_TextInput.bebb7aa4.js",
-      "_InputLabel.f09a3206.js",
-      "_ApplicationLogo.dfc5e6fe.js"
+      "_PrimaryButton.b5b1be60.js",
+      "_TextInput.98cd099d.js",
+      "_InputLabel.1b86f2fd.js",
+      "_ApplicationLogo.76aa1afe.js"
     ]
   },
   "resources/js/Pages/Auth/Register.jsx": {
-    "file": "assets/Register.1a86fdfb.js",
+    "file": "assets/Register.f723e485.js",
     "src": "resources/js/Pages/Auth/Register.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_PrimaryButton.acddcbfd.js",
-      "_TextInput.bebb7aa4.js",
-      "_InputLabel.f09a3206.js",
-      "_ApplicationLogo.dfc5e6fe.js"
+      "_PrimaryButton.b5b1be60.js",
+      "_TextInput.98cd099d.js",
+      "_InputLabel.1b86f2fd.js",
+      "_ApplicationLogo.76aa1afe.js"
     ]
   },
   "resources/js/Pages/Auth/ResetPassword.jsx": {
-    "file": "assets/ResetPassword.4f665e97.js",
+    "file": "assets/ResetPassword.ef4c91a5.js",
     "src": "resources/js/Pages/Auth/ResetPassword.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_PrimaryButton.acddcbfd.js",
-      "_TextInput.bebb7aa4.js",
-      "_InputLabel.f09a3206.js",
-      "_ApplicationLogo.dfc5e6fe.js"
+      "_PrimaryButton.b5b1be60.js",
+      "_TextInput.98cd099d.js",
+      "_InputLabel.1b86f2fd.js",
+      "_ApplicationLogo.76aa1afe.js"
     ]
   },
   "resources/js/Pages/Auth/VerifyEmail.jsx": {
-    "file": "assets/VerifyEmail.062efd3b.js",
+    "file": "assets/VerifyEmail.613b625e.js",
     "src": "resources/js/Pages/Auth/VerifyEmail.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_PrimaryButton.acddcbfd.js",
-      "_ApplicationLogo.dfc5e6fe.js"
+      "_PrimaryButton.b5b1be60.js",
+      "_ApplicationLogo.76aa1afe.js"
     ]
   },
   "resources/js/Pages/Dashboard.jsx": {
-    "file": "assets/Dashboard.04f36966.js",
+    "file": "assets/Dashboard.1dd9f14d.js",
     "src": "resources/js/Pages/Dashboard.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_ApplicationLogo.dfc5e6fe.js",
-      "_Dropdown.d5fb8b28.js",
-      "_NavLink.9006c90a.js"
+      "_ApplicationLogo.76aa1afe.js",
+      "_Dropdown.22b9bd51.js",
+      "_NavLink.e09e2485.js"
     ]
   },
-  "_Dropdown.d5fb8b28.js": {
-    "file": "assets/Dropdown.d5fb8b28.js",
+  "_Dropdown.22b9bd51.js": {
+    "file": "assets/Dropdown.22b9bd51.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_NavLink.9006c90a.js": {
-    "file": "assets/NavLink.9006c90a.js",
+  "_NavLink.e09e2485.js": {
+    "file": "assets/NavLink.e09e2485.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
   "resources/js/Pages/Delivery.jsx": {
-    "file": "assets/Delivery.81ce1410.js",
+    "file": "assets/Delivery.83f3e7d2.js",
     "src": "resources/js/Pages/Delivery.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_Dropdown.d5fb8b28.js",
-      "_dividerClasses.e029716e.js",
-      "_index.0c09819a.js",
-      "_Divider.a2a5b87b.js",
-      "_MainLayout.8ab9f331.js",
-      "_index.ba2b0917.js",
-      "_NavLink.9006c90a.js"
+      "_Dropdown.22b9bd51.js",
+      "_dividerClasses.aa61e38d.js",
+      "_index.a1b738ab.js",
+      "_Divider.b09fb755.js",
+      "_MainLayout.44d326c9.js",
+      "_index.0426d8ed.js",
+      "_NavLink.e09e2485.js"
     ],
     "css": [
       "assets/Delivery.14b712f0.css"
     ]
   },
-  "_MainLayout.8ab9f331.js": {
-    "file": "assets/MainLayout.8ab9f331.js",
+  "_MainLayout.44d326c9.js": {
+    "file": "assets/MainLayout.44d326c9.js",
     "imports": [
       "resources/js/app.jsx",
-      "_index.0c09819a.js",
-      "_index.ba2b0917.js",
-      "_dividerClasses.e029716e.js",
-      "_NavLink.9006c90a.js"
+      "_index.a1b738ab.js",
+      "_index.0426d8ed.js",
+      "_dividerClasses.aa61e38d.js",
+      "_NavLink.e09e2485.js"
     ],
     "dynamicImports": [
       "resources/js/src/components/CartButton/index.jsx",
@@ -739,8 +739,8 @@
       "assets/MainLayout.b18aa974.css"
     ]
   },
-  "_dividerClasses.e029716e.js": {
-    "file": "assets/dividerClasses.e029716e.js",
+  "_dividerClasses.aa61e38d.js": {
+    "file": "assets/dividerClasses.aa61e38d.js",
     "imports": [
       "resources/js/app.jsx"
     ],
@@ -887,125 +887,125 @@
       "assets/profile.a5952e51.svg"
     ]
   },
-  "_index.0c09819a.js": {
-    "file": "assets/index.0c09819a.js",
+  "_index.a1b738ab.js": {
+    "file": "assets/index.a1b738ab.js",
     "imports": [
       "resources/js/app.jsx",
-      "_dividerClasses.e029716e.js"
+      "_dividerClasses.aa61e38d.js"
     ],
     "css": [
       "assets/index.b77a14a6.css"
     ]
   },
-  "_Divider.a2a5b87b.js": {
-    "file": "assets/Divider.a2a5b87b.js",
+  "_Divider.b09fb755.js": {
+    "file": "assets/Divider.b09fb755.js",
     "imports": [
       "resources/js/app.jsx",
-      "_dividerClasses.e029716e.js"
+      "_dividerClasses.aa61e38d.js"
     ]
   },
-  "_index.ba2b0917.js": {
-    "file": "assets/index.ba2b0917.js",
+  "_index.0426d8ed.js": {
+    "file": "assets/index.0426d8ed.js",
     "imports": [
       "resources/js/app.jsx",
-      "_dividerClasses.e029716e.js"
+      "_dividerClasses.aa61e38d.js"
     ]
   },
   "resources/js/Pages/PayPage.jsx": {
-    "file": "assets/PayPage.54cfc836.js",
+    "file": "assets/PayPage.acd12b9c.js",
     "src": "resources/js/Pages/PayPage.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_MainLayout.8ab9f331.js",
-      "_object.33151b62.js",
-      "_dividerClasses.e029716e.js",
-      "_FormLabel.6b7faa27.js",
-      "_RadioGroup.8178605a.js",
-      "_index.0c09819a.js",
-      "_index.ba2b0917.js",
-      "_NavLink.9006c90a.js"
+      "_MainLayout.44d326c9.js",
+      "_object.bad99470.js",
+      "_dividerClasses.aa61e38d.js",
+      "_FormLabel.dbb021c5.js",
+      "_RadioGroup.8dc0977a.js",
+      "_index.a1b738ab.js",
+      "_index.0426d8ed.js",
+      "_NavLink.e09e2485.js"
     ],
     "css": [
       "assets/PayPage.e8493b26.css"
     ]
   },
-  "_object.33151b62.js": {
-    "file": "assets/object.33151b62.js",
+  "_object.bad99470.js": {
+    "file": "assets/object.bad99470.js",
     "imports": [
       "resources/js/app.jsx",
-      "_index.ba2b0917.js",
-      "_dividerClasses.e029716e.js",
-      "_FormLabel.6b7faa27.js"
+      "_index.0426d8ed.js",
+      "_dividerClasses.aa61e38d.js",
+      "_FormLabel.dbb021c5.js"
     ]
   },
-  "_FormLabel.6b7faa27.js": {
-    "file": "assets/FormLabel.6b7faa27.js",
+  "_FormLabel.dbb021c5.js": {
+    "file": "assets/FormLabel.dbb021c5.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_RadioGroup.8178605a.js": {
-    "file": "assets/RadioGroup.8178605a.js",
+  "_RadioGroup.8dc0977a.js": {
+    "file": "assets/RadioGroup.8dc0977a.js",
     "imports": [
       "resources/js/app.jsx",
-      "_FormLabel.6b7faa27.js",
-      "_dividerClasses.e029716e.js"
+      "_FormLabel.dbb021c5.js",
+      "_dividerClasses.aa61e38d.js"
     ]
   },
   "resources/js/Pages/Profile.jsx": {
-    "file": "assets/Profile.e5464553.js",
+    "file": "assets/Profile.cc824e92.js",
     "src": "resources/js/Pages/Profile.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_MainLayout.8ab9f331.js",
-      "_index.0c09819a.js",
-      "_dividerClasses.e029716e.js",
-      "_index.ba2b0917.js",
-      "_NavLink.9006c90a.js"
+      "_MainLayout.44d326c9.js",
+      "_index.a1b738ab.js",
+      "_dividerClasses.aa61e38d.js",
+      "_index.0426d8ed.js",
+      "_NavLink.e09e2485.js"
     ]
   },
   "resources/js/Pages/SuccessPage.jsx": {
-    "file": "assets/SuccessPage.a9f4f369.js",
+    "file": "assets/SuccessPage.1cab3959.js",
     "src": "resources/js/Pages/SuccessPage.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_dividerClasses.e029716e.js",
-      "_MainLayout.8ab9f331.js",
-      "_index.0c09819a.js",
-      "_index.ba2b0917.js",
-      "_NavLink.9006c90a.js"
+      "_dividerClasses.aa61e38d.js",
+      "_MainLayout.44d326c9.js",
+      "_index.a1b738ab.js",
+      "_index.0426d8ed.js",
+      "_NavLink.e09e2485.js"
     ],
     "css": [
       "assets/SuccessPage.de1711b8.css"
     ]
   },
   "resources/js/Pages/Welcome.jsx": {
-    "file": "assets/Welcome.79b2f882.js",
+    "file": "assets/Welcome.1e3006ed.js",
     "src": "resources/js/Pages/Welcome.jsx",
     "isDynamicEntry": true,
     "imports": [
-      "_MainLayout.8ab9f331.js",
+      "_MainLayout.44d326c9.js",
       "resources/js/app.jsx",
-      "_dividerClasses.e029716e.js",
-      "_index.13c98e33.js",
-      "_index.ba2b0917.js",
-      "_FormLabel.6b7faa27.js",
-      "_RadioGroup.8178605a.js",
-      "_index.0c09819a.js",
-      "_Divider.a2a5b87b.js",
-      "_NavLink.9006c90a.js"
+      "_dividerClasses.aa61e38d.js",
+      "_index.c5780268.js",
+      "_index.0426d8ed.js",
+      "_FormLabel.dbb021c5.js",
+      "_RadioGroup.8dc0977a.js",
+      "_index.a1b738ab.js",
+      "_Divider.b09fb755.js",
+      "_NavLink.e09e2485.js"
     ],
     "css": [
       "assets/Welcome.ae21af66.css"
     ]
   },
-  "_index.13c98e33.js": {
-    "file": "assets/index.13c98e33.js",
+  "_index.c5780268.js": {
+    "file": "assets/index.c5780268.js",
     "imports": [
-      "_dividerClasses.e029716e.js",
+      "_dividerClasses.aa61e38d.js",
       "resources/js/app.jsx"
     ],
     "css": [
@@ -1013,15 +1013,15 @@
     ]
   },
   "resources/js/src/components/CartButton/index.jsx": {
-    "file": "assets/index.bae30aca.js",
+    "file": "assets/index.1b938495.js",
     "src": "resources/js/src/components/CartButton/index.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_dividerClasses.e029716e.js",
-      "_index.13c98e33.js",
-      "_index.0c09819a.js",
-      "_Divider.a2a5b87b.js"
+      "_dividerClasses.aa61e38d.js",
+      "_index.c5780268.js",
+      "_index.a1b738ab.js",
+      "_Divider.b09fb755.js"
     ],
     "css": [
       "assets/index.c408edad.css"
@@ -1031,55 +1031,55 @@
     ]
   },
   "resources/js/src/components/LoginButton/index.jsx": {
-    "file": "assets/index.ec5dd3f4.js",
+    "file": "assets/index.b1f37b77.js",
     "src": "resources/js/src/components/LoginButton/index.jsx",
     "isDynamicEntry": true,
     "imports": [
-      "_dividerClasses.e029716e.js",
+      "_dividerClasses.aa61e38d.js",
       "resources/js/app.jsx",
-      "_object.33151b62.js",
-      "_FormLabel.6b7faa27.js",
-      "_index.ba2b0917.js"
+      "_object.bad99470.js",
+      "_FormLabel.dbb021c5.js",
+      "_index.0426d8ed.js"
     ],
     "css": [
       "assets/index.dd2b891f.css"
     ]
   },
-  "resources/js/Pages/Delivery.css": {
-    "file": "assets/Delivery.14b712f0.css",
-    "src": "resources/js/Pages/Delivery.css"
-  },
   "resources/js/src/components/LoginButton/index.css": {
     "file": "assets/index.dd2b891f.css",
     "src": "resources/js/src/components/LoginButton/index.css"
   },
-  "index.css": {
-    "file": "assets/index.b77a14a6.css",
-    "src": "index.css"
-  },
-  "resources/js/Pages/SuccessPage.css": {
-    "file": "assets/SuccessPage.de1711b8.css",
-    "src": "resources/js/Pages/SuccessPage.css"
+  "resources/js/Pages/Delivery.css": {
+    "file": "assets/Delivery.14b712f0.css",
+    "src": "resources/js/Pages/Delivery.css"
   },
   "resources/js/src/components/CartButton/index.css": {
     "file": "assets/index.c408edad.css",
     "src": "resources/js/src/components/CartButton/index.css"
   },
-  "resources/js/Pages/Welcome.css": {
-    "file": "assets/Welcome.ae21af66.css",
-    "src": "resources/js/Pages/Welcome.css"
-  },
   "MainLayout.css": {
     "file": "assets/MainLayout.b18aa974.css",
     "src": "MainLayout.css"
+  },
+  "resources/js/Pages/SuccessPage.css": {
+    "file": "assets/SuccessPage.de1711b8.css",
+    "src": "resources/js/Pages/SuccessPage.css"
+  },
+  "resources/js/Pages/PayPage.css": {
+    "file": "assets/PayPage.e8493b26.css",
+    "src": "resources/js/Pages/PayPage.css"
   },
   "resources/js/app.css": {
     "file": "assets/app.476cf20b.css",
     "src": "resources/js/app.css"
   },
-  "resources/js/Pages/PayPage.css": {
-    "file": "assets/PayPage.e8493b26.css",
-    "src": "resources/js/Pages/PayPage.css"
+  "index.css": {
+    "file": "assets/index.b77a14a6.css",
+    "src": "index.css"
+  },
+  "resources/js/Pages/Welcome.css": {
+    "file": "assets/Welcome.ae21af66.css",
+    "src": "resources/js/Pages/Welcome.css"
   },
   "resources/js/src/assets/icons/allergens/tree-nuts.svg": {
     "file": "assets/nut.785f6d65.svg",
