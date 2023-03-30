@@ -46,8 +46,8 @@ export const FoodCard = ({food}) => {
 
     const [showDescription, setShowDescription] = useState(false);
 
-    const sliceName = name.slice(0, 40);
-    const sliceDescription = description.slice(0, 97);
+    const sliceName = name.slice(0, 18);
+    const sliceDescription = description.slice(0, 21);
 
     const [selectedOptions, setSelectedOptions] = useState([]);
     const isMobile = useMediaQuery('(max-width:768px)');
@@ -159,15 +159,16 @@ export const FoodCard = ({food}) => {
     return (
         <FoodCardContext.Provider value={{selectedOptions, setSelectedOptions, price, setPrice}}>
             <div className={styles.foodCard}>
-                <div className={styles.foodCard__image}>
+                <div className={styles.foodCard__image} onClick={handleOpen}>
                     <img loading="lazy" src={img} alt=""/>
                 </div>
 
-                <div className={styles.foodCard__title} title={name}>
-                    {sliceName} {sliceName.length === 40 ? '...' : ''}
+                <div className={styles.foodCard__title} title={name} style={{cursor: 'pointer'}}
+                     onClick={() => handleOpen()}>
+                    {sliceName} {sliceName.length === 18 ? '...' : ''}
                 </div>
                 <div className={styles.foodCard__description}>
-                    {showDescription ? description || 'Описание отсутсвует' : sliceDescription || 'Описание отсутсвует'} {!showDescription && sliceDescription.length === 97 ?
+                    {showDescription ? description || 'Описание отсутсвует' : sliceDescription || 'Описание отсутсвует'} {!showDescription && sliceDescription.length === 21 ?
                     <span className={styles.span} onClick={() => handleOpen()}>...</span> : ''}
                 </div>
                 <div className={styles.foodCard__footer}>

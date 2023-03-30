@@ -5,14 +5,16 @@
 }
 
 .cardsList {
-  display: flex;
-  flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 30px;
 
   @supports (display: grid) {
     flex-wrap: wrap;
-    grid-template-columns: repeat(auto-fill, minmax(22rem, var(--card--item--width)));
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     @include phone-m {
       gap: var(--spacing--40);
+        grid-template-columns: 1fr 1fr;
     }
   }
   @include tablets {
