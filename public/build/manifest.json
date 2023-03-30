@@ -3,13 +3,9 @@
     "file": "assets/empty-cart.053199bd.svg",
     "src": "resources/js/src/assets/icons/empty-cart.svg"
   },
-  "resources/js/src/assets/icons/about/love-partners.svg": {
-    "file": "assets/love-partners.cce47a1b.svg",
-    "src": "resources/js/src/assets/icons/about/love-partners.svg"
-  },
-  "resources/js/src/assets/icons/about/make-simple.svg": {
-    "file": "assets/make-simple.2f01f36c.svg",
-    "src": "resources/js/src/assets/icons/about/make-simple.svg"
+  "resources/js/src/assets/icons/about/innovate-big.svg": {
+    "file": "assets/innovate-big.07679bfe.svg",
+    "src": "resources/js/src/assets/icons/about/innovate-big.svg"
   },
   "resources/js/src/assets/icons/about/learn-non-stop.svg": {
     "file": "assets/learn-non-stop.5b9be1b7.svg",
@@ -19,25 +15,29 @@
     "file": "assets/love-customer.f5648f74.svg",
     "src": "resources/js/src/assets/icons/about/love-customer.svg"
   },
+  "resources/js/src/assets/icons/about/love-partners.svg": {
+    "file": "assets/love-partners.cce47a1b.svg",
+    "src": "resources/js/src/assets/icons/about/love-partners.svg"
+  },
+  "resources/js/src/assets/icons/about/make-simple.svg": {
+    "file": "assets/make-simple.2f01f36c.svg",
+    "src": "resources/js/src/assets/icons/about/make-simple.svg"
+  },
   "resources/js/src/assets/icons/admin/action.svg": {
     "file": "assets/action.f2be7dcd.svg",
     "src": "resources/js/src/assets/icons/admin/action.svg"
-  },
-  "resources/js/src/assets/icons/admin/blogPosts.svg": {
-    "file": "assets/blogPosts.87bd806b.svg",
-    "src": "resources/js/src/assets/icons/admin/blogPosts.svg"
   },
   "resources/js/src/assets/icons/admin/chefs.svg": {
     "file": "assets/chefs.333b9865.svg",
     "src": "resources/js/src/assets/icons/admin/chefs.svg"
   },
+  "resources/js/src/assets/icons/admin/blogPosts.svg": {
+    "file": "assets/blogPosts.87bd806b.svg",
+    "src": "resources/js/src/assets/icons/admin/blogPosts.svg"
+  },
   "resources/js/src/assets/icons/admin/chefsTable.svg": {
     "file": "assets/chefsTable.befae278.svg",
     "src": "resources/js/src/assets/icons/admin/chefsTable.svg"
-  },
-  "resources/js/src/assets/icons/about/innovate-big.svg": {
-    "file": "assets/innovate-big.07679bfe.svg",
-    "src": "resources/js/src/assets/icons/about/innovate-big.svg"
   },
   "resources/js/src/assets/icons/admin/filter.svg": {
     "file": "assets/filter.72ffcde4.svg",
@@ -51,6 +51,10 @@
     "file": "assets/masterClass.4e34cb8e.svg",
     "src": "resources/js/src/assets/icons/admin/masterClass.svg"
   },
+  "resources/js/src/assets/icons/admin/mealKits.svg": {
+    "file": "assets/mealKits.504248af.svg",
+    "src": "resources/js/src/assets/icons/admin/mealKits.svg"
+  },
   "resources/js/src/assets/icons/admin/menu.svg": {
     "file": "assets/menu.46f9de28.svg",
     "src": "resources/js/src/assets/icons/admin/menu.svg"
@@ -63,10 +67,6 @@
     "file": "assets/store.2e1b8d25.svg",
     "src": "resources/js/src/assets/icons/admin/store.svg"
   },
-  "resources/js/src/assets/icons/admin/mealKits.svg": {
-    "file": "assets/mealKits.504248af.svg",
-    "src": "resources/js/src/assets/icons/admin/mealKits.svg"
-  },
   "resources/js/src/assets/icons/admin/warehouse.svg": {
     "file": "assets/warehouse.72903b75.svg",
     "src": "resources/js/src/assets/icons/admin/warehouse.svg"
@@ -75,17 +75,13 @@
     "file": "assets/dairy.0e86331a.svg",
     "src": "resources/js/src/assets/icons/allergens/dairy.svg"
   },
-  "resources/js/src/assets/icons/allergens/eggs.svg": {
-    "file": "assets/eggs.4be7d52d.svg",
-    "src": "resources/js/src/assets/icons/allergens/eggs.svg"
-  },
   "resources/js/src/assets/icons/allergens/gluten-free.svg": {
     "file": "assets/gluten-free.6d9c7b5f.svg",
     "src": "resources/js/src/assets/icons/allergens/gluten-free.svg"
   },
-  "resources/js/src/assets/icons/allergens/nut.svg": {
-    "file": "assets/nut.785f6d65.svg",
-    "src": "resources/js/src/assets/icons/allergens/nut.svg"
+  "resources/js/src/assets/icons/allergens/eggs.svg": {
+    "file": "assets/eggs.4be7d52d.svg",
+    "src": "resources/js/src/assets/icons/allergens/eggs.svg"
   },
   "resources/js/src/assets/icons/allergens/peanuts.svg": {
     "file": "assets/peanuts.52da950a.svg",
@@ -99,9 +95,17 @@
     "file": "assets/shellfish.f8a6250d.svg",
     "src": "resources/js/src/assets/icons/allergens/shellfish.svg"
   },
+  "resources/js/src/assets/icons/allergens/nut.svg": {
+    "file": "assets/nut.785f6d65.svg",
+    "src": "resources/js/src/assets/icons/allergens/nut.svg"
+  },
   "resources/js/src/assets/icons/allergens/soy.svg": {
     "file": "assets/soy.b9461bd4.svg",
     "src": "resources/js/src/assets/icons/allergens/soy.svg"
+  },
+  "resources/js/src/assets/icons/allergens/vegan.svg": {
+    "file": "assets/vegan.670fc29c.svg",
+    "src": "resources/js/src/assets/icons/allergens/vegan.svg"
   },
   "resources/js/src/assets/icons/allergens/vegetarian.svg": {
     "file": "assets/vegetarian.169be440.svg",
@@ -111,21 +115,21 @@
     "file": "assets/wheat.8eae9951.svg",
     "src": "resources/js/src/assets/icons/allergens/wheat.svg"
   },
-  "resources/js/src/assets/icons/allergens/vegan.svg": {
-    "file": "assets/vegan.670fc29c.svg",
-    "src": "resources/js/src/assets/icons/allergens/vegan.svg"
+  "resources/js/src/assets/icons/arrow-back-left.svg": {
+    "file": "assets/arrow-back-left.e5daf7d1.svg",
+    "src": "resources/js/src/assets/icons/arrow-back-left.svg"
   },
   "resources/js/src/assets/icons/arrow-bottom.svg": {
     "file": "assets/arrow-bottom.cf7c660d.svg",
     "src": "resources/js/src/assets/icons/arrow-bottom.svg"
   },
-  "resources/js/src/assets/icons/arrow-back-left.svg": {
-    "file": "assets/arrow-back-left.e5daf7d1.svg",
-    "src": "resources/js/src/assets/icons/arrow-back-left.svg"
-  },
   "resources/js/src/assets/icons/arrow-down.svg": {
     "file": "assets/arrow-down.30179d46.svg",
     "src": "resources/js/src/assets/icons/arrow-down.svg"
+  },
+  "resources/js/src/assets/icons/arrow-slider-right.svg": {
+    "file": "assets/arrow-slider-right.2c16525c.svg",
+    "src": "resources/js/src/assets/icons/arrow-slider-right.svg"
   },
   "resources/js/src/assets/icons/arrow-top.svg": {
     "file": "assets/arrow-top.9cc47a9d.svg",
@@ -138,10 +142,6 @@
   "resources/js/src/assets/icons/big-video.svg": {
     "file": "assets/big-video.4450ad1a.svg",
     "src": "resources/js/src/assets/icons/big-video.svg"
-  },
-  "resources/js/src/assets/icons/arrow-slider-right.svg": {
-    "file": "assets/arrow-slider-right.2c16525c.svg",
-    "src": "resources/js/src/assets/icons/arrow-slider-right.svg"
   },
   "resources/js/src/assets/icons/blog-icon.svg": {
     "file": "assets/blog-icon.ebc3ad9b.svg",
@@ -167,10 +167,6 @@
     "file": "assets/down.ff0a9f27.svg",
     "src": "resources/js/src/assets/icons/down.svg"
   },
-  "resources/js/src/assets/icons/cats-drawer.svg": {
-    "file": "assets/cats-drawer.e5b7c0cc.svg",
-    "src": "resources/js/src/assets/icons/cats-drawer.svg"
-  },
   "resources/js/src/assets/icons/cash.svg": {
     "file": "assets/cash.f2f6c9e8.svg",
     "src": "resources/js/src/assets/icons/cash.svg"
@@ -186,6 +182,10 @@
   "resources/js/src/assets/icons/chat-reply.svg": {
     "file": "assets/chat-reply.e317c9a5.svg",
     "src": "resources/js/src/assets/icons/chat-reply.svg"
+  },
+  "resources/js/src/assets/icons/cats-drawer.svg": {
+    "file": "assets/cats-drawer.e5b7c0cc.svg",
+    "src": "resources/js/src/assets/icons/cats-drawer.svg"
   },
   "resources/js/src/assets/icons/chat-show.svg": {
     "file": "assets/chat-show.74688f3a.svg",
@@ -231,13 +231,13 @@
     "file": "assets/Egypt.28484071.svg",
     "src": "resources/js/src/assets/icons/country-flag/Egypt.svg"
   },
-  "resources/js/src/assets/icons/country-flag/Germany.svg": {
-    "file": "assets/Germany.c0f24075.svg",
-    "src": "resources/js/src/assets/icons/country-flag/Germany.svg"
-  },
   "resources/js/src/assets/icons/country-flag/France.svg": {
     "file": "assets/France.54a44c81.svg",
     "src": "resources/js/src/assets/icons/country-flag/France.svg"
+  },
+  "resources/js/src/assets/icons/country-flag/Germany.svg": {
+    "file": "assets/Germany.c0f24075.svg",
+    "src": "resources/js/src/assets/icons/country-flag/Germany.svg"
   },
   "resources/js/src/assets/icons/country-flag/India.svg": {
     "file": "assets/India.a0c443f3.svg",
@@ -267,6 +267,14 @@
     "file": "assets/Kuwait.3b81c50f.svg",
     "src": "resources/js/src/assets/icons/country-flag/Kuwait.svg"
   },
+  "resources/js/src/assets/icons/country-flag/Oman.svg": {
+    "file": "assets/Oman.4cba2b21.svg",
+    "src": "resources/js/src/assets/icons/country-flag/Oman.svg"
+  },
+  "resources/js/src/assets/icons/country-flag/Mexico.svg": {
+    "file": "assets/Mexico.9069bf81.svg",
+    "src": "resources/js/src/assets/icons/country-flag/Mexico.svg"
+  },
   "resources/js/src/assets/icons/country-flag/Qatar.svg": {
     "file": "assets/Qatar.7ba80e18.svg",
     "src": "resources/js/src/assets/icons/country-flag/Qatar.svg"
@@ -279,29 +287,17 @@
     "file": "assets/Singapore.d89b7b8d.svg",
     "src": "resources/js/src/assets/icons/country-flag/Singapore.svg"
   },
-  "resources/js/src/assets/icons/country-flag/Mexico.svg": {
-    "file": "assets/Mexico.9069bf81.svg",
-    "src": "resources/js/src/assets/icons/country-flag/Mexico.svg"
+  "resources/js/src/assets/icons/country-flag/Spain.svg": {
+    "file": "assets/Spain.dae0c6d3.svg",
+    "src": "resources/js/src/assets/icons/country-flag/Spain.svg"
   },
   "resources/js/src/assets/icons/country-flag/Switzerland.svg": {
     "file": "assets/Switzerland.da2d352b.svg",
     "src": "resources/js/src/assets/icons/country-flag/Switzerland.svg"
   },
-  "resources/js/src/assets/icons/country-flag/Oman.svg": {
-    "file": "assets/Oman.4cba2b21.svg",
-    "src": "resources/js/src/assets/icons/country-flag/Oman.svg"
-  },
   "resources/js/src/assets/icons/country-flag/UAE.svg": {
     "file": "assets/UAE.4434fe83.svg",
     "src": "resources/js/src/assets/icons/country-flag/UAE.svg"
-  },
-  "resources/js/src/assets/icons/country-flag/Spain.svg": {
-    "file": "assets/Spain.dae0c6d3.svg",
-    "src": "resources/js/src/assets/icons/country-flag/Spain.svg"
-  },
-  "resources/js/src/assets/icons/country-flag/US.svg": {
-    "file": "assets/US.9e5ffcfb.svg",
-    "src": "resources/js/src/assets/icons/country-flag/US.svg"
   },
   "resources/js/src/assets/icons/declined.svg": {
     "file": "assets/declined.bb36cdec.svg",
@@ -311,29 +307,25 @@
     "file": "assets/favorite.4c479af4.svg",
     "src": "resources/js/src/assets/icons/favorite.svg"
   },
-  "resources/js/src/assets/icons/flag-gbr.svg": {
-    "file": "assets/flag-gbr.d8b67f23.svg",
-    "src": "resources/js/src/assets/icons/flag-gbr.svg"
-  },
   "resources/js/src/assets/icons/flag-uae.svg": {
     "file": "assets/flag-uae.88532029.svg",
     "src": "resources/js/src/assets/icons/flag-uae.svg"
+  },
+  "resources/js/src/assets/icons/country-flag/US.svg": {
+    "file": "assets/US.9e5ffcfb.svg",
+    "src": "resources/js/src/assets/icons/country-flag/US.svg"
+  },
+  "resources/js/src/assets/icons/flag-gbr.svg": {
+    "file": "assets/flag-gbr.d8b67f23.svg",
+    "src": "resources/js/src/assets/icons/flag-gbr.svg"
   },
   "resources/js/src/assets/icons/gift.svg": {
     "file": "assets/gift.64408489.svg",
     "src": "resources/js/src/assets/icons/gift.svg"
   },
-  "resources/js/src/assets/icons/info.svg": {
-    "file": "assets/info.6faa9854.svg",
-    "src": "resources/js/src/assets/icons/info.svg"
-  },
   "resources/js/src/assets/icons/like-green.svg": {
     "file": "assets/like-green.a2ecd795.svg",
     "src": "resources/js/src/assets/icons/like-green.svg"
-  },
-  "resources/js/src/assets/icons/like-outline-dark.svg": {
-    "file": "assets/like-outline-dark.3750448a.svg",
-    "src": "resources/js/src/assets/icons/like-outline-dark.svg"
   },
   "resources/js/src/assets/icons/link.svg": {
     "file": "assets/link.aabdc78a.svg",
@@ -342,6 +334,14 @@
   "resources/js/src/assets/icons/live-mk.svg": {
     "file": "assets/live-mk.c9434b74.svg",
     "src": "resources/js/src/assets/icons/live-mk.svg"
+  },
+  "resources/js/src/assets/icons/info.svg": {
+    "file": "assets/info.6faa9854.svg",
+    "src": "resources/js/src/assets/icons/info.svg"
+  },
+  "resources/js/src/assets/icons/like-outline-dark.svg": {
+    "file": "assets/like-outline-dark.3750448a.svg",
+    "src": "resources/js/src/assets/icons/like-outline-dark.svg"
   },
   "resources/js/src/assets/icons/logout.svg": {
     "file": "assets/logout.1a785c9e.svg",
@@ -415,10 +415,6 @@
     "file": "assets/tableware.2e5109ea.svg",
     "src": "resources/js/src/assets/icons/product-categories/tableware.svg"
   },
-  "resources/js/src/assets/icons/product-categories/vegi.svg": {
-    "file": "assets/vegi.409c00d1.svg",
-    "src": "resources/js/src/assets/icons/product-categories/vegi.svg"
-  },
   "resources/js/src/assets/icons/receipt.svg": {
     "file": "assets/receipt.d0465da3.svg",
     "src": "resources/js/src/assets/icons/receipt.svg"
@@ -430,6 +426,10 @@
   "resources/js/src/assets/icons/search.svg": {
     "file": "assets/search.01d5ae0a.svg",
     "src": "resources/js/src/assets/icons/search.svg"
+  },
+  "resources/js/src/assets/icons/product-categories/vegi.svg": {
+    "file": "assets/vegi.409c00d1.svg",
+    "src": "resources/js/src/assets/icons/product-categories/vegi.svg"
   },
   "resources/js/src/assets/icons/search-bold.svg": {
     "file": "assets/search-bold.519bf6b2.svg",
@@ -447,6 +447,10 @@
     "file": "assets/laptop-simple.2aec2538.svg",
     "src": "resources/js/src/assets/icons/simple-icons/laptop-simple.svg"
   },
+  "resources/js/src/assets/icons/simple-icons/star.svg": {
+    "file": "assets/star.7daab27e.svg",
+    "src": "resources/js/src/assets/icons/simple-icons/star.svg"
+  },
   "resources/js/src/assets/icons/simple-icons/time.svg": {
     "file": "assets/time.a638544c.svg",
     "src": "resources/js/src/assets/icons/simple-icons/time.svg"
@@ -455,21 +459,13 @@
     "file": "assets/users.328729a3.svg",
     "src": "resources/js/src/assets/icons/simple-icons/users.svg"
   },
-  "resources/js/src/assets/icons/simple-icons/star.svg": {
-    "file": "assets/star.7daab27e.svg",
-    "src": "resources/js/src/assets/icons/simple-icons/star.svg"
-  },
-  "resources/js/src/assets/icons/simple-icons/world.svg": {
-    "file": "assets/world.7a4792fc.svg",
-    "src": "resources/js/src/assets/icons/simple-icons/world.svg"
-  },
   "resources/js/src/assets/icons/social-icons/facebook.svg": {
     "file": "assets/facebook.0a0fc4cf.svg",
     "src": "resources/js/src/assets/icons/social-icons/facebook.svg"
   },
-  "resources/js/src/assets/icons/social-icons/instagram.svg": {
-    "file": "assets/instagram.fd84f9c3.svg",
-    "src": "resources/js/src/assets/icons/social-icons/instagram.svg"
+  "resources/js/src/assets/icons/simple-icons/world.svg": {
+    "file": "assets/world.7a4792fc.svg",
+    "src": "resources/js/src/assets/icons/simple-icons/world.svg"
   },
   "resources/js/src/assets/icons/social-icons/linkedin.svg": {
     "file": "assets/linkedin.7522ac04.svg",
@@ -478,6 +474,10 @@
   "resources/js/src/assets/icons/social-icons/pinterest.svg": {
     "file": "assets/pinterest.34ad93f1.svg",
     "src": "resources/js/src/assets/icons/social-icons/pinterest.svg"
+  },
+  "resources/js/src/assets/icons/social-icons/instagram.svg": {
+    "file": "assets/instagram.fd84f9c3.svg",
+    "src": "resources/js/src/assets/icons/social-icons/instagram.svg"
   },
   "resources/js/src/assets/icons/social-icons/telegram.svg": {
     "file": "assets/telegram.ba37d589.svg",
@@ -491,10 +491,6 @@
     "file": "assets/twitter.f2482d6b.svg",
     "src": "resources/js/src/assets/icons/social-icons/twitter.svg"
   },
-  "resources/js/src/assets/icons/social-icons/youtube.svg": {
-    "file": "assets/youtube.bd2227ac.svg",
-    "src": "resources/js/src/assets/icons/social-icons/youtube.svg"
-  },
   "resources/js/src/assets/icons/square-pen.svg": {
     "file": "assets/square-pen.2990e6c5.svg",
     "src": "resources/js/src/assets/icons/square-pen.svg"
@@ -503,13 +499,17 @@
     "file": "assets/success-bold.bb3e5a14.svg",
     "src": "resources/js/src/assets/icons/success-bold.svg"
   },
-  "resources/js/src/assets/icons/table-green.svg": {
-    "file": "assets/table-green.784ebd46.svg",
-    "src": "resources/js/src/assets/icons/table-green.svg"
+  "resources/js/src/assets/icons/social-icons/youtube.svg": {
+    "file": "assets/youtube.bd2227ac.svg",
+    "src": "resources/js/src/assets/icons/social-icons/youtube.svg"
   },
   "resources/js/src/assets/icons/table-green-mini.svg": {
     "file": "assets/table-green-mini.da432c15.svg",
     "src": "resources/js/src/assets/icons/table-green-mini.svg"
+  },
+  "resources/js/src/assets/icons/table-green.svg": {
+    "file": "assets/table-green.784ebd46.svg",
+    "src": "resources/js/src/assets/icons/table-green.svg"
   },
   "resources/js/src/assets/icons/table-yellow.svg": {
     "file": "assets/table-yellow.5399d36a.svg",
@@ -543,10 +543,6 @@
     "file": "assets/decrement.352b3f56.svg",
     "src": "resources/js/src/assets/icons/decrement.svg"
   },
-  "resources/js/src/assets/icons/phone.svg": {
-    "file": "assets/phone.c6d96611.svg",
-    "src": "resources/js/src/assets/icons/phone.svg"
-  },
   "resources/js/src/assets/icons/pin.svg": {
     "file": "assets/pin.36a603a2.svg",
     "src": "resources/js/src/assets/icons/pin.svg"
@@ -555,16 +551,20 @@
     "file": "assets/empty-box.85d9b33b.svg",
     "src": "resources/js/src/assets/icons/empty-box.svg"
   },
-  "resources/js/src/assets/icons/success-bold-xl.svg": {
-    "file": "assets/success-bold-xl.7ff56875.svg",
-    "src": "resources/js/src/assets/icons/success-bold-xl.svg"
+  "resources/js/src/assets/icons/phone.svg": {
+    "file": "assets/phone.c6d96611.svg",
+    "src": "resources/js/src/assets/icons/phone.svg"
   },
   "resources/js/src/assets/icons/profile.svg": {
     "file": "assets/profile.a5952e51.svg",
     "src": "resources/js/src/assets/icons/profile.svg"
   },
+  "resources/js/src/assets/icons/success-bold-xl.svg": {
+    "file": "assets/success-bold-xl.7ff56875.svg",
+    "src": "resources/js/src/assets/icons/success-bold-xl.svg"
+  },
   "resources/js/app.jsx": {
-    "file": "assets/app.4b3f38bf.js",
+    "file": "assets/app.18b3cbd0.js",
     "src": "resources/js/app.jsx",
     "isEntry": true,
     "dynamicImports": [
@@ -588,148 +588,148 @@
     ]
   },
   "resources/js/Pages/Auth/ConfirmPassword.jsx": {
-    "file": "assets/ConfirmPassword.d0e6dd21.js",
+    "file": "assets/ConfirmPassword.b2dd26c1.js",
     "src": "resources/js/Pages/Auth/ConfirmPassword.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_PrimaryButton.a6b50476.js",
-      "_TextInput.d754b5b9.js",
-      "_InputLabel.155e4c2b.js",
-      "_ApplicationLogo.e36d371d.js"
+      "_PrimaryButton.4ab411f0.js",
+      "_TextInput.d281b8c2.js",
+      "_InputLabel.a5d19489.js",
+      "_ApplicationLogo.f7aebcc6.js"
     ]
   },
-  "_PrimaryButton.a6b50476.js": {
-    "file": "assets/PrimaryButton.a6b50476.js",
+  "_PrimaryButton.4ab411f0.js": {
+    "file": "assets/PrimaryButton.4ab411f0.js",
     "imports": [
       "resources/js/app.jsx",
-      "_ApplicationLogo.e36d371d.js"
+      "_ApplicationLogo.f7aebcc6.js"
     ]
   },
-  "_TextInput.d754b5b9.js": {
-    "file": "assets/TextInput.d754b5b9.js",
+  "_TextInput.d281b8c2.js": {
+    "file": "assets/TextInput.d281b8c2.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_InputLabel.155e4c2b.js": {
-    "file": "assets/InputLabel.155e4c2b.js",
+  "_InputLabel.a5d19489.js": {
+    "file": "assets/InputLabel.a5d19489.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_ApplicationLogo.e36d371d.js": {
-    "file": "assets/ApplicationLogo.e36d371d.js",
+  "_ApplicationLogo.f7aebcc6.js": {
+    "file": "assets/ApplicationLogo.f7aebcc6.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
   "resources/js/Pages/Auth/ForgotPassword.jsx": {
-    "file": "assets/ForgotPassword.233d4bc6.js",
+    "file": "assets/ForgotPassword.b6e12336.js",
     "src": "resources/js/Pages/Auth/ForgotPassword.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_PrimaryButton.a6b50476.js",
-      "_TextInput.d754b5b9.js",
-      "_ApplicationLogo.e36d371d.js"
+      "_PrimaryButton.4ab411f0.js",
+      "_TextInput.d281b8c2.js",
+      "_ApplicationLogo.f7aebcc6.js"
     ]
   },
   "resources/js/Pages/Auth/Login.jsx": {
-    "file": "assets/Login.59222fce.js",
+    "file": "assets/Login.8ed26442.js",
     "src": "resources/js/Pages/Auth/Login.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_PrimaryButton.a6b50476.js",
-      "_TextInput.d754b5b9.js",
-      "_InputLabel.155e4c2b.js",
-      "_ApplicationLogo.e36d371d.js"
+      "_PrimaryButton.4ab411f0.js",
+      "_TextInput.d281b8c2.js",
+      "_InputLabel.a5d19489.js",
+      "_ApplicationLogo.f7aebcc6.js"
     ]
   },
   "resources/js/Pages/Auth/Register.jsx": {
-    "file": "assets/Register.6f0df93d.js",
+    "file": "assets/Register.2be50d76.js",
     "src": "resources/js/Pages/Auth/Register.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_PrimaryButton.a6b50476.js",
-      "_TextInput.d754b5b9.js",
-      "_InputLabel.155e4c2b.js",
-      "_ApplicationLogo.e36d371d.js"
+      "_PrimaryButton.4ab411f0.js",
+      "_TextInput.d281b8c2.js",
+      "_InputLabel.a5d19489.js",
+      "_ApplicationLogo.f7aebcc6.js"
     ]
   },
   "resources/js/Pages/Auth/ResetPassword.jsx": {
-    "file": "assets/ResetPassword.22cf0fe4.js",
+    "file": "assets/ResetPassword.ac0ace51.js",
     "src": "resources/js/Pages/Auth/ResetPassword.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_PrimaryButton.a6b50476.js",
-      "_TextInput.d754b5b9.js",
-      "_InputLabel.155e4c2b.js",
-      "_ApplicationLogo.e36d371d.js"
+      "_PrimaryButton.4ab411f0.js",
+      "_TextInput.d281b8c2.js",
+      "_InputLabel.a5d19489.js",
+      "_ApplicationLogo.f7aebcc6.js"
     ]
   },
   "resources/js/Pages/Auth/VerifyEmail.jsx": {
-    "file": "assets/VerifyEmail.ccc57ee5.js",
+    "file": "assets/VerifyEmail.0213be60.js",
     "src": "resources/js/Pages/Auth/VerifyEmail.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_PrimaryButton.a6b50476.js",
-      "_ApplicationLogo.e36d371d.js"
+      "_PrimaryButton.4ab411f0.js",
+      "_ApplicationLogo.f7aebcc6.js"
     ]
   },
   "resources/js/Pages/Dashboard.jsx": {
-    "file": "assets/Dashboard.65e8d330.js",
+    "file": "assets/Dashboard.f70abad4.js",
     "src": "resources/js/Pages/Dashboard.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_ApplicationLogo.e36d371d.js",
-      "_Dropdown.5544eb2f.js",
-      "_NavLink.5cc50047.js"
+      "_ApplicationLogo.f7aebcc6.js",
+      "_Dropdown.5da581c7.js",
+      "_NavLink.88d5aaff.js"
     ]
   },
-  "_Dropdown.5544eb2f.js": {
-    "file": "assets/Dropdown.5544eb2f.js",
+  "_Dropdown.5da581c7.js": {
+    "file": "assets/Dropdown.5da581c7.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_NavLink.5cc50047.js": {
-    "file": "assets/NavLink.5cc50047.js",
+  "_NavLink.88d5aaff.js": {
+    "file": "assets/NavLink.88d5aaff.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
   "resources/js/Pages/Delivery.jsx": {
-    "file": "assets/Delivery.2c39536c.js",
+    "file": "assets/Delivery.d71224b5.js",
     "src": "resources/js/Pages/Delivery.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_Dropdown.5544eb2f.js",
-      "_dividerClasses.e1557578.js",
-      "_index.af3381f0.js",
-      "_Divider.990d00d6.js",
-      "_MainLayout.d33ccc9f.js",
-      "_index.98d55eb7.js",
-      "_NavLink.5cc50047.js"
+      "_Dropdown.5da581c7.js",
+      "_dividerClasses.d8ef8462.js",
+      "_index.f8619cf8.js",
+      "_Divider.8691d943.js",
+      "_MainLayout.6c854cb1.js",
+      "_index.3fd1310b.js",
+      "_NavLink.88d5aaff.js"
     ],
     "css": [
       "assets/Delivery.14b712f0.css"
     ]
   },
-  "_MainLayout.d33ccc9f.js": {
-    "file": "assets/MainLayout.d33ccc9f.js",
+  "_MainLayout.6c854cb1.js": {
+    "file": "assets/MainLayout.6c854cb1.js",
     "imports": [
       "resources/js/app.jsx",
-      "_index.af3381f0.js",
-      "_index.98d55eb7.js",
-      "_dividerClasses.e1557578.js",
-      "_NavLink.5cc50047.js"
+      "_index.f8619cf8.js",
+      "_index.3fd1310b.js",
+      "_dividerClasses.d8ef8462.js",
+      "_NavLink.88d5aaff.js"
     ],
     "dynamicImports": [
       "resources/js/src/components/CartButton/index.jsx",
@@ -739,8 +739,8 @@
       "assets/MainLayout.b18aa974.css"
     ]
   },
-  "_dividerClasses.e1557578.js": {
-    "file": "assets/dividerClasses.e1557578.js",
+  "_dividerClasses.d8ef8462.js": {
+    "file": "assets/dividerClasses.d8ef8462.js",
     "imports": [
       "resources/js/app.jsx"
     ],
@@ -887,125 +887,125 @@
       "assets/profile.a5952e51.svg"
     ]
   },
-  "_index.af3381f0.js": {
-    "file": "assets/index.af3381f0.js",
+  "_index.f8619cf8.js": {
+    "file": "assets/index.f8619cf8.js",
     "imports": [
       "resources/js/app.jsx",
-      "_dividerClasses.e1557578.js"
+      "_dividerClasses.d8ef8462.js"
     ],
     "css": [
       "assets/index.b77a14a6.css"
     ]
   },
-  "_Divider.990d00d6.js": {
-    "file": "assets/Divider.990d00d6.js",
+  "_Divider.8691d943.js": {
+    "file": "assets/Divider.8691d943.js",
     "imports": [
       "resources/js/app.jsx",
-      "_dividerClasses.e1557578.js"
+      "_dividerClasses.d8ef8462.js"
     ]
   },
-  "_index.98d55eb7.js": {
-    "file": "assets/index.98d55eb7.js",
+  "_index.3fd1310b.js": {
+    "file": "assets/index.3fd1310b.js",
     "imports": [
       "resources/js/app.jsx",
-      "_dividerClasses.e1557578.js"
+      "_dividerClasses.d8ef8462.js"
     ]
   },
   "resources/js/Pages/PayPage.jsx": {
-    "file": "assets/PayPage.d699febc.js",
+    "file": "assets/PayPage.868da965.js",
     "src": "resources/js/Pages/PayPage.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_MainLayout.d33ccc9f.js",
-      "_object.98c11d09.js",
-      "_dividerClasses.e1557578.js",
-      "_FormLabel.e1a7c57c.js",
-      "_RadioGroup.85d9db11.js",
-      "_index.af3381f0.js",
-      "_index.98d55eb7.js",
-      "_NavLink.5cc50047.js"
+      "_MainLayout.6c854cb1.js",
+      "_object.4ab3b709.js",
+      "_dividerClasses.d8ef8462.js",
+      "_FormLabel.2cc3bf2f.js",
+      "_RadioGroup.62a5e6bf.js",
+      "_index.f8619cf8.js",
+      "_index.3fd1310b.js",
+      "_NavLink.88d5aaff.js"
     ],
     "css": [
       "assets/PayPage.e8493b26.css"
     ]
   },
-  "_object.98c11d09.js": {
-    "file": "assets/object.98c11d09.js",
+  "_object.4ab3b709.js": {
+    "file": "assets/object.4ab3b709.js",
     "imports": [
       "resources/js/app.jsx",
-      "_index.98d55eb7.js",
-      "_dividerClasses.e1557578.js",
-      "_FormLabel.e1a7c57c.js"
+      "_index.3fd1310b.js",
+      "_dividerClasses.d8ef8462.js",
+      "_FormLabel.2cc3bf2f.js"
     ]
   },
-  "_FormLabel.e1a7c57c.js": {
-    "file": "assets/FormLabel.e1a7c57c.js",
+  "_FormLabel.2cc3bf2f.js": {
+    "file": "assets/FormLabel.2cc3bf2f.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_RadioGroup.85d9db11.js": {
-    "file": "assets/RadioGroup.85d9db11.js",
+  "_RadioGroup.62a5e6bf.js": {
+    "file": "assets/RadioGroup.62a5e6bf.js",
     "imports": [
       "resources/js/app.jsx",
-      "_FormLabel.e1a7c57c.js",
-      "_dividerClasses.e1557578.js"
+      "_FormLabel.2cc3bf2f.js",
+      "_dividerClasses.d8ef8462.js"
     ]
   },
   "resources/js/Pages/Profile.jsx": {
-    "file": "assets/Profile.a4894602.js",
+    "file": "assets/Profile.1306e94f.js",
     "src": "resources/js/Pages/Profile.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_MainLayout.d33ccc9f.js",
-      "_index.af3381f0.js",
-      "_dividerClasses.e1557578.js",
-      "_index.98d55eb7.js",
-      "_NavLink.5cc50047.js"
+      "_MainLayout.6c854cb1.js",
+      "_index.f8619cf8.js",
+      "_dividerClasses.d8ef8462.js",
+      "_index.3fd1310b.js",
+      "_NavLink.88d5aaff.js"
     ]
   },
   "resources/js/Pages/SuccessPage.jsx": {
-    "file": "assets/SuccessPage.86eb3a08.js",
+    "file": "assets/SuccessPage.101fa3e8.js",
     "src": "resources/js/Pages/SuccessPage.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_dividerClasses.e1557578.js",
-      "_MainLayout.d33ccc9f.js",
-      "_index.af3381f0.js",
-      "_index.98d55eb7.js",
-      "_NavLink.5cc50047.js"
+      "_dividerClasses.d8ef8462.js",
+      "_MainLayout.6c854cb1.js",
+      "_index.f8619cf8.js",
+      "_index.3fd1310b.js",
+      "_NavLink.88d5aaff.js"
     ],
     "css": [
       "assets/SuccessPage.de1711b8.css"
     ]
   },
   "resources/js/Pages/Welcome.jsx": {
-    "file": "assets/Welcome.60859a8f.js",
+    "file": "assets/Welcome.ebc97c3c.js",
     "src": "resources/js/Pages/Welcome.jsx",
     "isDynamicEntry": true,
     "imports": [
-      "_MainLayout.d33ccc9f.js",
+      "_MainLayout.6c854cb1.js",
       "resources/js/app.jsx",
-      "_dividerClasses.e1557578.js",
-      "_index.ad3959c8.js",
-      "_index.98d55eb7.js",
-      "_FormLabel.e1a7c57c.js",
-      "_RadioGroup.85d9db11.js",
-      "_index.af3381f0.js",
-      "_Divider.990d00d6.js",
-      "_NavLink.5cc50047.js"
+      "_dividerClasses.d8ef8462.js",
+      "_index.31b19e4c.js",
+      "_index.3fd1310b.js",
+      "_FormLabel.2cc3bf2f.js",
+      "_RadioGroup.62a5e6bf.js",
+      "_index.f8619cf8.js",
+      "_Divider.8691d943.js",
+      "_NavLink.88d5aaff.js"
     ],
     "css": [
-      "assets/Welcome.8d0f0ef6.css"
+      "assets/Welcome.a1c39254.css"
     ]
   },
-  "_index.ad3959c8.js": {
-    "file": "assets/index.ad3959c8.js",
+  "_index.31b19e4c.js": {
+    "file": "assets/index.31b19e4c.js",
     "imports": [
-      "_dividerClasses.e1557578.js",
+      "_dividerClasses.d8ef8462.js",
       "resources/js/app.jsx"
     ],
     "css": [
@@ -1013,15 +1013,15 @@
     ]
   },
   "resources/js/src/components/CartButton/index.jsx": {
-    "file": "assets/index.ee47be26.js",
+    "file": "assets/index.3e736f4f.js",
     "src": "resources/js/src/components/CartButton/index.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_dividerClasses.e1557578.js",
-      "_index.ad3959c8.js",
-      "_index.af3381f0.js",
-      "_Divider.990d00d6.js"
+      "_dividerClasses.d8ef8462.js",
+      "_index.31b19e4c.js",
+      "_index.f8619cf8.js",
+      "_Divider.8691d943.js"
     ],
     "css": [
       "assets/index.c408edad.css"
@@ -1031,55 +1031,55 @@
     ]
   },
   "resources/js/src/components/LoginButton/index.jsx": {
-    "file": "assets/index.1300282c.js",
+    "file": "assets/index.b6f98fd3.js",
     "src": "resources/js/src/components/LoginButton/index.jsx",
     "isDynamicEntry": true,
     "imports": [
-      "_dividerClasses.e1557578.js",
+      "_dividerClasses.d8ef8462.js",
       "resources/js/app.jsx",
-      "_object.98c11d09.js",
-      "_FormLabel.e1a7c57c.js",
-      "_index.98d55eb7.js"
+      "_object.4ab3b709.js",
+      "_FormLabel.2cc3bf2f.js",
+      "_index.3fd1310b.js"
     ],
     "css": [
       "assets/index.dd2b891f.css"
     ]
   },
-  "MainLayout.css": {
-    "file": "assets/MainLayout.b18aa974.css",
-    "src": "MainLayout.css"
-  },
-  "index.css": {
-    "file": "assets/index.f6279cc6.css",
-    "src": "index.css"
-  },
-  "resources/js/Pages/Welcome.css": {
-    "file": "assets/Welcome.8d0f0ef6.css",
-    "src": "resources/js/Pages/Welcome.css"
-  },
-  "resources/js/Pages/Delivery.css": {
-    "file": "assets/Delivery.14b712f0.css",
-    "src": "resources/js/Pages/Delivery.css"
-  },
-  "resources/js/src/components/CartButton/index.css": {
-    "file": "assets/index.c408edad.css",
-    "src": "resources/js/src/components/CartButton/index.css"
+  "resources/js/Pages/PayPage.css": {
+    "file": "assets/PayPage.e8493b26.css",
+    "src": "resources/js/Pages/PayPage.css"
   },
   "resources/js/Pages/SuccessPage.css": {
     "file": "assets/SuccessPage.de1711b8.css",
     "src": "resources/js/Pages/SuccessPage.css"
   },
-  "resources/js/app.css": {
-    "file": "assets/app.476cf20b.css",
-    "src": "resources/js/app.css"
+  "index.css": {
+    "file": "assets/index.f6279cc6.css",
+    "src": "index.css"
+  },
+  "resources/js/Pages/Delivery.css": {
+    "file": "assets/Delivery.14b712f0.css",
+    "src": "resources/js/Pages/Delivery.css"
   },
   "resources/js/src/components/LoginButton/index.css": {
     "file": "assets/index.dd2b891f.css",
     "src": "resources/js/src/components/LoginButton/index.css"
   },
-  "resources/js/Pages/PayPage.css": {
-    "file": "assets/PayPage.e8493b26.css",
-    "src": "resources/js/Pages/PayPage.css"
+  "resources/js/Pages/Welcome.css": {
+    "file": "assets/Welcome.a1c39254.css",
+    "src": "resources/js/Pages/Welcome.css"
+  },
+  "resources/js/app.css": {
+    "file": "assets/app.476cf20b.css",
+    "src": "resources/js/app.css"
+  },
+  "resources/js/src/components/CartButton/index.css": {
+    "file": "assets/index.c408edad.css",
+    "src": "resources/js/src/components/CartButton/index.css"
+  },
+  "MainLayout.css": {
+    "file": "assets/MainLayout.b18aa974.css",
+    "src": "MainLayout.css"
   },
   "resources/js/src/assets/icons/allergens/tree-nuts.svg": {
     "file": "assets/nut.785f6d65.svg",

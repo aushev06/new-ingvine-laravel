@@ -50,8 +50,10 @@ export const FoodCard = ({food}) => {
 
     const sliceMobileNameLength = isMobile ? 10 : 18;
 
-    const sliceName = name.slice(0, sliceMobileNameLength);
-    const sliceDescription = description.slice(0, 21);
+    // const sliceName = name.slice(0, sliceMobileNameLength);
+    const sliceName = name;
+    const sliceDescription = description;
+    // const sliceDescription = description.slice(0, 21);
 
     const [selectedOptions, setSelectedOptions] = useState([]);
     const dispatch = useDispatch();

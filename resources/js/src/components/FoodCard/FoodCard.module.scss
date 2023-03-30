@@ -142,12 +142,13 @@
     font-family: 'Nunito';
     margin-top: 10px;
     margin-bottom: 10px;
-    font-weight: 700;
-    font-size: 20px;
+    font-weight: normal;
+    font-size: 14px;
+    min-height: 40px;
+    max-height: 40px;
 
   @include phone-m {
-    font-size: 18px;
-    height: 100% !important;
+    font-size: 14px;
   }
 }
 
@@ -155,14 +156,15 @@
     font-family: Nunito;
     font-style: normal;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 12px;
     line-height: 19px;
     height: 70px;
     color: #8b8b8b;
+    overflow: hidden;
+    margin-bottom: 5px;
 
   @include phone-m {
     font-size: 12px;
-    height: 100% !important;
   }
 }
 
