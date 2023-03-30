@@ -46,7 +46,9 @@ export const FoodCard = ({food}) => {
 
     const [showDescription, setShowDescription] = useState(false);
 
-    const sliceName = name.slice(0, 18);
+    const sliceMobileNameLength = isMobile ? 10 : 18;
+
+    const sliceName = name.slice(0, sliceMobileNameLength);
     const sliceDescription = description.slice(0, 21);
 
     const [selectedOptions, setSelectedOptions] = useState([]);
@@ -165,7 +167,7 @@ export const FoodCard = ({food}) => {
 
                 <div className={styles.foodCard__title} title={name} style={{cursor: 'pointer'}}
                      onClick={() => handleOpen()}>
-                    {sliceName} {sliceName.length === 18 ? '...' : ''}
+                    {sliceName} {sliceName.length === sliceMobileNameLength ? '...' : ''}
                 </div>
                 <div className={styles.foodCard__description}>
                     {showDescription ? description || 'Описание отсутсвует' : sliceDescription || 'Описание отсутсвует'} {!showDescription && sliceDescription.length === 21 ?
