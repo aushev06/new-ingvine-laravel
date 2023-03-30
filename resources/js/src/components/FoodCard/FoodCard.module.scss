@@ -15,6 +15,10 @@
   display: flex;
   font-family: 'Nunito' !important;
   margin-top: 36px;
+
+    @include  phone-m {
+        flex-direction: column;
+    }
 }
 
 .title {
