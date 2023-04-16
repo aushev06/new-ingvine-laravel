@@ -45,12 +45,17 @@ export const FoodCard = ({food}) => {
     ] = useAddToCartMutation()
 
     const [showDescription, setShowDescription] = useState(false);
+    const isMobile = useMediaQuery('(max-width:768px)');
 
-    const sliceName = name.slice(0, 40);
-    const sliceDescription = description.slice(0, 97);
+
+    const sliceMobileNameLength = isMobile ? 10 : 18;
+
+    // const sliceName = name.slice(0, sliceMobileNameLength);
+    const sliceName = name;
+    const sliceDescription = description;
+    // const sliceDescription = description.slice(0, 21);
 
     const [selectedOptions, setSelectedOptions] = useState([]);
-    const isMobile = useMediaQuery('(max-width:768px)');
     const dispatch = useDispatch();
     const [open, setOpen] = useState(false);
     const [selectedFoodPropertyId, setSelectedFoodPropertyId] = useState(properties[0].id);
@@ -159,16 +164,17 @@ export const FoodCard = ({food}) => {
     return (
         <FoodCardContext.Provider value={{selectedOptions, setSelectedOptions, price, setPrice}}>
             <div className={styles.foodCard}>
-                <div className={styles.foodCard__image}>
+                <div className={styles.foodCard__image} onClick={handleOpen}>
                     <img loading="lazy" src={img} alt=""/>
                 </div>
 
-                <div className={styles.foodCard__title} title={name}>
-                    {sliceName} {sliceName.length === 40 ? '...' : ''}
+                <div className={styles.foodCard__title} title={name} style={{cursor: 'pointer'}}
+                     onClick={() => handleOpen()}>
+                    {sliceName} {sliceName.length === sliceMobileNameLength ? '...' : ''}
                 </div>
                 <div className={styles.foodCard__description}>
-                    {showDescription ? description || 'Описание отсутсвует' : sliceDescription || 'Описание отсутсвует'} {!showDescription && sliceDescription.length === 97 ?
-                    <span className={styles.span} onClick={() => setShowDescription(true)}>...</span> : ''}
+                    {showDescription ? description || 'Описание отсутсвует' : sliceDescription || 'Описание отсутсвует'} {!showDescription && sliceDescription.length === 21 ?
+                    <span className={styles.span} onClick={() => handleOpen()}>...</span> : ''}
                 </div>
                 <div className={styles.foodCard__footer}>
                     <div>
@@ -180,7 +186,7 @@ export const FoodCard = ({food}) => {
 
                     <div className={styles.foodCard__footer_action}>
                         <AddToCartButton
-                            onAdd={properties.length > 2 || options.length ? handleOpen : handleAddToCart}/>
+                            onAdd={properties.length > 1 || options.length ? handleOpen : handleAddToCart}/>
                     </div>
                 </div>
             </div>

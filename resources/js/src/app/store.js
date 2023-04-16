@@ -7,6 +7,7 @@ import {categoryApi} from "../redux/api/category";
 import {cartApi} from "../redux/api/cart";
 import {authApi} from "../redux/api/auth";
 import {setupListeners} from "@reduxjs/toolkit/query/react";
+import settingsReducer from "../features/city/settingsSlice";
 
 export const store = configureStore({
     devTools: true,
@@ -15,6 +16,7 @@ export const store = configureStore({
         city: cityReducer,
         login: loginReducer,
         user: userReducer,
+        settings: settingsReducer,
         [categoryApi.reducerPath]: categoryApi.reducer,
         [cartApi.reducerPath]: cartApi.reducer,
         [authApi.reducerPath]: authApi.reducer,

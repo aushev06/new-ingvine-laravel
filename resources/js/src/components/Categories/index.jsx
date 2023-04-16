@@ -21,12 +21,27 @@ export const Categories = ({categories}) => {
     const [activeCategory, setActiveCategory] = useState(categories[0]?.id)
     const [fixedClass] = useState('');
 
+
+    const sectionRefs = useRef({});
+
+
     useEffect(() => {
-        const element = document.querySelector(`#category-${activeCategory}`);
-        if (firstCategories.find((item) => item.id === activeCategory) && element && window && window.pageYOffset > 130) {
-            element.scrollIntoView(true)
+        if (categoryBlockRef.current && sectionRefs.current[activeCategory]) {
+            const navWidth = categoryBlockRef.current.clientWidth;
+            const activeSectionLeft = sectionRefs.current[activeCategory].offsetLeft;
+            const activeSectionWidth = sectionRefs.current[activeCategory].clientWidth;
+
+            const scrollLeft = activeSectionLeft - (navWidth - activeSectionWidth) / 2;
+            categoryBlockRef.current.scrollLeft = scrollLeft;
         }
-    }, [activeCategory])
+    }, [activeCategory]);
+
+    // useEffect(() => {
+    //     const element = document.querySelector(`#category-${activeCategory}`);
+    //     if (firstCategories.find((item) => item.id === activeCategory) && element && window && window.pageYOffset > 130) {
+    //         element.scrollIntoView(true)
+    //     }
+    // }, [activeCategory])
 
     return (
         <div ref={categoryBlockRef}
@@ -36,7 +51,9 @@ export const Categories = ({categories}) => {
                     firstCategories?.map((item) => {
                         return (
                             <ListItem id={'category-' + item.id} key={item.id}
-                                      className={clsx(styles.item, item.id === activeCategory ? styles.active : '')}>
+                                      className={clsx(styles.item, item.id === activeCategory ? styles.active : '')}
+                                      ref={(el) => (sectionRefs.current[item.id] = el)}
+                            >
                                 <Link onSetActive={() => setActiveCategory(item.id)} activeClass={styles.active}
                                       to={item.slug} spy={true} smooth={true} offset={50}
                                       duration={500}>
