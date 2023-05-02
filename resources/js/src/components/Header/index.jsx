@@ -24,7 +24,7 @@ export const Header = React.memo(function Header({className, onMenuClick}) {
                 <header className={styles.header}>
                     <div>
                         <Link href={'/'}>
-                            <img className={styles.mobileLogo} src="/logo.png" alt=""/>
+                            <img className={styles.mobileLogo} src="/logo.jpg" alt=""/>
                         </Link>
                     </div>
                 </header>
@@ -45,11 +45,11 @@ export const Header = React.memo(function Header({className, onMenuClick}) {
                 <Link href={'/'} className={styles.logoContainer}>
                     <span className={styles.logo}>
                         <i>
-                            <img src="logo.png" alt=""/>
+                            <img src="/logo.jpg" alt=""/>
                         </i>
                     </span>
                     <div className={styles.logoText}>
-                        <b>Vanilla Cake</b>
+                        <b>Dana Shaukhalova</b>
                         <div>
                             Доставка вкусной еды
                         </div>
