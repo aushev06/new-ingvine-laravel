@@ -32,6 +32,10 @@ use App\Http\Controllers\Admin\OrderController as Controller;
                            href="{{route(Controller::ROUTE_DESTROY, $model->id)}}" title="Удалить" aria-label="Удалить"
                            data-confirm="Вы уверены, что хотите удалить этот элемент?" data-method="delete"
                            data-redirect="{{route(Controller::ROUTE_INDEX)}}">Удалить</a>
+
+
+                        <a class="btn btn-success"
+                           href="{{route('taxi', $model->id)}}">Заказать такси</a>
                     </div>
                 </div>
                 <div class="row justify-content-between align-items-center">

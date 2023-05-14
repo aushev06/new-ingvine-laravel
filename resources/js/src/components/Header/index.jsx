@@ -48,7 +48,7 @@ export const Header = React.memo(function Header({className, onMenuClick}) {
             <div className={styles.left}>
                 <Link href={'/'} className={styles.logo}>
                     <i>
-                        <img src="logo.png" alt=""/>
+                        <img src="/logo.png" alt=""/>
                     </i>
                 </Link>
             </div>
