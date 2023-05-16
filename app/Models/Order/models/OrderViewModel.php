@@ -136,6 +136,8 @@ class OrderViewModel
 
     public $coupon = '';
 
+    public int $is_mobile = 0;
+
 
     /**
      * @var CartProperty[]
@@ -144,6 +146,8 @@ class OrderViewModel
 
     const ATTR_PHONE = 'phone';
     const ATTR_ADDRESS = 'address';
+
+    const ATTR_IS_MOBILE = 'is_mobile';
     const ATTR_CITY = 'city';
     const ATTR_HOME = 'home';
     const ATTR_FLOOR = 'floor';
@@ -290,6 +294,7 @@ class OrderViewModel
         if ($this->delivery_type === self::DELIVERY_TYPE_COURIER) {
             return [
                 self::ATTR_TIME_DELIVERY => 'Время заказа',
+                self::ATTR_IS_MOBILE => 'Из мобильного приложения',
                 self::ATTR_DATE_DELIVERY => 'Дата заказа',
                 self::ATTR_DELIVERY_TYPE => 'Тип доставки',
 //            self::ATTR_ORGANIZATION  => 'Организация',
@@ -325,6 +330,7 @@ class OrderViewModel
                 self::ATTR_NAME => 'Имя',
                 self::ATTR_PHONE => 'Телефон',
                 'coupon' => 'Купон',
+                self::ATTR_IS_MOBILE => 'Из мобильного приложения',
 
             ];
         }

@@ -59,6 +59,8 @@ class OrderService
                 Order::ATTR_ADDRESS
             ]);
 
+            $attributes['is_mobile'] = strlen($cart->session) > 160 ? 1 : 0;
+
             $total = $cart->total;
 
 

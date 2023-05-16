@@ -34,6 +34,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property integer $intercom
  * @property integer $building
  * @property double $delivery_cost
+ * @property integer $is_mobile
  *
  * @property-read User $user
  */
@@ -49,6 +50,8 @@ class Order extends Model
     const ATTR_NAME          = 'name';
     const ATTR_PHONE         = 'phone';
     const ATTR_ADDRESS       = 'address';
+
+    const ATTR_IS_MOBILE     = 'is_mobile';
     const ATTR_HOME          = 'home';
     const ATTR_FLOOR         = 'floor';
     const ATTR_PORCH         = 'porch';
@@ -117,6 +120,7 @@ class Order extends Model
         self::ATTR_BUILDING,
         self::ATTR_USER_ID,
         self::ATTR_DELIVERY_COST,
+        self::ATTR_IS_MOBILE,
     ];
 
     protected $with = [self::WITH_USER];
