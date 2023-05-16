@@ -52,6 +52,7 @@ Route::group(['prefix' => 'api'], function () {
 });
 
 Route::get('/order/{id}', [\App\Http\Controllers\Admin\OrderController::class, 'show']);
+Route::get('/order/{id}/taxi', [\App\Http\Controllers\Admin\OrderController::class, 'taxi'])->name('taxi');
 
 Route::post('/app/settings', 'Api\V1\AppController@settings');
 Route::post('/app/siteSettings', 'Api\V1\AppController@siteSettings');

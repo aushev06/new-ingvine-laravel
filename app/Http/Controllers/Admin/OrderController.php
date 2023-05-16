@@ -5,18 +5,21 @@ namespace App\Http\Controllers\Admin;
 use App\Filters\OrderFilter;
 use App\Models\Order\models\OrderViewModel;
 use App\Models\Order\Order;
+use App\Models\Setting;
+use App\Models\SiteSetting;
 use App\Repositories\Order\OrderRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Inertia\Inertia;
 
 class OrderController extends Controller
 {
-    const ROUTE_INDEX   = 'order.index';
-    const ROUTE_CREATE  = 'order.create';
-    const ROUTE_SHOW    = 'order.show';
-    const ROUTE_STORE   = 'order.store';
-    const ROUTE_UPDATE  = 'order.update';
-    const ROUTE_EDIT    = 'order.edit';
+    const ROUTE_INDEX = 'order.index';
+    const ROUTE_CREATE = 'order.create';
+    const ROUTE_SHOW = 'order.show';
+    const ROUTE_STORE = 'order.store';
+    const ROUTE_UPDATE = 'order.update';
+    const ROUTE_EDIT = 'order.edit';
     const ROUTE_DESTROY = 'order.destroy';
 
     const TITLE = 'Заказы';
@@ -57,7 +60,7 @@ class OrderController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -68,7 +71,7 @@ class OrderController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -82,7 +85,7 @@ class OrderController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -96,8 +99,8 @@ class OrderController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  int $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -110,7 +113,7 @@ class OrderController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -118,5 +121,16 @@ class OrderController extends Controller
         $this->orderRepository->destroy($id);
 
         return redirect()->route('admin.index');
+    }
+
+    public function taxi($id)
+    {
+        $order = Order::findOrFail($id);
+        $model = new OrderViewModel($order, $this->orderRepository);
+
+        return Inertia::render('Taxi', [
+            'model' => $model,
+            'settings' => SiteSetting::query()->get()->keyBy('key')->map(fn($item) => $item->value)
+        ]);
     }
 }
