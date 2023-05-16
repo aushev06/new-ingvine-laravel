@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Filters\OrderFilter;
+use App\Models\Cart\Cart;
 use App\Models\Order\models\OrderViewModel;
 use App\Models\Order\Order;
 use App\Models\Setting;
@@ -117,8 +118,9 @@ class OrderController extends Controller
         $order->state = $status;
         $order->save();
 
-        if ($status === Order::STATE_WAS_SENT) {
-            $this->sendNotification('Заказ #' . $id, 'Ваш заказ отправлен', 'ddRtj3NQGUe6o3pBERKiDZ:APA91bHsU3caAQYtfd12fwH1vwFjweZm1tYmzXmtn4Z8RoQLB38ikJSukfRJ5bzh3w4AvlXIbMktAkSgRXqC_3Vd9SSVWxhuTbYB4BE9IMiaqQ_LrD7J1IheLG5p_6xBlDtT8QTLNBcv', 'AAAAi3C1y_I:APA91bHkU1a-z51PRXQKpHqi2CUvGi1_a3fBZF9-c1CzeQvKtufAFLniiZKbQUupYQu2W7z33GsBugeRBdnJ7tTeuzDgom-E0bPbZo2KHOv7iieGLrKT5RgQbrwT8QyJIBvgpcW3A3tE');
+        $cart = Cart::query()->where('id', $order->cart_id)->first();
+        if ($status === Order::STATE_WAS_SENT && $cart && strlen($cart->session) > 160) {
+            $this->sendNotification('Заказ #' . $id, 'Ваш заказ отправлен', $cart->session, 'AAAAi3C1y_I:APA91bHkU1a-z51PRXQKpHqi2CUvGi1_a3fBZF9-c1CzeQvKtufAFLniiZKbQUupYQu2W7z33GsBugeRBdnJ7tTeuzDgom-E0bPbZo2KHOv7iieGLrKT5RgQbrwT8QyJIBvgpcW3A3tE');
         }
 
         return redirect()->back();
