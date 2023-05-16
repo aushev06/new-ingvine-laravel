@@ -23,6 +23,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'check.admin']], fun
 
     Route::get('/promotion-cards/refresh', 'Admin\PromotionCardsController@refresh')->name('promotion-cards.refresh');
 
+    Route::get('/order/{id}/set-status/{status}', [\App\Http\Controllers\Admin\OrderController::class, 'setStatus'])->name('setStatus');
+
     Route::resources([
         'categories' => \App\Http\Controllers\Admin\CategoryController::class,
         'food' => \App\Http\Controllers\Admin\FoodController::class,

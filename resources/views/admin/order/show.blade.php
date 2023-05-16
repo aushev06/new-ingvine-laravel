@@ -36,6 +36,14 @@ use App\Http\Controllers\Admin\OrderController as Controller;
 
                         <a class="btn btn-success"
                            href="{{route('taxi', $model->id)}}">Заказать такси</a>
+
+
+                        @if($model->state === 'Новый')
+                            <a class="btn btn-primary"
+                               href="{{route('setStatus', ['id' => $model->id ,'status' => \App\Models\Order\Order::STATE_ACCEPT])}}">Принять заказ</a>
+                        @endif
+
+
                     </div>
                 </div>
                 <div class="row justify-content-between align-items-center">

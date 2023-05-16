@@ -85,6 +85,7 @@ export default function Taxi(props) {
             .then(response => {
 
                 localStorage.setItem('phone', phone);
+                axios.get(`/admin/order/${props.model.id}/set-status/was-sent`);
                 handleClose();
                 openAlert('Заказ создан');
 

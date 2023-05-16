@@ -52,6 +52,8 @@ class OrderViewModel
      */
     public $floor;
 
+    public string $state = '';
+
     /**
      * @var integer
      */
@@ -163,8 +165,11 @@ class OrderViewModel
     const ATTR_INTERCOM = 'intercom';
     const ATTR_BUILDING = 'building';
 
+    const ATTR_STATE = 'state';
+
     const DELIVERY_TYPE_PICKUP = 'Самовывоз';
     const DELIVERY_TYPE_COURIER = 'Доставка курьером';
+
 
 
     public function __construct(Order $order, OrderRepository $orderRepository)
@@ -184,6 +189,11 @@ class OrderViewModel
 
                 if (property_exists($this, $attribute) && $attribute == $order::ATTR_DELIVERY_TYPE) {
                     $this->delivery_type = $order::getDeliveryVariants()[$value];
+                    continue;
+                }
+
+                if (property_exists($this, $attribute) && $attribute == $order::ATTR_STATE) {
+                    $this->state = $order::getStateTypes()[$value];
                     continue;
                 }
 
@@ -293,6 +303,7 @@ class OrderViewModel
                 self::ATTR_PHONE => 'Телефон',
                 self::ATTR_ADDRESS => 'Район ЛК',
                 self::ATTR_CITY => 'Город/село',
+                self::ATTR_STATE => 'Статус заказа',
                 self::ATTR_STREET => 'Улица',
                 self::ATTR_HOUSE => 'Дом',
 //            self::ATTR_BUILDING      => 'Корпус',
@@ -310,6 +321,7 @@ class OrderViewModel
                 self::ATTR_TOTAL => 'Сумма заказа',
                 self::ATTR_COMMENT => 'Комментарий',
                 self::ATTR_STATUS => 'Статус',
+                self::ATTR_STATE => 'Статус заказа',
                 self::ATTR_NAME => 'Имя',
                 self::ATTR_PHONE => 'Телефон',
                 'coupon' => 'Купон',

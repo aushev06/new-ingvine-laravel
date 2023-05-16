@@ -61,6 +61,8 @@ class Order extends Model
     const ATTR_COMMENT       = 'comment';
     const ATTR_STATUS        = 'status';
     const ATTR_DELIVERY_TYPE = 'delivery_type';
+
+    const ATTR_STATE = 'state';
     const ATTR_CITY          = 'city';
     const ATTR_STREET        = 'street';
     const ATTR_HOUSE         = 'house';
@@ -81,6 +83,10 @@ class Order extends Model
     const DELIVERY_TYPE_COURIER = 2;
 
     const DELIVERY_TYPE_BOOKING = 3;
+
+    const STATE_NEW = 'new';
+    const STATE_ACCEPT = 'accept';
+    const STATE_WAS_SENT = 'was-sent';
 
     const WITH_USER = 'user';
 
@@ -143,6 +149,15 @@ class Order extends Model
             self::DELIVERY_TYPE_PICKUP  => 'Самовывоз',
             self::DELIVERY_TYPE_COURIER => 'Доставка курьером',
             self::DELIVERY_TYPE_BOOKING => 'Бронь',
+        ];
+    }
+
+    public static function getStateTypes() : array
+    {
+        return [
+            self::STATE_NEW  => 'Новый',
+            self::STATE_ACCEPT => 'Принят',
+            self::STATE_WAS_SENT => 'Был отправлен',
         ];
     }
 
