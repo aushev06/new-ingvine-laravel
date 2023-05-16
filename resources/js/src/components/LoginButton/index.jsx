@@ -148,7 +148,7 @@ export default function LoginButton() {
                                 </i>
                                 <Menu {...bindMenu(popupState)}>
                                     <MenuItem onClick={popupState.close}>
-                                        <Link href={'/'}>
+                                        <Link href={'/profile'}>
                                             Заказы
                                         </Link>
                                     </MenuItem>

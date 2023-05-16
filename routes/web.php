@@ -24,18 +24,18 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'check.admin']], fun
     Route::get('/promotion-cards/refresh', 'Admin\PromotionCardsController@refresh')->name('promotion-cards.refresh');
 
     Route::resources([
-        'categories'        => \App\Http\Controllers\Admin\CategoryController::class,
-        'food'              => \App\Http\Controllers\Admin\FoodController::class,
-        'coupon'            => \App\Http\Controllers\Admin\CouponController::class,
-        'order'             => \App\Http\Controllers\Admin\OrderController::class,
-        'ingridients'       => \App\Http\Controllers\Admin\IngridientController::class,
+        'categories' => \App\Http\Controllers\Admin\CategoryController::class,
+        'food' => \App\Http\Controllers\Admin\FoodController::class,
+        'coupon' => \App\Http\Controllers\Admin\CouponController::class,
+        'order' => \App\Http\Controllers\Admin\OrderController::class,
+        'ingridients' => \App\Http\Controllers\Admin\IngridientController::class,
         'option-categories' => \App\Http\Controllers\Admin\CategoryOptionController::class,
-        'options'           => \App\Http\Controllers\Admin\OptionController::class,
-        'setting'           => \App\Http\Controllers\Admin\SettingController::class,
-        'site-setting'      => \App\Http\Controllers\Admin\SiteSettingController::class,
-        'sms'               => \App\Http\Controllers\Admin\SmsController::class,
-        'promotions'        => \App\Http\Controllers\Admin\PromotionsController::class,
-        'promotion-cards'   => \App\Models\PromotionCards\PromotionCards::class,
+        'options' => \App\Http\Controllers\Admin\OptionController::class,
+        'setting' => \App\Http\Controllers\Admin\SettingController::class,
+        'site-setting' => \App\Http\Controllers\Admin\SiteSettingController::class,
+        'sms' => \App\Http\Controllers\Admin\SmsController::class,
+        'promotions' => \App\Http\Controllers\Admin\PromotionsController::class,
+        'promotion-cards' => \App\Models\PromotionCards\PromotionCards::class,
     ]);
 
     Route::put('/ingridients/{ingridientID}/{foodID}',
@@ -60,7 +60,6 @@ Route::get('/app/cacheClear', 'Api\V1\AppController@cacheClear')->middleware('ch
 Route::post('/promotions/cards', 'Api\V1\PromotionCardsApiController@index');
 
 
-
 Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
@@ -78,6 +77,12 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+
+Route::get('/orders', function () {
+    return Inertia::render('Orders');
+})->middleware(['auth', 'verified'])->name('orders');
+
+
 Route::get('/delivery', function () {
     return Inertia::render('Delivery');
 })->name('delivery');
@@ -90,9 +95,7 @@ Route::get('/success', function () {
     return Inertia::render('SuccessPage');
 })->name('result');
 
-Route::get('/profile', function () {
-    return Inertia::render('Profile');
-})
+Route::get('/profile', [\App\Http\Controllers\Controller::class, 'profile'])
     ->middleware('auth:sanctum')
     ->name('profile');
 
