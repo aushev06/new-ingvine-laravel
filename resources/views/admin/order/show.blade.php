@@ -43,6 +43,11 @@ use App\Http\Controllers\Admin\OrderController as Controller;
                                href="{{route('setStatus', ['id' => $model->id ,'status' => \App\Models\Order\Order::STATE_ACCEPT])}}">Принять заказ</a>
                         @endif
 
+                        @if($model->state === 'Принят')
+                            <a class="btn btn-primary"
+                               href="{{route('setStatus', ['id' => $model->id ,'status' => \App\Models\Order\Order::STATE_WAS_SENT])}}">Отправить заказ</a>
+                        @endif
+
 
                     </div>
                 </div>
