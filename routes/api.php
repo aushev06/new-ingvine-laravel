@@ -29,7 +29,9 @@ Route::group(['prefix' => 'food'], function () {
 Route::apiResource('categories', 'Api\V1\CategoryController');
 Route::apiResource('foods', \App\Http\Controllers\Api\V1\FoodApiController::class);
 Route::apiResource('promotions', 'Api\V1\PromotionsApiController');
-
+Route::get('/settings', function () {
+    return \App\Models\Setting::query()->get();
+});
 
 Route::post('/check-coupon/{coupon}', [\App\Http\Controllers\Api\V1\CouponController::class, 'checkCoupon'])
     ->name('coupon.check');
