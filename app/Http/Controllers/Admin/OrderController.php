@@ -130,15 +130,15 @@ class OrderController extends Controller
         $smsService = app(SmsServiceInterface::class);
 
         if ($status === Order::STATE_ACCEPT) {
-            $smsService->send('Заказ принят!', $order->phone);
+            $smsService->send('IngvineFood - Заказ принят!', $order->phone);
         }
 
         if ($status === Order::STATE_WAS_SENT && $cart) {
-            $smsService->send('Заказ отправлен!', $order->phone);
+            $smsService->send('IngvineFood - Заказ отправлен!', $order->phone);
         }
 
         if ($status === Order::STATE_WAS_SENT && $cart && $order->delivery_type === Order::DELIVERY_TYPE_PICKUP) {
-            $smsService->send('Заказ готов к выдаче!', $order->phone);
+            $smsService->send('IngvineFood - Заказ готов к выдаче!', $order->phone);
         }
 
 
