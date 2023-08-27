@@ -9,6 +9,8 @@ use App\Models\Setting;
 use App\Observers\IngridientFoodsObserver;
 use App\Observers\IngridientObserver;
 use App\Observers\OrderObserver;
+use App\Services\Sms\SmsAeroService;
+use App\Services\Sms\SmsServiceInterface;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\ServiceProvider;
 
@@ -21,7 +23,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(SmsServiceInterface::class, SmsAeroService::class);
     }
 
     /**
@@ -35,6 +37,7 @@ class AppServiceProvider extends ServiceProvider
         Order::observe(OrderObserver::class);
         IngridientFoods::observe(IngridientFoodsObserver::class);
         Ingridient::observe(IngridientObserver::class);
+
     }
 
     private function getSettings()

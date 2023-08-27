@@ -9,6 +9,7 @@ use App\Models\Order\Order;
 use App\Models\Setting;
 use App\Models\SiteSetting;
 use App\Repositories\Order\OrderRepository;
+use App\Services\Sms\SmsServiceInterface;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -120,8 +121,14 @@ class OrderController extends Controller
 
         $cart = Cart::query()->where('id', $order->cart_id)->first();
         if ($status === Order::STATE_WAS_SENT && $cart && strlen($cart->session) > 160) {
+            /**
+             * @var SmsServiceInterface $smsService
+             */
+            $smsService = app(SmsServiceInterface::class);
             $this->sendNotification('Заказ #' . $id, 'Ваш заказ отправлен', $cart->session, 'AAAAi3C1y_I:APA91bHkU1a-z51PRXQKpHqi2CUvGi1_a3fBZF9-c1CzeQvKtufAFLniiZKbQUupYQu2W7z33GsBugeRBdnJ7tTeuzDgom-E0bPbZo2KHOv7iieGLrKT5RgQbrwT8QyJIBvgpcW3A3tE');
         }
+
+        $smsService->send('Ваш заказ отправлен!', $order->phone);
 
         return redirect()->back();
     }
