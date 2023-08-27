@@ -15,9 +15,7 @@ class SmsAeroService implements SmsServiceInterface
     public function send(string $text, string $phone)
     {
         $settings = Setting::query()
-            ->where('key', 'SMS_AERO_LOGIN')
-            ->where('key', 'SMS_AERO_TOKEN')
-            ->where('key', 'SMS_AERO_SIGN')
+            ->whereIn('key', ['SMS_AERO_LOGIN', 'SMS_AERO_TOKEN', 'SMS_AERO_SIGN'])
             ->get()
             ->keyBy('key')
             ->map(fn($item) => $item->value);
