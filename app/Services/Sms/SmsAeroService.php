@@ -26,6 +26,8 @@ class SmsAeroService implements SmsServiceInterface
             return false;
         }
 
+        dd($settings);
+
         $login = $settings['SMS_AERO_LOGIN'];
         $token = $settings['SMS_AERO_TOKEN'];
         $sign = $settings['SMS_AERO_SIGN'];
