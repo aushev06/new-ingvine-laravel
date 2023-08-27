@@ -128,7 +128,10 @@ class OrderController extends Controller
             $this->sendNotification('Заказ #' . $id, 'Ваш заказ отправлен', $cart->session, 'AAAAi3C1y_I:APA91bHkU1a-z51PRXQKpHqi2CUvGi1_a3fBZF9-c1CzeQvKtufAFLniiZKbQUupYQu2W7z33GsBugeRBdnJ7tTeuzDgom-E0bPbZo2KHOv7iieGLrKT5RgQbrwT8QyJIBvgpcW3A3tE');
         }
 
-        $smsService->send('Ваш заказ отправлен!', $order->phone);
+        if ($status === Order::STATE_WAS_SENT && $cart) {
+            $smsService->send('Ваш заказ отправлен!', $order->phone);
+        }
+
 
         return redirect()->back();
     }
