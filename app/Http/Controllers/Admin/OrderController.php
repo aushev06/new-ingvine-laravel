@@ -124,12 +124,21 @@ class OrderController extends Controller
             $this->sendNotification('Заказ #' . $id, 'Ваш заказ отправлен', $cart->session, 'AAAAi3C1y_I:APA91bHkU1a-z51PRXQKpHqi2CUvGi1_a3fBZF9-c1CzeQvKtufAFLniiZKbQUupYQu2W7z33GsBugeRBdnJ7tTeuzDgom-E0bPbZo2KHOv7iieGLrKT5RgQbrwT8QyJIBvgpcW3A3tE');
         }
 
+        /**
+         * @var SmsServiceInterface $smsService
+         */
+        $smsService = app(SmsServiceInterface::class);
+
+        if ($status === Order::STATE_ACCEPT) {
+            $smsService->send('Заказ принят!', $order->phone);
+        }
+
         if ($status === Order::STATE_WAS_SENT && $cart) {
-            /**
-             * @var SmsServiceInterface $smsService
-             */
-            $smsService = app(SmsServiceInterface::class);
-            $smsService->send('Ваш заказ отправлен!', $order->phone);
+            $smsService->send('Заказ отправлен!', $order->phone);
+        }
+
+        if ($status === Order::STATE_WAS_SENT && $cart && $order->delivery_type === Order::DELIVERY_TYPE_PICKUP) {
+            $smsService->send('Заказ готов к выдаче!', $order->phone);
         }
 
 
