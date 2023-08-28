@@ -133,7 +133,7 @@ class OrderController extends Controller
             $smsService->send('IngvineFood - Заказ принят!', $order->phone);
         }
 
-        if ($status === Order::STATE_WAS_SENT && $cart) {
+        if ($status === Order::STATE_WAS_SENT && $cart && $cart->delivery_type === Order::DELIVERY_TYPE_COURIER) {
             $smsService->send('IngvineFood - Заказ отправлен!', $order->phone);
         }
 
