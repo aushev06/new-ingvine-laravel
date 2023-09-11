@@ -52,7 +52,10 @@ class Food extends Model
         self::ATTR_DESCRIPTION,
         self::ATTR_CATEGORY_ID,
         self::ATTR_STATUS,
-        self::ATTR_IMG];
+        self::ATTR_IMG,
+        self::ATTR_MITM_ID,
+        self::ATTR_MITM_NAME,
+    ];
 
     public static function getStatusVariants()
     {

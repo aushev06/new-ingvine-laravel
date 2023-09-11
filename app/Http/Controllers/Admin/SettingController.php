@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Food\FoodProperty;
+use App\Models\Pos;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -13,13 +15,14 @@ class SettingController extends Controller
     const TITLE = "Настройки";
 
 
-    const ROUTE_INDEX   = 'setting.index';
-    const ROUTE_CREATE  = 'setting.create';
-    const ROUTE_SHOW    = 'setting.show';
-    const ROUTE_STORE   = 'setting.store';
-    const ROUTE_UPDATE  = 'setting.update';
-    const ROUTE_EDIT    = 'setting.edit';
+    const ROUTE_INDEX = 'setting.index';
+    const ROUTE_CREATE = 'setting.create';
+    const ROUTE_SHOW = 'setting.show';
+    const ROUTE_STORE = 'setting.store';
+    const ROUTE_UPDATE = 'setting.update';
+    const ROUTE_EDIT = 'setting.edit';
     const ROUTE_DESTROY = 'setting.destroy';
+    const ROUTE_UPDATE_PRICES = 'setting.update-prices';
 
     /**
      * Display a listing of the resource.
@@ -110,6 +113,14 @@ class SettingController extends Controller
     {
         $setting->delete();
         \cache()->flush();
+        return redirect()->route(self::ROUTE_INDEX);
+    }
+
+    public function updatePrices()
+    {
+        foreach (Pos::query()->get() as $item) {
+            FoodProperty::query()->where('mitm_id', $item->mitm_id)->update(['price' => $item->price]);
+        }
         return redirect()->route(self::ROUTE_INDEX);
     }
 }

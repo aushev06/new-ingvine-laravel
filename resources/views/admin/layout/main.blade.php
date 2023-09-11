@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="{{asset('admin_assets/css/fileinput.min.css')}}">
 
 
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet" />
 </head>
 
@@ -107,9 +108,10 @@
 <script src="{{ asset('admin_assets/js/custom.js')}}"></script>
 <script src="{{ asset('admin_assets/js/admin.js')}}"></script>
 
-<script src="{{asset('js/app.js')}}"></script>
 
 <script src="{{ asset('admin_assets/js/jquery-ui.min.js')}}"></script>
+
+<script src="{{asset('admin_assets/js/build.js')}}"></script>
 
 
 </body>

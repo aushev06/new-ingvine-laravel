@@ -2,7 +2,8 @@
     "private": true,
     "scripts": {
         "dev": "vite",
-        "build": "vite build"
+        "build": "vite build",
+        "build-admin": "vite build --config admin.vite.config.js"
     },
     "devDependencies": {
         "@emotion/react": "^11.10.4",
@@ -24,7 +25,7 @@
         "axios": "^1.1.2",
         "clsx": "^1.2.1",
         "laravel-vite-plugin": "^0.6.0",
-        "lodash": "^4.17.19",
+        "lodash": "^4.17.21",
         "material-ui-popup-state": "^4.1.0",
         "mui-tel-input": "^2.0.4",
         "postcss": "^8.4.18",
@@ -42,5 +43,8 @@
         "vite-plugin-pwa": "^0.13.2",
         "web-vitals": "^2.1.4",
         "yup": "^0.32.11"
+    },
+    "dependencies": {
+        "react-select": "^5.7.4"
     }
 }

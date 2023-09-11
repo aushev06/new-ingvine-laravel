@@ -84,3 +84,48 @@ Route::get('/console/php', function () {
 
 
 Route::post("categories/set-position", [CategoryController::class, 'setPosition']);  // Сортировка категорий
+
+
+Route::get('/pos-foods', [\App\Http\Controllers\Admin\FoodController::class, 'posItems']);
+Route::get('/fpos', function (Request $request) {
+
+    $name = $request->get('name') ?? '';
+
+
+    $filter = [
+        'id_network' => 1,
+        'active' => 'yes',
+    ];
+
+    if ($name) {
+        $filter['name'] = $name;
+    }
+
+    $filter = json_encode($filter);
+
+    $curl = curl_init();
+
+    curl_setopt_array($curl, array(
+        CURLOPT_URL => 'https://ingvine-food3.fusionpos.ru/api/v1/menu?filter=' . $filter,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => '',
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 0,
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => 'GET',
+        CURLOPT_HTTPHEADER => array(
+            'Accept: application/json',
+            'Authorization: Bearer 052d52c119fd1876139c1653998f662b6942b9ea',
+            'Cookie: _csrf=5669341c6feabea8031b9ce7b448e555ecf2715d74348bbd93a12bcf523de669a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22iiIWCPXtAd-FXQsgwlyxmNNVjrBzpG2e%22%3B%7D'
+        ),
+    ));
+
+    $response = curl_exec($curl);
+
+    $data = json_decode($response, true);
+    $data = array_map(fn($item) => ['value' => $item['id'], 'label' => $item['name']], $data['data']['items']);
+    curl_close($curl);
+    return $data;
+
+});

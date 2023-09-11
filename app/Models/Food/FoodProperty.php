@@ -28,6 +28,10 @@ class FoodProperty extends Model
     const ATTR_IMG        = 'img';
     const ATTR_FOOD_ID    = 'food_id';
 
+    const ATTR_MITM_NAME    = 'mitm_name';
+
+    const ATTR_MITM_ID    = 'mitm_id';
+
     const IS_VISIBLE    = 1;
     const IS_NO_VISIBLE = 0;
 
@@ -38,6 +42,9 @@ class FoodProperty extends Model
                              self::ATTR_PRICE,
                              self::ATTR_OLD_PRICE,
                              self::ATTR_SORT,
+                             self::ATTR_IS_VISIBLE,
+                             self::ATTR_MITM_ID,
+                             self::ATTR_MITM_NAME,
                              self::ATTR_IS_VISIBLE,
                              self::ATTR_IMG,
                              self::ATTR_FOOD_ID];

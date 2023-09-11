@@ -22,12 +22,12 @@ class FoodController extends Controller
     const TITLE = "Блюда";
 
 
-    const ROUTE_INDEX   = 'food.index';
-    const ROUTE_CREATE  = 'food.create';
-    const ROUTE_SHOW    = 'food.show';
-    const ROUTE_STORE   = 'food.store';
-    const ROUTE_UPDATE  = 'food.update';
-    const ROUTE_EDIT    = 'food.edit';
+    const ROUTE_INDEX = 'food.index';
+    const ROUTE_CREATE = 'food.create';
+    const ROUTE_SHOW = 'food.show';
+    const ROUTE_STORE = 'food.store';
+    const ROUTE_UPDATE = 'food.update';
+    const ROUTE_EDIT = 'food.edit';
     const ROUTE_DESTROY = 'food.destroy';
 
     /**
@@ -48,14 +48,15 @@ class FoodController extends Controller
     private $categoryRepository;
 
     public function __construct(
-        FoodService $foodService,
+        FoodService        $foodService,
         FoodReadRepository $foodReadRepository,
-        Food $model,
+        Food               $model,
         CategoryRepository $categoryRepository
-    ) {
-        $this->foodService        = $foodService;
+    )
+    {
+        $this->foodService = $foodService;
         $this->foodReadRepository = $foodReadRepository;
-        $this->model              = $model;
+        $this->model = $model;
         $this->categoryRepository = $categoryRepository;
     }
 
@@ -82,12 +83,12 @@ class FoodController extends Controller
     public function create()
     {
         $categories = Category::get();
-        $variants   = Food::getStatusVariants();
+        $variants = Food::getStatusVariants();
 
-        $foods   = Food::get()->map(function (Food $food) {
+        $foods = Food::get()->map(function (Food $food) {
             return [
-                'id'     => $food->id,
-                'name'   => $food->name,
+                'id' => $food->id,
+                'name' => $food->name,
                 'select' => false
             ];
         });
@@ -95,8 +96,8 @@ class FoodController extends Controller
             Option $option
         ) {
             return [
-                'id'     => $option->id,
-                'name'   => $option->name,
+                'id' => $option->id,
+                'name' => $option->name,
                 'select' => false
             ];
         });
@@ -144,39 +145,39 @@ class FoodController extends Controller
         /**
          * @var Food $food
          */
-        $food          = $this->model::with('options')->findOrFail($id);
-        $foodOptions   = $food->options->keyBy('id');
-        $model         = new FoodViewModel($food);
-        $categories    = Category::get();
-        $variants      = Food::getStatusVariants();
+        $food = $this->model::with('options')->findOrFail($id);
+        $foodOptions = $food->options->keyBy('id');
+        $model = new FoodViewModel($food);
+        $categories = Category::get();
+        $variants = Food::getStatusVariants();
         $foodPropeties = $model->properties;
-        $foods         = Food::get()->map(function (Food $food) use ($model) {
+        $foods = Food::get()->map(function (Food $food) use ($model) {
 
             return [
-                'id'     => $food->id,
-                'name'   => $food->name,
+                'id' => $food->id,
+                'name' => $food->name,
                 'select' => $model->food->recomend()->where([
                     [RecomendFood::ATTR_FOOD_RECOMEND_ID, $food->id]
                 ])->first() ? true : false
             ];
         });
-        $options       = Option::where(Option::ATTR_STATUS, Option::STATUS_ACTIVE)->get()->keyBy('id')->map(function (
+        $options = Option::where(Option::ATTR_STATUS, Option::STATUS_ACTIVE)->get()->keyBy('id')->map(function (
             Option $option
         ) use ($foodOptions) {
             return [
-                'id'     => $option->id,
-                'name'   => $option->name,
+                'id' => $option->id,
+                'name' => $option->name,
                 'select' => isset($foodOptions[$option->id]) ? true : false,
             ];
         });
 
         return view('admin.food.edit', [
-            'model'          => $food,
-            'categories'     => $categories,
-            'variants'       => $variants,
+            'model' => $food,
+            'categories' => $categories,
+            'variants' => $variants,
             'foodProperties' => $foodPropeties,
-            'foods'          => $foods,
-            'options'        => $options,
+            'foods' => $foods,
+            'options' => $options,
         ]);
     }
 
@@ -207,5 +208,10 @@ class FoodController extends Controller
         }
 
         return redirect()->route(static::ROUTE_INDEX);
+    }
+
+    public function posItems(Request $request)
+    {
+        return $this->foodService->getPosFoods($request);
     }
 }

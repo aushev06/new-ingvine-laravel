@@ -27,6 +27,7 @@ use App\Http\Controllers\Admin\SettingController as Controller;
                     <h2><i class="fa fa-fw fa-list"></i>{{Controller::TITLE}}</h2>
                     <div class="pull-right">
                         <a href="{{route(Controller::ROUTE_CREATE)}}" class="btn badge-primary">Добавить</a>
+                        <a href="{{route(Controller::ROUTE_UPDATE_PRICES)}}" class="btn badge-primary">Обновить цены</a>
                     </div>
                 </div>
 

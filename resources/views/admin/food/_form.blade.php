@@ -161,7 +161,7 @@ use App\Models\Food\models\FoodViewModel;
     {{--    </div>--}}
 
     <div class="col-md-12">
-        <div id="react-add-variants" data-foods='@json($foodProperties ?? [])'></div>
+        <div id="react-add-variants-new" data-foods='@json($foodProperties ?? [])'></div>
     </div>
 
     <div class="col-md-12">
@@ -189,3 +189,14 @@ use App\Models\Food\models\FoodViewModel;
 
 </div>
 
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        $(document).on('click', '#react-add-variants .btn', function () {
+            const ref = $(this)
+            console.log(ref)
+        });
+    })
+
+
+</script>

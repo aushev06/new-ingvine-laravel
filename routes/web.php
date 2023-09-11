@@ -40,6 +40,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'check.admin']], fun
         'promotion-cards' => \App\Models\PromotionCards\PromotionCards::class,
     ]);
 
+    Route::get('/set/update-prices', [\App\Http\Controllers\Admin\SettingController::class, 'updatePrices'])->name('setting.update-prices');
+
     Route::put('/ingridients/{ingridientID}/{foodID}',
         [\App\Http\Controllers\Admin\IngridientController::class, 'updateStatus'])->name('ingridients.update-status');
 });

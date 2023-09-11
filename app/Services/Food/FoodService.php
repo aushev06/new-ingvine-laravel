@@ -9,6 +9,8 @@ use App\Models\Food\Food;
 use App\Models\Food\FoodInfo;
 use App\Models\Food\FoodProperty;
 use App\Models\Image\Image;
+use App\Models\Pos;
+use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 
 class FoodService
@@ -23,11 +25,13 @@ class FoodService
                 Food::ATTR_NAME,
                 Food::ATTR_DESCRIPTION,
                 Food::ATTR_CATEGORY_ID,
-                Food::ATTR_STATUS
+                Food::ATTR_STATUS,
+                Food::ATTR_MITM_ID,
+                Food::ATTR_MITM_NAME,
             ]
         )
         );
-        $food->mitm_id   = 0;
+        $food->mitm_id = 0;
         $food->mitm_name = "";
         if ($request->file('img')) {
             $food->img = $request->file('img')->store('foods', 'public');
@@ -48,10 +52,9 @@ class FoodService
 
             $foodProperty = new FoodProperty();
             $foodProperty->fill($property);
-            $foodProperty->sort    = $key;
+            $foodProperty->sort = $key;
             $foodProperty->food_id = $food->id;
-            if ( isset($foodPropertyImages[$key]) && $foodPropertyImages[$key])
-            {
+            if (isset($foodPropertyImages[$key]) && $foodPropertyImages[$key]) {
                 $foodProperty->img = $foodPropertyImages[$key]->store('foods', 'public');
             }
             $foodProperty->save();
@@ -72,9 +75,9 @@ class FoodService
         if ($request->file('imgs')) {
 
             foreach ($request->file('imgs') as $file) {
-                $fileModel           = new Image();
-                $fileModel->image    = $file->store('foods', 'public');
-                $fileModel->model    = $fileModel::MODEL_FOOD;
+                $fileModel = new Image();
+                $fileModel->image = $file->store('foods', 'public');
+                $fileModel->model = $fileModel::MODEL_FOOD;
                 $fileModel->model_id = $food->id;
                 $fileModel->save();
             }
@@ -100,11 +103,11 @@ class FoodService
             Food::ATTR_NAME,
             Food::ATTR_CATEGORY_ID,
             Food::ATTR_STATUS,
-            Food::ATTR_DESCRIPTION
+            Food::ATTR_DESCRIPTION,
         ]));
 
 
-        $model->mitm_id   = 0;
+        $model->mitm_id = 0;
         $model->mitm_name = "";
 
         if ($request->file('img')) {
@@ -127,8 +130,7 @@ class FoodService
             $foodProperty = FoodProperty::find($property['id']) ?? new FoodProperty();
             $foodProperty->fill($property);
             $foodProperty->food_id = $model->id;
-            if ( isset($foodPropertyImages[$key]) && $foodPropertyImages[$key])
-            {
+            if (isset($foodPropertyImages[$key]) && $foodPropertyImages[$key]) {
                 $foodProperty->img = $foodPropertyImages[$key]->store('foods', 'public');
             }
 //            $foodProperty->img     = $request->file('fp_img')[$key]->store('foods', 'public');
@@ -148,6 +150,13 @@ class FoodService
 
         return $model;
 
+    }
+
+    public function getPosFoods(Request $request)
+    {
+        return Pos::query()->where('mitm_name', 'LIKE', '%' . $request->get('name') . '%')
+            ->get()
+            ->map(fn($item) => ['value' => $item->mitm_id, 'label' => $item->mitm_name]);
     }
 
 }
