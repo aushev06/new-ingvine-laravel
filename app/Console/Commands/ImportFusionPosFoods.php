@@ -44,7 +44,7 @@ class ImportFusionPosFoods extends Command
         $items = $response['data']['items'];
 
         foreach ($items as $item) {
-            Pos::query()->insertOrIgnore([
+            Pos::query()->updateOrInsert(['mitm_id' => $item['id']],[
                 'mitm_name' => $item['name'],
                 'mitm_id' => $item['id'],
                 'price' => $item['price'],
@@ -59,7 +59,7 @@ class ImportFusionPosFoods extends Command
             $items = $response['data']['items'];
 
             foreach ($items as $item) {
-                Pos::query()->insertOrIgnore([
+                Pos::query()->updateOrInsert(['mitm_id' => $item['id']], [
                     'mitm_name' => $item['name'],
                     'mitm_id' => $item['id'],
                     'price' => $item['price'],
