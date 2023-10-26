@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::middleware('auth:sanctum')->get('/orders', [\App\Http\Controllers\Api\V1\OrderController::class, 'index']);
 
 Route::group(['prefix' => 'food'], function () {
     Route::get('/{id}', 'FoodController@byId');
