@@ -52,7 +52,7 @@ class CategoryViewModel
     /**
      * @var FoodViewModel[]
      */
-    public $foodProperties;
+    public $foodProperties = [];
     /**
      * @var self
      */
