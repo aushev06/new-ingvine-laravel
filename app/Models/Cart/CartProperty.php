@@ -18,11 +18,11 @@ use Illuminate\Database\Eloquent\Model;
  */
 class CartProperty extends Model
 {
-    const ATTR_ID               = 'id';
-    const ATTR_CART_ID          = 'cart_id';
+    const ATTR_ID = 'id';
+    const ATTR_CART_ID = 'cart_id';
     const ATTR_FOOD_PROPERTY_ID = 'food_property_id';
-    const ATTR_PRICE            = 'price';
-    const ATTR_QUANTITY         = 'quantity';
+    const ATTR_PRICE = 'price';
+    const ATTR_QUANTITY = 'quantity';
 
     const TABLE_NAME = 'cart_properties';
     protected $table = self::TABLE_NAME;
@@ -42,6 +42,10 @@ class CartProperty extends Model
         return $this->belongsTo(Cart::class);
     }
 
+    public function foodProperty()
+    {
+        return $this->belongsTo(FoodProperty::class);
+    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany

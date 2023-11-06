@@ -65,6 +65,11 @@ class CartPropertyViewModel
      */
     public $foodPropertyId;
 
+    /**
+     * @var string
+     */
+    public $mitm_id;
+
 
     /**
      * @var CartPropertyOptionApiView[]
@@ -91,6 +96,7 @@ class CartPropertyViewModel
         $this->price          = $cartProperty->price;
         $this->food_id        = $cartProperty->food_id;
         $this->foodPropertyId = $cartProperty->food_property_id;
+        $this->mitm_id = $cartProperty->foodProperty->mitm_id;
 
 
         foreach ($cartProperty->options as $key => $option) {

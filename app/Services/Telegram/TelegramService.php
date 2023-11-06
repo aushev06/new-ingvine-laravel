@@ -13,6 +13,7 @@ class TelegramService
 {
     public function sendToTelegram(Order $order, array $properties)
     {
+        return;
         $setting = Cache::get('settings');
         $message = "Новый заказ на сайте. Ссылка на заказ - " . 'http://ingvine-food.ru/order/' . $order['id'];
         $chatId  = $setting[Setting::SETTING_TELEGRAM_CHAT_ID]['value'];

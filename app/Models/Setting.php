@@ -32,6 +32,9 @@ class Setting extends Model
 
     const SETTING_PHONE_SERVICE_STATUS = 'PHONE_SERVICE_STATUS';
 
+    const SETTING_FUSION_POS_URL  = 'FUSION_POS_URL';
+    const SETTING_FUSION_POS_TOKEN  = 'FUSION_POS_TOKEN';
+
     protected $primaryKey = 'key';
 
     protected $casts = [

@@ -11,6 +11,8 @@ use App\Observers\IngridientObserver;
 use App\Observers\OrderObserver;
 use App\Services\Sms\SmsAeroService;
 use App\Services\Sms\SmsServiceInterface;
+use GuzzleHttp\Client;
+use GuzzleHttp\ClientInterface;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\ServiceProvider;
 
@@ -33,11 +35,17 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->getSettings();
+        $settings = $this->getSettings();
         Order::observe(OrderObserver::class);
         IngridientFoods::observe(IngridientFoodsObserver::class);
         Ingridient::observe(IngridientObserver::class);
-
+        $this->app->instance(ClientInterface::class, new Client([
+            'base_uri' => $settings[Setting::SETTING_FUSION_POS_URL]['value'],
+            'headers' => [
+                'Accept' => 'application/json',
+                'Authorization' => 'Bearer ' . $settings[Setting::SETTING_FUSION_POS_TOKEN]['value'],
+            ],
+        ]));
     }
 
     private function getSettings()

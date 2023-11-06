@@ -9,6 +9,9 @@ use App\Models\Order\Order;
 use App\Models\Setting;
 use App\Models\SiteSetting;
 use App\Repositories\Order\OrderRepository;
+use App\Services\Integrations\CreateFusionPosRemoteOrder;
+use App\Services\Integrations\FusionPosIntegrationService;
+use App\Services\Integrations\IntegrationServiceInterface;
 use App\Services\Sms\SmsServiceInterface;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
@@ -115,6 +118,8 @@ class OrderController extends Controller
 
     public function setStatus(int $id, string $status)
     {
+        $order = Order::findOrFail($id);
+        $model = new OrderViewModel($order, $this->orderRepository);
         $order = Order::query()->findOrFail($id);
         $order->state = $status;
         $order->save();
@@ -130,7 +135,14 @@ class OrderController extends Controller
         $smsService = app(SmsServiceInterface::class);
 
         if ($status === Order::STATE_ACCEPT) {
-            $smsService->send('IngvineFood - Заказ принят!', $order->phone);
+            $data = CreateFusionPosRemoteOrder::fromModel($model);
+
+            /**
+             * @var FusionPosIntegrationService $integrationService
+             */
+            $integrationService = app(FusionPosIntegrationService::class);
+            $integrationService->createRemoteOrder($data->toArray());
+//            $smsService->send('IngvineFood - Заказ принят!', $order->phone);
         }
 
         if ($status === Order::STATE_WAS_SENT && $cart && $cart->delivery_type === Order::DELIVERY_TYPE_COURIER) {

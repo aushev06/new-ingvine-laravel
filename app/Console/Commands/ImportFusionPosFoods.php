@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Models\Pos;
+use App\Services\Integrations\ClientInterface;
 use App\Services\Integrations\FusionPosIntegrationService;
 use GuzzleHttp\Client;
 use Illuminate\Console\Command;
@@ -30,15 +31,10 @@ class ImportFusionPosFoods extends Command
      */
     public function handle()
     {
-        $client = new Client([
-            'headers' => [
-                'Accept' => 'application/json',
-                'Authorization' => 'Bearer 052d52c119fd1876139c1653998f662b6942b9ea',
-            ],
-        ]);
-
-        $service = new FusionPosIntegrationService($client, 'menu');
-
+        /**
+         * @var FusionPosIntegrationService $service
+         */
+        $service = app(FusionPosIntegrationService::class);
         $data = $service->getFoods(['query' => ['page' => 1, 'filter' => json_encode(['is_deleted' => 'no'])],]);
         $response = json_decode($data->getBody()->getContents(), true);
         $items = $response['data']['items'];

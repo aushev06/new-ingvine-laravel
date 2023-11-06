@@ -140,7 +140,7 @@ class OrderViewModel
 
 
     /**
-     * @var CartProperty[]
+     * @var CartPropertyViewModel[]
      */
     public $foodProperties;
 
