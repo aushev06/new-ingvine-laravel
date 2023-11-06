@@ -40,10 +40,10 @@ class AppServiceProvider extends ServiceProvider
         IngridientFoods::observe(IngridientFoodsObserver::class);
         Ingridient::observe(IngridientObserver::class);
         $this->app->instance(ClientInterface::class, new Client([
-            'base_uri' => $settings[Setting::SETTING_FUSION_POS_URL]['value'],
+            'base_uri' => $settings[Setting::SETTING_FUSION_POS_URL]['value'] ?? '',
             'headers' => [
                 'Accept' => 'application/json',
-                'Authorization' => 'Bearer ' . $settings[Setting::SETTING_FUSION_POS_TOKEN]['value'],
+                'Authorization' => 'Bearer ' . $settings[Setting::SETTING_FUSION_POS_TOKEN]['value'] ?? '',
             ],
         ]));
     }
