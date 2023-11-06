@@ -35,29 +35,19 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $settings = $this->getSettings();
+        Setting::initSettings();;
+
         Order::observe(OrderObserver::class);
         IngridientFoods::observe(IngridientFoodsObserver::class);
         Ingridient::observe(IngridientObserver::class);
         $this->app->instance(ClientInterface::class, new Client([
-            'base_uri' => $settings[Setting::SETTING_FUSION_POS_URL]['value'] ?? '',
+            'base_uri' => Setting::getSetting(Setting::SETTING_FUSION_POS_URL),
             'headers' => [
                 'Accept' => 'application/json',
-                'Authorization' => 'Bearer ' . $settings[Setting::SETTING_FUSION_POS_TOKEN]['value'] ?? '',
+                'Authorization' => 'Bearer ' . Setting::getSetting(Setting::SETTING_FUSION_POS_TOKEN),
             ],
         ]));
     }
 
-    private function getSettings()
-    {
-        try {
-            return Cache::rememberForever('settings', function () {
-                return Setting::query()->select([Setting::ATTR_KEY, Setting::ATTR_VALUE])->get()->keyBy(
-                    Setting::ATTR_KEY
-                )->toArray();
-            });
-        } catch (\Throwable $exception) {
-            return [];
-        }
-    }
+
 }
