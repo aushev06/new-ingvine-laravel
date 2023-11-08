@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Jobs\ImportFusionPosFoodsJob;
 use App\Models\Food\FoodProperty;
 use App\Models\Pos;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\View\View;
 
@@ -100,6 +102,7 @@ class SettingController extends Controller
         $setting->fill($request->all());
         $setting->save();
         \cache()->flush();
+        ImportFusionPosFoodsJob::dispatch();
         return redirect()->route(self::ROUTE_INDEX);
     }
 

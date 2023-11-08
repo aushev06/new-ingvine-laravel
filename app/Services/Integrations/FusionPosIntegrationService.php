@@ -3,6 +3,7 @@
 namespace App\Services\Integrations;
 
 
+use App\Models\Pos;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\RequestException;
@@ -48,5 +49,46 @@ class FusionPosIntegrationService implements IntegrationServiceInterface
             Log::error($exception->getTraceAsString());
             return false;
         }
+    }
+
+    public function importFoods(): bool
+    {
+        $ids = [];
+        $service = $this;
+        $data = $service->getFoods(['query' => ['page' => 1, 'filter' => json_encode(['is_deleted' => 'no'])],]);
+        $response = json_decode($data->getBody()->getContents(), true);
+        $items = $response['data']['items'];
+
+        foreach ($items as $item) {
+            Pos::query()->updateOrInsert(['mitm_id' => $item['id']], [
+                'mitm_name' => $item['name'],
+                'mitm_id' => $item['id'],
+                'price' => $item['price'],
+            ]);
+            echo "[IMPORTED]: " . $item['id'] . "\n\n";
+            $ids[] = $item['id'];
+        }
+
+        $total = $response['data']['_meta']['totalCount'];
+
+        for ($i = 2; $i <= $total; $i++) {
+            $data = $service->getFoods(['query' => ['page' => $i, 'filter' => json_encode(['is_deleted' => 'no'])],]);
+            $response = json_decode($data->getBody()->getContents(), true);
+            $items = $response['data']['items'];
+
+            foreach ($items as $item) {
+                Pos::query()->updateOrInsert(['mitm_id' => $item['id']], [
+                    'mitm_name' => $item['name'],
+                    'mitm_id' => $item['id'],
+                    'price' => $item['price'],
+                ]);
+                echo "[IMPORTED]: " . $item['id'] . "\n\n";
+                $ids[] = $item['id'];
+            }
+        }
+
+        Pos::query()->where('mitm_id', 'NOT IN', $ids)->delete();
+        echo 'SUCCESS';
+        return true;
     }
 }

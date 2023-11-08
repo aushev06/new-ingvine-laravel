@@ -16,4 +16,6 @@ interface IntegrationServiceInterface
     public function updateMenu(int $menuId, array $data): bool;
 
     public function createRemoteOrder(array $data): ResponseInterface;
+
+    public function importFoods(): bool;
 }
