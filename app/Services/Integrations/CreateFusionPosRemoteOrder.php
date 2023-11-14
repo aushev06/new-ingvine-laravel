@@ -5,6 +5,7 @@ namespace App\Services\Integrations;
 use App\Models\Cart\CartProperty;
 use App\Models\Cart\models\CartPropertyViewModel;
 use App\Models\Order\models\OrderViewModel;
+use common\models\Clients;
 use Spatie\LaravelData\Data;
 
 class CreateFusionPosRemoteOrder extends Data
@@ -30,7 +31,7 @@ class CreateFusionPosRemoteOrder extends Data
         $this->client = [
             'name' => $this->name,
             'lastname' => $this->lastname,
-            'phone' => $this->phone
+            'phone' => $this->phone,
         ];
     }
 
@@ -43,7 +44,7 @@ class CreateFusionPosRemoteOrder extends Data
             id_order_remote_source: $model->id,
             name: $model->name,
             lastname: $model->name,
-            phone: $model->phone,
+            phone: self::getPhone($model->phone),
             delivery_date: date('Y-m-d H:i:s', strtotime($model->date_delivery . " " . $model->time_delivery)),
             delivery_comment: $model->comment ?? '',
             city: $model->city,
@@ -54,6 +55,18 @@ class CreateFusionPosRemoteOrder extends Data
                 $model->foodProperties
             )
         );
+    }
+
+    private static function getPhone(string $phone): string
+    {
+        if ($phone[0] === '+') {
+            $phone = substr($phone, 1, strlen($phone) - 1);
+        }
+        if ($phone[0] === '8' || $phone[0] === '7') {
+            $phone = substr($phone, 1, strlen($phone) - 1);
+        }
+        
+        return "+7" . $phone;
     }
 }
 

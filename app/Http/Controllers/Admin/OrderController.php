@@ -135,13 +135,6 @@ class OrderController extends Controller
         $smsService = app(SmsServiceInterface::class);
 
         if ($status === Order::STATE_ACCEPT) {
-            $data = CreateFusionPosRemoteOrder::fromModel($model);
-
-            /**
-             * @var FusionPosIntegrationService $integrationService
-             */
-            $integrationService = app(FusionPosIntegrationService::class);
-            $integrationService->createRemoteOrder($data->toArray());
 //            $smsService->send('IngvineFood - Заказ принят!', $order->phone);
         }
 

@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Order\OrderRequest;
+use App\Models\Order\models\OrderViewModel;
 use App\Models\Order\Order;
+use App\Repositories\Order\OrderRepository;
+use App\Services\Integrations\CreateFusionPosRemoteOrder;
+use App\Services\Integrations\FusionPosIntegrationService;
 use App\Services\Order\OrderService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -22,10 +26,24 @@ class OrderController extends Controller
         $this->orderService = $orderService;
     }
 
-    public function addOrder(OrderRequest $request)
+    public function addOrder(OrderRequest $request, OrderRepository $orderRepository)
     {
 
         $order = $this->orderService->save($request);
+
+        try {
+            $model = new OrderViewModel($order, $orderRepository);
+            $data = CreateFusionPosRemoteOrder::fromModel($model);
+
+            /**
+             * @var FusionPosIntegrationService $integrationService
+             */
+            $integrationService = app(FusionPosIntegrationService::class);
+            $integrationService->createRemoteOrder($data->toArray());
+        } catch (\Throwable $exception) {
+            Log::error($exception->getMessage());
+            Log::error($exception->getTraceAsString());
+        }
 
         if ($order->pay_type == Order::TYPE_ONLINE) {
             return response()->json([
