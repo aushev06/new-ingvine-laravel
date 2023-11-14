@@ -9,6 +9,8 @@ use Spatie\LaravelData\Data;
 
 class CreateFusionPosRemoteOrder extends Data
 {
+    public $client = [];
+
     public function __construct(
         public int     $id_point,
         public string  $delivery_method,
@@ -25,6 +27,11 @@ class CreateFusionPosRemoteOrder extends Data
         public array   $items = [],
     )
     {
+        $this->client = [
+            'name' => $this->name,
+            'lastname' => $this->lastname,
+            'phone' => $this->phone
+        ];
     }
 
     public static function fromModel(OrderViewModel $model): self
