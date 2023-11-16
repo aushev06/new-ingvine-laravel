@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Order\OrderRequest;
+use App\Jobs\SendFusionPosOrderJob;
 use App\Models\Order\models\OrderViewModel;
 use App\Models\Order\Order;
 use App\Repositories\Order\OrderRepository;
@@ -30,20 +31,7 @@ class OrderController extends Controller
     {
 
         $order = $this->orderService->save($request);
-
-        try {
-            $model = new OrderViewModel($order, $orderRepository);
-            $data = CreateFusionPosRemoteOrder::fromModel($model);
-
-            /**
-             * @var FusionPosIntegrationService $integrationService
-             */
-            $integrationService = app(FusionPosIntegrationService::class);
-            $integrationService->createRemoteOrder($data->toArray());
-        } catch (\Throwable $exception) {
-            Log::error($exception->getMessage());
-            Log::error($exception->getTraceAsString());
-        }
+        SendFusionPosOrderJob::dispatch($order);
 
         if ($order->pay_type == Order::TYPE_ONLINE) {
             return response()->json([
