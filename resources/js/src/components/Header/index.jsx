@@ -65,11 +65,8 @@ export const Header = React.memo(function Header({className, onMenuClick}) {
                     </ListItem>
 
                     <ListItem>
-                        <NavLink href={'/'}>Акции</NavLink>
-                    </ListItem>
-
-                    <ListItem>
-                        <NavLink href={'/'}>О нас</NavLink>
+                        <Link className={window.location.pathname == '/about' ? styles.active : ''}
+                              href={'/delivery'}>О нас</Link>
                     </ListItem>
                 </List>
 

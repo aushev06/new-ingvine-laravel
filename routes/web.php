@@ -100,6 +100,10 @@ Route::get('/success', function () {
     return Inertia::render('SuccessPage');
 })->name('result');
 
+Route::get('/about', function () {
+    return Inertia::render('AboutPage');
+})->name('about');
+
 Route::get('/profile', [\App\Http\Controllers\Controller::class, 'profile'])
     ->middleware('auth:sanctum')
     ->name('profile');
