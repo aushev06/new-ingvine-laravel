@@ -130,3 +130,8 @@ Route::get('/fpos', function (Request $request) {
     return $data;
 
 });
+
+
+//webhooks
+
+Route::post('/webhook/fusionpos/update-order-status', [\App\Http\Controllers\Api\V1\OrderController::class, 'updateFusionPosOrderStatusWebhook']);
