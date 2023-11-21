@@ -56,7 +56,7 @@ export const Pay = () => {
             phone: '',
             address: '',
             delivery_type: 2,
-            pay_type: 0,
+            pay_type: 1,
             city,
             street: "",
             house: "",
@@ -144,10 +144,16 @@ export const Pay = () => {
         }
         try {
             setIsLoading(true);
-            await cartApi.save(data);
-            localStorage.setItem('token', new Date().getTime());
-            dispatch(getCartAsync())
-            window.location = '/success';
+            const result = await cartApi.save(data);
+
+            if (!data['pay_type']) {
+                localStorage.setItem('token', new Date().getTime());
+                dispatch(getCartAsync())
+                window.location = '/success';
+            } else {
+                window.location = result.data.redirect_url;
+            }
+
             // navigate('/success')
 
         } catch (e) {
@@ -198,24 +204,43 @@ export const Pay = () => {
                             helperText={formState?.errors?.name?.message}
                         />
                     </FormControl>
-
-
-                    <FormControl className={styles.formControl}>
-                        <FormLabel className={styles.radioTitle} id="demo-controlled-radio-buttons-group">Способ
-                            доставки</FormLabel>
-                        <RadioGroup
-                            aria-labelledby="demo-controlled-radio-buttons-group"
-                            name="controlled-radio-buttons-group"
-                            value={`${values.delivery_type}`}
-                            onChange={(e) => {
-                                setValue('delivery_type', +e.target.value);
-                                setIsDelivery(+e.target.value === 2);
-                            }}
-                        >
-                            <FormControlLabel value="2" control={<Radio/>} label="Доставка"/>
-                            <FormControlLabel value="1" control={<Radio/>} label="Самовывоз"/>
-                        </RadioGroup>
-                    </FormControl>
+                    <div className={styles.line}>
+                        <div>
+                            <FormControl className={styles.formControl}>
+                                <FormLabel className={styles.radioTitle} id="demo-controlled-radio-buttons-group">Способ
+                                    доставки</FormLabel>
+                                <RadioGroup
+                                    aria-labelledby="demo-controlled-radio-buttons-group"
+                                    name="controlled-radio-buttons-group"
+                                    value={`${values.delivery_type}`}
+                                    onChange={(e) => {
+                                        setValue('delivery_type', +e.target.value);
+                                        setIsDelivery(+e.target.value === 2);
+                                    }}
+                                >
+                                    <FormControlLabel value="2" control={<Radio/>} label="Доставка"/>
+                                    <FormControlLabel value="1" control={<Radio/>} label="Самовывоз"/>
+                                </RadioGroup>
+                            </FormControl>
+                        </div>
+                        <div>
+                            <FormControl className={styles.formControl}>
+                                <FormLabel className={styles.radioTitle} id="demo-controlled-radio-buttons-group">Способ
+                                    оплаты</FormLabel>
+                                <RadioGroup
+                                    aria-labelledby="demo-controlled-radio-buttons-group"
+                                    name="controlled-radio-buttons-group"
+                                    defaultValue={`${values.pay_type}`}
+                                    onChange={(e) => {
+                                        setValue('pay_type', +e.target.value);
+                                    }}
+                                >
+                                    <FormControlLabel value="1" control={<Radio/>} label="Онлайн"/>
+                                    <FormControlLabel value="0" control={<Radio/>} label="Наличными"/>
+                                </RadioGroup>
+                            </FormControl>
+                        </div>
+                    </div>
 
                     {isDelivery && (
                         <>

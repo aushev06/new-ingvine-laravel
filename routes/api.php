@@ -135,3 +135,26 @@ Route::get('/fpos', function (Request $request) {
 //webhooks
 
 Route::post('/webhook/fusionpos/update-order-status', [\App\Http\Controllers\Api\V1\OrderController::class, 'updateFusionPosOrderStatusWebhook']);
+Route::get('/callback/alfabank/success', function (Request $request) {
+    $orderId = $request->orderId;
+    $payment = \App\Models\Payment::query()->where('uuid', $orderId)->first();
+    if (!$payment) {
+        abort(404, 'Платеж не найден');
+    }
+    $payment->status = 'completed';
+    $payment->save();
+
+    return redirect('/success');
+});
+
+Route::get('/callback/alfabank/fail', function (Request $request) {
+    $orderId = $request->orderId;
+    $payment = \App\Models\Payment::query()->where('uuid', $orderId)->first();
+    if (!$payment) {
+        abort(404, 'Платеж не найден');
+    }
+    $payment->status = 'failed';
+    $payment->save();
+
+    return redirect('/');
+});

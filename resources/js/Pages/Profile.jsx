@@ -227,6 +227,7 @@ export default function Profile({ orders }) {
                                 <Row key={row.name} row={row} />
                             ))}
                         </TableBody>
+
                     </Table>
                 </TableContainer>
             </MainLayout>

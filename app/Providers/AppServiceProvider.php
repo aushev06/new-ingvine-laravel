@@ -9,6 +9,8 @@ use App\Models\Setting;
 use App\Observers\IngridientFoodsObserver;
 use App\Observers\IngridientObserver;
 use App\Observers\OrderObserver;
+use App\Services\Alfabank\AlfabankService;
+use App\Services\Alfabank\AlfabankServiceInterface;
 use App\Services\Sms\SmsAeroService;
 use App\Services\Sms\SmsServiceInterface;
 use GuzzleHttp\Client;
@@ -26,6 +28,7 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(SmsServiceInterface::class, SmsAeroService::class);
+        $this->app->bind(AlfabankServiceInterface::class, AlfabankService::class);
     }
 
     /**

@@ -13,17 +13,20 @@ use App\Http\Requests\Order\OrderRequest;
 use App\Models\Cart\Cart;
 use App\Models\Coupon\Coupon;
 use App\Models\Order\Order;
+use App\Models\Payment;
+use App\Models\Setting;
 use App\Repositories\Coupon\CouponRepository;
 use App\Repositories\Order\OrderRepository;
+use App\Services\Alfabank\AlfabankData;
+use App\Services\Alfabank\AlfabankServiceInterface;
 use App\Services\Coupon\CouponService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
-use Idma\Robokassa\Payment;
 
 class OrderService
 {
-    public function __construct(public OrderRepository $orderRepository, public CouponService $couponService)
+    public function __construct(public OrderRepository $orderRepository, public CouponService $couponService, public AlfabankServiceInterface $alfabankService)
     {
         $this->orderRepository = $orderRepository;
 //        $this->payment         = app()->make('Payment');
@@ -97,12 +100,35 @@ class OrderService
      */
     public function setValuesForPayment(Order $order)
     {
+        $data = new AlfabankData(
+            userName: Setting::getSetting(Setting::SETTING_ALFABANK_USERNAME),
+            password: Setting::getSetting(Setting::SETTING_ALFABANK_PASSWORD),
+            orderNumber: $order->id,
+            amount: (int) $order->total,
+            returnUrl: Setting::getSetting(Setting::SETTING_ALFABANK_RETURN_URL),
+            failUrl: Setting::getSetting(Setting::SETTING_ALFABANK_FAIL_URL),
+            phone: $order->phone
+        );
+
+        $result = $this->alfabankService->createPayment($data->toArray());
+
+        $payment = new Payment();
+        $payment->username = $data->userName;
+        $payment->password = $data->password;
+        $payment->order_number = $data->orderNumber;
+        $payment->amount = $order->total;
+        $payment->phone = $data->phone;
+        $payment->form_url = $result->getFormUrl();
+        $payment->uuid = $result->getOrderUUID();
+        $payment->error_message = $result->getErrorMessage();
+        $payment->save();
+
 //        $payment = $this->payment;
 //        $payment->setInvoiceId($order->id);
 //        $payment->setSum($order->total);
 //        $payment->setDescription("Оплата заказа");
 
-        return '';
+        return $result->getFormUrl();
     }
 
 
