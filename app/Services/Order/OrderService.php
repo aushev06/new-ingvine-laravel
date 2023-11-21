@@ -101,8 +101,7 @@ class OrderService
     public function setValuesForPayment(Order $order)
     {
         $data = new AlfabankData(
-            userName: Setting::getSetting(Setting::SETTING_ALFABANK_USERNAME),
-            password: Setting::getSetting(Setting::SETTING_ALFABANK_PASSWORD),
+            token: Setting::getSetting(Setting::SETTING_ALFABANK_API_TOKEN),
             orderNumber: $order->id,
             amount: (int) $order->total,
             returnUrl: Setting::getSetting(Setting::SETTING_ALFABANK_RETURN_URL),

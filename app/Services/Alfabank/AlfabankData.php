@@ -10,8 +10,7 @@ class AlfabankData extends Data
     public array $jsonParams = [];
 
     public function __construct(
-        public string $userName,
-        public string $password,
+        public string $token,
         public string $orderNumber,
         public int    $amount,
         public string $returnUrl,

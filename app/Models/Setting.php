@@ -40,6 +40,7 @@ class Setting extends Model
     const SETTING_ALFABANK_RETURN_URL = 'ALFABANK_RETURN_URL';
     const SETTING_ALFABANK_FAIL_URL = 'ALFABANK_FAIL_URL';
     const SETTING_ALFABANK_API_URL = 'ALFABANK_API_URL';
+    const SETTING_ALFABANK_API_TOKEN = 'ALFABANK_API_TOKEN';
 
     protected $primaryKey = 'key';
 
