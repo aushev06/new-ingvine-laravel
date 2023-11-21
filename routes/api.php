@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CategoryController;
+use App\Jobs\SendFusionPosOrderJob;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
@@ -143,6 +144,8 @@ Route::get('/callback/alfabank/success', function (Request $request) {
     }
     $payment->status = 'completed';
     $payment->save();
+    \App\Models\Order\Order::query()->where('id', $payment->order_number)->update(['status' => \App\Models\Order\Order::STATUS_PAID]);
+    SendFusionPosOrderJob::dispatch(\App\Models\Order\Order::query()->where('id', $payment->order_number)->first());
 
     return redirect('/success');
 });

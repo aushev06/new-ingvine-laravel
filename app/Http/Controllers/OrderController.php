@@ -31,12 +31,12 @@ class OrderController extends Controller
     {
 
         $order = $this->orderService->save($request);
-        SendFusionPosOrderJob::dispatch($order);
-
         if ($order->pay_type == Order::TYPE_ONLINE) {
             return response()->json([
                 'redirect_url' => $this->orderService->setValuesForPayment($order)
             ]);
+        } else {
+            SendFusionPosOrderJob::dispatch($order);
         }
 
         return response()->json($order);
