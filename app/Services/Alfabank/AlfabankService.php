@@ -2,6 +2,7 @@
 
 namespace App\Services\Alfabank;
 
+use App\Models\Setting;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Support\Facades\Log;
@@ -14,7 +15,7 @@ class AlfabankService implements AlfabankServiceInterface
     {
         $client = new Client();
         try {
-            $response = $client->post($this->url, [
+            $response = $client->post(Setting::getSetting(Setting::SETTING_ALFABANK_API_URL), [
                 'query' => $data
             ]);
             $result = json_decode($response->getBody()->getContents(), true);
