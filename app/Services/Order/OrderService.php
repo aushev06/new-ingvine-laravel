@@ -112,8 +112,8 @@ class OrderService
         $result = $this->alfabankService->createPayment($data->toArray());
 
         $payment = new Payment();
-        $payment->username = $data->userName;
-        $payment->password = $data->password;
+        $payment->username = '';
+        $payment->password = '';
         $payment->order_number = $data->orderNumber;
         $payment->amount = $order->total;
         $payment->phone = $data->phone;
