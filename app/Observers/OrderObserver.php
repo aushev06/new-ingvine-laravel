@@ -37,7 +37,9 @@ class OrderObserver
     public function created(Order $order)
     {
         $properties = $this->orderRepository->getOrderProperties($order->cart_id)->toArray();
-        $this->telegramService->sendToTelegram($order, $properties);
+        if ($order::TYPE_CASH === (int)$order->pay_type) {
+            $this->telegramService->sendToTelegram($order, $properties);
+        }
         session()->regenerate();
     }
 
