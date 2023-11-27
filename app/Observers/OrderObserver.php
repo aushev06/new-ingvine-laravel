@@ -51,11 +51,9 @@ class OrderObserver
      */
     public function updated(Order $order)
     {
-        if ($order::STATUS_PAID === (int)$order->status) {
-            $properties = $this->orderRepository->getOrderProperties($order->cart_id)->toArray();
+        $properties = $this->orderRepository->getOrderProperties($order->cart_id)->toArray();
 //            $this->tillypadService->sendingOrderToTillypad($order, $properties);
-            $this->telegramService->sendToTelegram($order, $properties);
-        }
+        $this->telegramService->sendToTelegram($order, $properties);
     }
 
     /**

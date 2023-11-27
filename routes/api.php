@@ -144,8 +144,10 @@ Route::get('/callback/alfabank/success', function (Request $request) {
     }
     $payment->status = 'completed';
     $payment->save();
-    \App\Models\Order\Order::query()->where('id', $payment->order_number)->update(['status' => \App\Models\Order\Order::STATUS_PAID]);
-    SendFusionPosOrderJob::dispatch(\App\Models\Order\Order::query()->where('id', $payment->order_number)->first());
+    $item = \App\Models\Order\Order::query()->where('id', $payment->order_number)->first();
+    $item->status = \App\Models\Order\Order::STATUS_PAID;
+    $item->save();
+    SendFusionPosOrderJob::dispatch($item);
 
     return redirect('/success');
 });
