@@ -15,9 +15,16 @@ import Alert from "@mui/material/Alert";
 import {BottomNav} from "@/src/components/BottomNav";
 import {AlertContext} from "@/src/hooks/useAlert";
 import {setUser} from "@/src/features/userSlice";
+import CafeClosedDialog from "@/src/components/CafeClosedDialog";
 
 const Component = function Component(props) {
     const dispatch = useDispatch();
+    const [isSunday] = useState(new Date().getDay() === 0);
+    const [dialogOpen, setDialogOpen] = useState(isSunday);
+
+    const handleDialogClose = () => {
+        // Оставляем этот обработчик пустым, чтобы модальное окно не могло быть закрыто.
+    };
 
     const [alertInfo, setAlertInfo] = useState({
         text: '',
@@ -64,6 +71,7 @@ const Component = function Component(props) {
             >
                 <Alert severity={alertInfo.status}>{alertInfo.text}</Alert>
             </Snackbar>
+            <CafeClosedDialog open={dialogOpen} onClose={handleDialogClose} />
 
             {props.children}
             <BottomNav/>
