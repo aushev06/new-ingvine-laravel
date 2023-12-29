@@ -163,3 +163,7 @@ Route::get('/callback/alfabank/fail', function (Request $request) {
 
     return redirect('/');
 });
+
+
+Route::get('/taxi/find-addresses', [\App\Http\Controllers\Api\V1\TaxiController::class, 'findAddresses']);
+Route::get('/taxi/get-delivery-sum', [\App\Http\Controllers\Api\V1\TaxiController::class, 'deliverySum']);

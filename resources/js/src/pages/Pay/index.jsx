@@ -22,12 +22,13 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import {SelectCity} from "../../components/SelectCity";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {cartApi} from "../../service/cart";
 import {useAlert} from "../../hooks/useAlert";
 import {usePage} from '@inertiajs/inertia-react'
 import {axios} from '../../core/axios'
 import {selectUser} from "@/src/features/userSlice";
+import Autocomplete from "@mui/material/Autocomplete";
 
 
 const DELIVERY_TYPE_PICKUP = 1;
@@ -46,7 +47,7 @@ export const Pay = () => {
 
     const [coupon, setCoupon] = useState('');
     const [couponStatus, setCouponStatus] = useState('');
-
+    const [deliveryPrice, setDeliveryPrice] = useState(0);
 
     const {register, handleSubmit, control, formState, setValue, getValues, setError} = useForm({
         mode: "onBlur",
@@ -113,6 +114,9 @@ export const Pay = () => {
                 clientErrors.push('Необходимо выбрать район');
                 setError('city', {message: 'Выберите город'})
             }
+
+            console.log(values.street);
+
             if (!values.street) {
                 clientErrors.push('Необходимо указать улицу');
                 setError('street', {message: 'Укажите улицу'})
@@ -132,6 +136,27 @@ export const Pay = () => {
         return true;
     };
 
+    const handleSelectAddress = (to) => {
+        setValue('street', to?.address || '');
+
+        if (!to) {
+            return;
+        }
+
+        const config = {
+            "headers": {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+        }
+
+        axios
+            .get(`/api/taxi/get-delivery-sum?destination_latitude=${to.lat}&destination_longitude=${to.lon}`, {headers: config.headers})
+            .then(r => {
+                setDeliveryPrice(r.data.sum);
+            })
+
+    }
 
     const onSubmit = async (data) => {
         if (!isTg && data.delivery_type !== DELIVERY_TYPE_PICKUP && cart?.total < 500) {
@@ -251,15 +276,9 @@ export const Pay = () => {
                             <div className={styles.line}>
                                 <div>
                                     <FormControl className={styles.formControl}>
-                                        <TextField
-                                            {...register("street")}
-                                            error={!!formState?.errors?.street?.message}
-                                            helperText={formState?.errors?.street?.message}
-                                            className={styles.input}
-                                            label={<span className={styles.label}>Адрес</span>}
-                                            variant="filled"
-                                            InputProps={{disableUnderline: true}}
-                                        />
+                                        <SearchBar onSelect={handleSelectAddress} address={values.street}
+                                                   error={!!formState?.errors?.street?.message}
+                                                   helperText={formState?.errors?.street?.message}/>
                                     </FormControl>
                                 </div>
                                 <div>
@@ -305,14 +324,14 @@ export const Pay = () => {
                             <span>{cart?.total || 0}р</span>
                         </div>
 
-                        {/*<div className={styles.item}>*/}
-                        {/*    <span>Доставка</span>*/}
-                        {/*    <span>820р</span>*/}
-                        {/*</div>*/}
+                        <div className={styles.item}>
+                            <span>Доставка</span>
+                            <span>{deliveryPrice}р</span>
+                        </div>
 
                         <div className={clsx(styles.item, styles.total)}>
                             <span>Итого</span>
-                            <span>{sum}</span>
+                            <span>{sum + deliveryPrice}</span>
                         </div>
 
 
@@ -332,7 +351,8 @@ export const Pay = () => {
                         </FormControl>
 
                         <div className={styles.payContainer}>
-                            <Button disabled={isLoading} onClick={handleSubmit(onSubmit)} className={styles.pay}>Оплатить</Button>
+                            <Button disabled={isLoading} onClick={handleSubmit(onSubmit)}
+                                    className={styles.pay}>Оплатить</Button>
                         </div>
 
                     </div>
@@ -343,4 +363,72 @@ export const Pay = () => {
 
         </MainLayout>
     )
+}
+
+
+function SearchBar({onSelect, address, error, helperText}) {
+    const [data, setData] = useState([]);
+    const [myTimeout, setMyTimeout] = useState(null);
+
+    const handleSelect = option => {
+        const item = data.find(item => item.value === option)
+        onSelect(item);
+    }
+
+    useEffect(() => {
+        get(address);
+    }, [address])
+
+    const get = (text) => {
+        if (myTimeout) {
+            clearTimeout(myTimeout);
+        }
+        const temp = setTimeout(() => {
+            setData([]);
+            const config = {
+                "headers": {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+            }
+            axios.get('/api/taxi/find-addresses?address=' + text, {headers: config.headers})
+                .then(response => {
+                    const items = []
+
+                    response.data.map((responseItem, idx) => {
+                        if (idx <= 9) {
+                            items.push(responseItem)
+                        }
+
+                    })
+
+                    setData(items);
+                })
+                .catch(error => {
+                    console.log(error.response)
+                })
+                .finally(() => {
+                })
+        }, 500)
+
+        setMyTimeout(temp)
+    }
+
+    return (
+        <Autocomplete
+            onChange={(event, value) => {
+                onSelect(value); // `value` содержит выбранную опцию
+            }}
+            options={data}
+            getOptionLabel={(option) => {
+                return option.value
+            }}
+            onInputChange={(event, newInputValue) => {
+                get(newInputValue);
+            }}
+            renderInput={(params) => <TextField {...params} label={<span className={styles.label}>Улица</span>}
+                                                variant="outlined" className={styles.input} error={error}
+                                                helperText={helperText}/>}
+        />
+    );
 }

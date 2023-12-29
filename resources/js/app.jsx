@@ -19,8 +19,9 @@ import CafeClosedDialog from "@/src/components/CafeClosedDialog";
 
 const Component = function Component(props) {
     const dispatch = useDispatch();
+    const settings = props.children.props.initialPage.props.site_settings;
     const [isSunday] = useState(new Date().getDay() === 0);
-    const [dialogOpen, setDialogOpen] = useState(isSunday);
+    const [dialogOpen, setDialogOpen] = useState(settings?.site_disabled == 'true');
 
     const handleDialogClose = () => {
         // Оставляем этот обработчик пустым, чтобы модальное окно не могло быть закрыто.
@@ -57,7 +58,6 @@ const Component = function Component(props) {
         dispatch(getCartAsync());
 
     }, [])
-
     return (
         <AlertContext.Provider value={{closeAlert, openAlert}}>
 

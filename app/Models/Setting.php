@@ -42,6 +42,8 @@ class Setting extends Model
     const SETTING_ALFABANK_API_URL = 'ALFABANK_API_URL';
     const SETTING_ALFABANK_API_TOKEN = 'ALFABANK_API_TOKEN';
 
+    const SETTING_TESHAM_TOKEN = 'TESHAM_TOKEN';
+
     protected $primaryKey = 'key';
 
     protected $casts = [

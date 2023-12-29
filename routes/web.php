@@ -67,10 +67,7 @@ Route::post('/promotions/cards', 'Api\V1\PromotionCardsApiController@index');
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
+        'site_settings' => \App\Models\SiteSetting::query()->get()->keyBy('key')->map(static fn($item) => $item->value),
     ]);
 });
 
@@ -118,3 +115,6 @@ Route::get('/login', function (Request $request) {
     return redirect('/');
 })->name('login');
 
+
+
+// tesham
