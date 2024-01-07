@@ -174,7 +174,7 @@ Route::get('/taxi/get-delivery-sum', [\App\Http\Controllers\Api\V1\TaxiControlle
 Route::post('register', [\App\Http\Controllers\Auth\RegisteredUserController::class, 'storeApi']);
 Route::post('/token', function (Request $request) {
     $request->validate([
-        'phone' => 'required|phone',
+        'phone' => 'required',
         'password' => 'required',
         'device_name' => 'required',
     ]);
