@@ -2,9 +2,12 @@
 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Jobs\SendFusionPosOrderJob;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Validation\ValidationException;
 
 //header('Access-Control-Allow-Origin: *');
 
@@ -167,3 +170,22 @@ Route::get('/callback/alfabank/fail', function (Request $request) {
 
 Route::get('/taxi/find-addresses', [\App\Http\Controllers\Api\V1\TaxiController::class, 'findAddresses']);
 Route::get('/taxi/get-delivery-sum', [\App\Http\Controllers\Api\V1\TaxiController::class, 'deliverySum']);
+
+Route::post('register', [\App\Http\Controllers\Auth\RegisteredUserController::class, 'storeApi']);
+Route::post('/token', function (Request $request) {
+    $request->validate([
+        'phone' => 'required|phone',
+        'password' => 'required',
+        'device_name' => 'required',
+    ]);
+
+    $user = User::where('phone', $request->phone)->first();
+
+    if (!$user || !Hash::check($request->password, $user->password)) {
+        throw ValidationException::withMessages([
+            'phone' => ['The provided credentials are incorrect.'],
+        ]);
+    }
+
+    return $user->createToken($request->device_name)->plainTextToken;
+});
