@@ -24,6 +24,10 @@ use Illuminate\Validation\ValidationException;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::middleware('auth:sanctum')->delete('/user', function (Request $request) {
+    return User::query()->where('id', $request->user()->id)->delete();
+});
 Route::middleware('auth:sanctum')->get('/orders', [\App\Http\Controllers\Api\V1\OrderController::class, 'index']);
 
 Route::group(['prefix' => 'food'], function () {
