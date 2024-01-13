@@ -66,6 +66,9 @@ export const Pay = () => {
             coupon: '',
         },
     });
+
+    const [toDelivery, setToDelivery] = useState({});
+
     const values = getValues();
 
     useEffect(() => {
@@ -142,7 +145,7 @@ export const Pay = () => {
         if (!to) {
             return;
         }
-
+        setToDelivery(to);
         const config = {
             "headers": {
                 "Content-Type": "application/json",
@@ -167,6 +170,10 @@ export const Pay = () => {
         if (!checkClientEmptyFields()) {
             return;
         }
+
+        data.destination_longitude = to?.lon;
+        data.destination_latitude = to?.lat;
+
         try {
             setIsLoading(true);
             const result = await cartApi.save(data);

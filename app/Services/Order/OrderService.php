@@ -15,11 +15,13 @@ use App\Models\Coupon\Coupon;
 use App\Models\Order\Order;
 use App\Models\Payment;
 use App\Models\Setting;
+use App\Models\SiteSetting;
 use App\Repositories\Coupon\CouponRepository;
 use App\Repositories\Order\OrderRepository;
 use App\Services\Alfabank\AlfabankData;
 use App\Services\Alfabank\AlfabankServiceInterface;
 use App\Services\Coupon\CouponService;
+use App\Services\Tesham\TeshamService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
@@ -75,6 +77,19 @@ class OrderService
                 $cart->save();
             }
 
+            if ($request->delivery_type === Order::DELIVERY_TYPE_COURIER && $request->destination_longitude && $request->destination_latitude) {
+                $settings = SiteSetting::query()->whereIn('key', ['latitude', 'longitude'])
+                    ->get()
+                    ->keyBy('key')
+                    ->map(static fn($item) => $item->value)
+                    ->toArray();
+                $teshamService = new TeshamService(
+                    latitude: $settings['latitude'],
+                    longitude: $settings['longitude'],
+                    token: Setting::getSetting(Setting::SETTING_TESHAM_TOKEN)
+                );
+                $total += $teshamService->getDeliverySum($request->destination_latitude, $request->destination_longitude);
+            }
 
             $attributes['cart_id'] = $cart->id;
             $attributes['total'] = $total;
