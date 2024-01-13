@@ -171,8 +171,8 @@ export const Pay = () => {
             return;
         }
 
-        data.destination_longitude = to?.lon;
-        data.destination_latitude = to?.lat;
+        data.destination_longitude = toDelivery?.lon;
+        data.destination_latitude = toDelivery?.lat;
 
         try {
             setIsLoading(true);
