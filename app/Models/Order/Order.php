@@ -35,6 +35,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property integer $building
  * @property double $delivery_cost
  * @property integer $is_mobile
+ * @property string|null $notification_token
  *
  * @property-read User $user
  */
@@ -74,6 +75,8 @@ class Order extends Model
     const ATTR_INTERCOM      = 'intercom';
     const ATTR_BUILDING      = 'building';
     const ATTR_DELIVERY_COST = 'delivery_cost';
+
+    const ATTR_NOTIFICATION_TOKEN = 'notification_token';
 
     const STATUS_NO_PAID = 0;
     const STATUS_PAID    = 1;

@@ -125,8 +125,8 @@ class OrderController extends Controller
         $order->save();
 
         $cart = Cart::query()->where('id', $order->cart_id)->first();
-        if ($status === Order::STATE_WAS_SENT && $cart && strlen($cart->session) > 160) {
-            $this->sendNotification('Заказ #' . $id, 'Ваш заказ отправлен', $cart->session, 'AAAAi3C1y_I:APA91bHkU1a-z51PRXQKpHqi2CUvGi1_a3fBZF9-c1CzeQvKtufAFLniiZKbQUupYQu2W7z33GsBugeRBdnJ7tTeuzDgom-E0bPbZo2KHOv7iieGLrKT5RgQbrwT8QyJIBvgpcW3A3tE');
+        if ($status === Order::STATE_WAS_SENT && $order->notification_token) {
+            $this->sendNotification('Заказ #' . $id, 'Ваш заказ отправлен', $order->notification_token, 'AAAAi3C1y_I:APA91bHkU1a-z51PRXQKpHqi2CUvGi1_a3fBZF9-c1CzeQvKtufAFLniiZKbQUupYQu2W7z33GsBugeRBdnJ7tTeuzDgom-E0bPbZo2KHOv7iieGLrKT5RgQbrwT8QyJIBvgpcW3A3tE');
         }
 
         /**

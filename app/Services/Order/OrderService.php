@@ -61,7 +61,8 @@ class OrderService
                 Order::ATTR_BUILDING,
                 Order::ATTR_USER_ID,
                 Order::ATTR_DELIVERY_COST,
-                Order::ATTR_ADDRESS
+                Order::ATTR_ADDRESS,
+                Order::ATTR_NOTIFICATION_TOKEN,
             ]);
 
             $attributes['is_mobile'] = strlen($cart->session) > 160 ? 1 : 0;
