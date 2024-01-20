@@ -46,6 +46,7 @@ class SendFusionPosOrderJob implements ShouldQueue
              */
             $integrationService = app(FusionPosIntegrationService::class);
             $integrationService->createRemoteOrder($data->toArray());
+            Order::query()->where('id', $model->id)->update(['sent_to_pos_at' => date('Y-m-d H:i:s')]);
         } catch (\Throwable $exception) {
             Log::error($exception->getMessage());
             Log::error($exception->getTraceAsString());
