@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\OrderController as Controller;
  * @var \App\Models\Order\models\OrderViewModel $model
  * @var \App\Models\Cart\models\CartPropertyViewModel $property
  */
+
 ?>
 @extends('admin.layout.main')
 
@@ -36,19 +37,6 @@ use App\Http\Controllers\Admin\OrderController as Controller;
 
                         <a class="btn btn-success"
                            href="{{route('taxi', $model->id)}}">Заказать такси</a>
-
-
-                        @if($model->state === 'Новый')
-                            <a class="btn btn-primary"
-                               href="{{route('setStatus', ['id' => $model->id ,'status' => \App\Models\Order\Order::STATE_ACCEPT])}}">Принять заказ</a>
-                        @endif
-
-                        @if($model->state === 'Принят')
-                            <a class="btn btn-primary"
-                               href="{{route('setStatus', ['id' => $model->id ,'status' => \App\Models\Order\Order::STATE_WAS_SENT])}}">Отправить заказ</a>
-                        @endif
-
-
                     </div>
                 </div>
                 <div class="row justify-content-between align-items-center">
@@ -70,6 +58,13 @@ use App\Http\Controllers\Admin\OrderController as Controller;
                                         @elseif($attribute === $model::ATTR_PHONE)
                                             {{$model->phone}}
 {{--                                            <a href="tel:+{{$model->phone}}">+{{$model->phone}}</a>--}}
+
+                                        @elseif($attribute === $model::ATTR_STATE)
+                                            <select name="state" id="state" class="form-control">
+                                               @foreach(\App\Models\Order\Order::getStateTypes() as $key => $v)
+                                                    <option {{$model->state === $v ? 'selected' : ''}} value="{{$key}}">{{$v}}</option>
+                                               @endforeach
+                                            </select>
                                         @else
                                             {{$model->$attribute}}
                                         @endif
@@ -124,6 +119,17 @@ use App\Http\Controllers\Admin\OrderController as Controller;
         <!-- /.container-fluid-->
     </div>
 @endsection
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        $("#state").on('change', function (e) {
+            fetch('/admin/order/{{$model->id}}/set-status/' + e.target.value)
+                .then(r => {
+                    alert('Статус обновлен!')
+                });
+        });
+    })
+</script>
 
 
 

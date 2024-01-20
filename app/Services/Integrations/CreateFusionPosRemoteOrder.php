@@ -5,7 +5,6 @@ namespace App\Services\Integrations;
 use App\Models\Cart\CartProperty;
 use App\Models\Cart\models\CartPropertyViewModel;
 use App\Models\Order\models\OrderViewModel;
-use common\models\Clients;
 use Spatie\LaravelData\Data;
 
 class CreateFusionPosRemoteOrder extends Data

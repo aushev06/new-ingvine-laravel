@@ -13,8 +13,13 @@ class TelegramService
 {
     public function sendToTelegram(Order $order, array $properties)
     {
+        if ($order->sent_to_telgeram_at) {
+            return ;
+        }
+        $order->sent_to_telegram_at = date('Y-m-d H:i:s');
+        $order->save();
         $setting = Cache::get('settings');
-        $message = "Новый заказ на сайте. Ссылка на заказ - " . 'http://ingvine-food.ru/order/' . $order['id'];
+        $message = "Новый заказ на сайте. Ссылка на заказ - " . 'https://ingvine-food.ru/order/' . $order['id'];
         $chatId  = $setting[Setting::SETTING_TELEGRAM_CHAT_ID]['value'];
         $botId   = $setting[Setting::SETTING_TELEGRAM_BOT_ID]['value'];
         $client  = new Client([

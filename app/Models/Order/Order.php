@@ -36,6 +36,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property double $delivery_cost
  * @property integer $is_mobile
  * @property string|null $notification_token
+ * @property string|null $sent_to_telegram_at
  *
  * @property-read User $user
  */
