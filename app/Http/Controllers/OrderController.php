@@ -10,6 +10,7 @@ use App\Repositories\Order\OrderRepository;
 use App\Services\Integrations\CreateFusionPosRemoteOrder;
 use App\Services\Integrations\FusionPosIntegrationService;
 use App\Services\Order\OrderService;
+use App\Services\Telegram\TelegramService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redirect;
@@ -27,16 +28,19 @@ class OrderController extends Controller
         $this->orderService = $orderService;
     }
 
-    public function addOrder(OrderRequest $request, OrderRepository $orderRepository)
+    public function addOrder(OrderRequest $request, TelegramService $telegramService)
     {
 
         $order = $this->orderService->save($request);
         if ($order->pay_type == Order::TYPE_ONLINE) {
+            $telegramService->sendToTelegram($order);
             return response()->json([
                 'redirect_url' => $this->orderService->setValuesForPayment($order)
             ]);
         } else {
+            $telegramService->sendToTelegram($order);
             SendFusionPosOrderJob::dispatch($order);
+            session()->regenerate();
         }
 
         return response()->json($order);

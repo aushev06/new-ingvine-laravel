@@ -95,7 +95,7 @@ class OrderService
             $attributes['cart_id'] = $cart->id;
             $attributes['total'] = $total;
 
-            if (!$attributes['city'])  {
+            if (!$attributes['city'] ?? null)  {
                 $street = $attributes[Order::ATTR_STREET];
                 $explodeStreet = explode('(', $street);
                 $street = end($explodeStreet);

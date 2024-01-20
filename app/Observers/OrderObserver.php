@@ -11,21 +11,9 @@ use Illuminate\Support\Facades\Mail;
 
 class OrderObserver
 {
-    /**
-     * @var OrderRepository
-     */
-    private $orderRepository;
 
-    private $tillypadService;
-    /**
-     * @var TelegramService
-     */
-    private $telegramService;
-
-    public function __construct(OrderRepository $orderRepository, TelegramService $telegramService)
+    public function __construct()
     {
-        $this->orderRepository = $orderRepository;
-        $this->telegramService = $telegramService;
     }
 
     /**
@@ -36,11 +24,7 @@ class OrderObserver
      */
     public function created(Order $order)
     {
-        $properties = $this->orderRepository->getOrderProperties($order->cart_id)->toArray();
-        if ($order::TYPE_CASH === (int)$order->pay_type) {
-            $this->telegramService->sendToTelegram($order, $properties);
-        }
-        session()->regenerate();
+
     }
 
     /**
@@ -51,9 +35,7 @@ class OrderObserver
      */
     public function updated(Order $order)
     {
-        $properties = $this->orderRepository->getOrderProperties($order->cart_id)->toArray();
-//            $this->tillypadService->sendingOrderToTillypad($order, $properties);
-        $this->telegramService->sendToTelegram($order, $properties);
+
     }
 
     /**

@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Log;
 
 class TelegramService
 {
-    public function sendToTelegram(Order $order, array $properties)
+    public function sendToTelegram(Order $order)
     {
         if ($order->sent_to_telgeram_at) {
             return ;
