@@ -47,7 +47,7 @@ class CreateFusionPosRemoteOrder extends Data
             phone: self::getPhone($model->phone),
             delivery_date: date('Y-m-d H:i:s', strtotime($model->date_delivery . " " . $model->time_delivery)),
             delivery_comment: $model->comment ?? '',
-            city: $model->city,
+            city: !$model->city ? '' : $model->city,
             street: $model->street,
             house: $model->house ?? $model->home,
             items: array_map(
@@ -65,7 +65,7 @@ class CreateFusionPosRemoteOrder extends Data
         if ($phone[0] === '8' || $phone[0] === '7') {
             $phone = substr($phone, 1, strlen($phone) - 1);
         }
-        
+
         return "+7" . $phone;
     }
 }

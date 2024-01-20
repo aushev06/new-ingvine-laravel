@@ -124,6 +124,7 @@ class Order extends Model
         self::ATTR_USER_ID,
         self::ATTR_DELIVERY_COST,
         self::ATTR_IS_MOBILE,
+        self::ATTR_NOTIFICATION_TOKEN,
     ];
 
     protected $with = [self::WITH_USER];
