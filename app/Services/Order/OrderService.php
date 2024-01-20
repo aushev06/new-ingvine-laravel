@@ -95,6 +95,15 @@ class OrderService
             $attributes['cart_id'] = $cart->id;
             $attributes['total'] = $total;
 
+            if (!$attributes['city'])  {
+                $street = $attributes[Order::ATTR_STREET];
+                $explodeStreet = explode('(', $street);
+                $street = end($explodeStreet);
+                $street = str_replace(')', '', $street);
+
+                $attributes['city'] = $street;
+            }
+
             $order = $this->orderRepository->store($attributes);
             //$cart->status = Cart::STATUS_INACTIVE;
 
