@@ -161,11 +161,6 @@ export const Pay = () => {
     }
 
     const onSubmit = async (data) => {
-        if (!isTg && data.delivery_type !== DELIVERY_TYPE_PICKUP && cart?.total < 500) {
-            openAlert('Доставка от 500 рублей', 'error');
-            return;
-        }
-
         if (!checkClientEmptyFields()) {
             return;
         }
