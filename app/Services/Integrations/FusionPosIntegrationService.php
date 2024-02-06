@@ -38,6 +38,12 @@ class FusionPosIntegrationService implements IntegrationServiceInterface
         }
     }
 
+    public function getRemoteOrder(int $orderId): RemoteOrderDto
+    {
+        $result = $this->client->request('GET', '/api/v2/remote-orders/' . $orderId);
+        return RemoteOrderDto::from(json_decode($result->getBody()->getContents(), true));
+    }
+
     public function updateMenu(int $menuId, array $data): bool
     {
         try {

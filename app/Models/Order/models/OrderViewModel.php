@@ -138,6 +138,8 @@ class OrderViewModel
 
     public int $is_mobile = 0;
 
+    public string $pos_status = 'new';
+
 
     /**
      * @var CartPropertyViewModel[]

@@ -33,6 +33,7 @@ import Autocomplete from "@mui/material/Autocomplete";
 
 const DELIVERY_TYPE_PICKUP = 1;
 const DELIVERY_TYPE_COURIER = 2;
+const DELIVERY_TYPE_ON_STORE = 4;
 const TYPE_CASH = 0;
 const isTg = window.location.search.includes('token');
 export const Pay = () => {
@@ -96,7 +97,7 @@ export const Pay = () => {
     const checkClientEmptyFields = () => {
         const clientErrors = [];
 
-        if (values.delivery_type === DELIVERY_TYPE_PICKUP) {
+        if (values.delivery_type === DELIVERY_TYPE_PICKUP || values.delivery_type === DELIVERY_TYPE_ON_STORE) {
 
             if (!values.name) {
                 clientErrors.push('Необходимо указать Имя');
@@ -117,8 +118,6 @@ export const Pay = () => {
                 clientErrors.push('Необходимо выбрать район');
                 setError('city', {message: 'Выберите город'})
             }
-
-            console.log(values.street);
 
             if (!values.street) {
                 clientErrors.push('Необходимо указать улицу');
@@ -252,6 +251,7 @@ export const Pay = () => {
                                 >
                                     <FormControlLabel value="2" control={<Radio/>} label="Доставка"/>
                                     <FormControlLabel value="1" control={<Radio/>} label="Самовывоз"/>
+                                    <FormControlLabel value="4" control={<Radio/>} label="На месте"/>
                                 </RadioGroup>
                             </FormControl>
                         </div>

@@ -22,6 +22,7 @@ use App\Services\Alfabank\AlfabankData;
 use App\Services\Alfabank\AlfabankServiceInterface;
 use App\Services\Coupon\CouponService;
 use App\Services\Tesham\TeshamService;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
@@ -169,6 +170,40 @@ class OrderService
         $order->save();
 
         return $order;
+    }
+
+    public function sendNotification($title, $body, $deviceToken, $serverKey)
+    {
+        $client = new Client();
+
+        $data = [
+            'notification' => [
+                'title' => $title,
+                'body' => $body,
+            ],
+            'to' => $deviceToken,
+        ];
+
+        $headers = [
+            'Authorization' => 'key=' . $serverKey,
+            'Content-Type' => 'application/json',
+        ];
+
+        try {
+            $response = $client->post('https://fcm.googleapis.com/fcm/send', [
+                'headers' => $headers,
+                'json' => $data,
+            ]);
+
+            $statusCode = $response->getStatusCode();
+            if ($statusCode === 200) {
+                echo 'Уведомление успешно отправлено.';
+            } else {
+                echo 'Не удалось отправить уведомление. Код ответа сервера: ' . $statusCode;
+            }
+        } catch (\Exception $e) {
+            echo 'Ошибка при отправке уведомления: ' . $e->getMessage();
+        }
     }
 
 

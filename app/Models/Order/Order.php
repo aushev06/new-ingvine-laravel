@@ -38,6 +38,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string|null $notification_token
  * @property string|null $sent_to_telegram_at
  * @property string|null $sent_to_pos_at
+ * @property string|null $pos_status
+ * @property string $state
  *
  * @property-read User $user
  */
@@ -92,9 +94,13 @@ class Order extends Model
 
     const DELIVERY_TYPE_BOOKING = 3;
 
+    const DELIVERY_TYPE_ON_STORE = 4;
+
     const STATE_NEW = 'new';
     const STATE_ACCEPT = 'accept';
     const STATE_WAS_SENT = 'was-sent';
+
+    const STATE_READY = 'ready';
 
     const WITH_USER = 'user';
 
@@ -159,6 +165,7 @@ class Order extends Model
             self::DELIVERY_TYPE_PICKUP  => 'Самовывоз',
             self::DELIVERY_TYPE_COURIER => 'Доставка курьером',
             self::DELIVERY_TYPE_BOOKING => 'Бронь',
+            self::DELIVERY_TYPE_ON_STORE => 'На месте',
         ];
     }
 
@@ -168,6 +175,7 @@ class Order extends Model
             self::STATE_NEW  => 'Новый',
             self::STATE_ACCEPT => 'Принят',
             self::STATE_WAS_SENT => 'Был отправлен',
+            self::STATE_READY => 'Готов',
         ];
     }
 
