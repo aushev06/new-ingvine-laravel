@@ -29,13 +29,9 @@ class FusionPosIntegrationService implements IntegrationServiceInterface
 
     public function createRemoteOrder(array $data): ResponseInterface
     {
-        try {
-            return $this->client->post('/api/v2/remote-orders', [
-                'json' => $data
-            ]);
-        } catch (RequestException $exception) {
-            dd($exception);
-        }
+        return $this->client->post('/api/v2/remote-orders', [
+            'json' => $data
+        ]);
     }
 
     public function getRemoteOrder(int $orderId): RemoteOrderDto
