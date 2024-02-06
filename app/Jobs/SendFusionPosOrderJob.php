@@ -7,6 +7,7 @@ use App\Models\Order\Order;
 use App\Repositories\Order\OrderRepository;
 use App\Services\Integrations\CreateFusionPosRemoteOrder;
 use App\Services\Integrations\FusionPosIntegrationService;
+use App\Services\Telegram\TelegramService;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -48,9 +49,10 @@ class SendFusionPosOrderJob implements ShouldQueue
             $integrationService->createRemoteOrder($data->toArray());
             Order::query()->where('id', $model->id)->update(['sent_to_pos_at' => date('Y-m-d H:i:s')]);
         } catch (\Throwable $exception) {
-            dd($exception);
             Log::error($exception->getMessage());
             Log::error($exception->getTraceAsString());
+            $telegramService = new TelegramService();
+            $telegramService->sendError('Не удалось отправить заказа ' . $this->order->id . ' в FUSION POS');
         }
     }
 }

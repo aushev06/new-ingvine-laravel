@@ -29,4 +29,17 @@ class TelegramService
         $response = $client->get('https://api.telegram.org/' . $botId . '/sendMessage?chat_id=' . $chatId . '&text=' . $message);
 
     }
+
+    public function sendError(string $text)
+    {
+        $setting = Cache::get('settings');
+        $message = $text;
+        $chatId  = $setting[Setting::SETTING_TELEGRAM_CHAT_ID]['value'];
+        $botId   = $setting[Setting::SETTING_TELEGRAM_BOT_ID]['value'];
+        $client  = new Client([
+            'http_errors' => false
+        ]);
+        $response = $client->get('https://api.telegram.org/' . $botId . '/sendMessage?chat_id=' . $chatId . '&text=' . $message);
+
+    }
 }
