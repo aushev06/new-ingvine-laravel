@@ -176,6 +176,8 @@ class OrderViewModel
     const DELIVERY_TYPE_PICKUP = 'Самовывоз';
     const DELIVERY_TYPE_COURIER = 'Доставка курьером';
 
+    const DELIVERY_TYPE_ON_STORE = 'На месте';
+
 
 
     public function __construct(Order $order, OrderRepository $orderRepository)

@@ -45,7 +45,7 @@ class CreateFusionPosRemoteOrder extends Data
             lastname: $model->name,
             phone: self::getPhone($model->phone),
             delivery_date: date('Y-m-d H:i:s', strtotime($model->date_delivery . " " . $model->time_delivery)),
-            delivery_comment: $model->comment ?? '',
+            delivery_comment: $model->comment ?? 'Тип доставки - ' . $model->delivery_type,
             city: !$model->city ? '' : $model->city,
             street: $model->street,
             house: $model->house ?? $model->home,
