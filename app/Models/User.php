@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Services\ClientGroup\ClientGroupService;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -32,26 +34,28 @@ class User extends Authenticatable
     use SoftDeletes;
     use HasApiTokens;
 
+    protected $appends = ['discount_percent'];
+
     const TABLE_NAME = 'ref_user';
     protected $table = self::TABLE_NAME;
 
-    const ATTR_ID              = 'id';
-    const ATTR_NAME            = 'name';
-    const ATTR_PHONE           = 'phone';
+    const ATTR_ID = 'id';
+    const ATTR_NAME = 'name';
+    const ATTR_PHONE = 'phone';
     const ATTR_PHONE_VERIFY_AT = 'phone_verified_at';
-    const ATTR_EMAIL           = 'email';
+    const ATTR_EMAIL = 'email';
     const ATTR_EMAIL_VERIFY_AT = 'email_verified_at';
-    const ATTR_AVATAR          = 'avatar';
-    const ATTR_BIRTHDAY        = 'birthday';
-    const ATTR_ROLE            = 'role';
-    const ATTR_PASSWORD        = 'password';
-    const ATTR_ADDRESS         = 'address';
-    const ATTR_REMEMBER_TOKEN  = 'remember_token';
-    const ATTR_CREATED_AT      = 'created_at';
-    const ATTR_UPDATED_AT      = 'updated_at';
+    const ATTR_AVATAR = 'avatar';
+    const ATTR_BIRTHDAY = 'birthday';
+    const ATTR_ROLE = 'role';
+    const ATTR_PASSWORD = 'password';
+    const ATTR_ADDRESS = 'address';
+    const ATTR_REMEMBER_TOKEN = 'remember_token';
+    const ATTR_CREATED_AT = 'created_at';
+    const ATTR_UPDATED_AT = 'updated_at';
 
     const ROLE_ADMIN = 1;
-    const ROLE_USER  = 0;
+    const ROLE_USER = 0;
 
     /**
      * The attributes that are mass assignable.
@@ -116,5 +120,11 @@ class User extends Authenticatable
             static::ATTR_PHONE_VERIFY_AT => $this->freshTimestamp(),
 //            'phone_verified_at' => $this->freshTimestamp(),
         ])->save();
+    }
+
+    public function getDiscountPercentAttribute()
+    {
+        $clientGroupService = new ClientGroupService();
+        return $clientGroupService->getDiscountPercent($this);
     }
 }

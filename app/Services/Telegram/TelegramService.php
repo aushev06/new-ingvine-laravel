@@ -13,6 +13,7 @@ class TelegramService
 {
     public function sendToTelegram(Order $order)
     {
+        return;
         if ($order->sent_to_telgeram_at) {
             return ;
         }

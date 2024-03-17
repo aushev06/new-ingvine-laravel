@@ -16,20 +16,23 @@ use App\Models\Order\Order;
 use App\Models\Payment;
 use App\Models\Setting;
 use App\Models\SiteSetting;
+use App\Models\User;
 use App\Repositories\Coupon\CouponRepository;
 use App\Repositories\Order\OrderRepository;
 use App\Services\Alfabank\AlfabankData;
 use App\Services\Alfabank\AlfabankServiceInterface;
+use App\Services\ClientGroup\ClientGroupService;
 use App\Services\Coupon\CouponService;
 use App\Services\Tesham\TeshamService;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
 
 class OrderService
 {
-    public function __construct(public OrderRepository $orderRepository, public CouponService $couponService, public AlfabankServiceInterface $alfabankService)
+    public function __construct(public OrderRepository $orderRepository, public CouponService $couponService, public AlfabankServiceInterface $alfabankService, public ClientGroupService $clientGroupService)
     {
         $this->orderRepository = $orderRepository;
 //        $this->payment         = app()->make('Payment');
@@ -42,7 +45,12 @@ class OrderService
      */
     public function save(OrderRequest $request)
     {
+
+        DB::beginTransaction();
         try {
+            $user = User::query()->where('id', $request->post(Order::ATTR_USER_ID))->first();
+            $clientGroupId = $user ? $user->client_group_id : null;
+
             /**
              * @var Cart $cart
              */
@@ -93,10 +101,14 @@ class OrderService
                 $total += $teshamService->getDeliverySum($request->destination_latitude, $request->destination_longitude);
             }
 
+            if ($user && $clientGroupId) {
+                $total -= $this->clientGroupService->getDiscount($user, $clientGroupId, $total);
+            }
+
             $attributes['cart_id'] = $cart->id;
             $attributes['total'] = $total;
 
-            if (!$attributes['city'] ?? null)  {
+            if (!$attributes['city'] ?? null) {
                 $street = $attributes[Order::ATTR_STREET];
                 $explodeStreet = explode('(', $street);
                 $street = end($explodeStreet);
@@ -107,10 +119,11 @@ class OrderService
 
             $order = $this->orderRepository->store($attributes);
             //$cart->status = Cart::STATUS_INACTIVE;
-
+            DB::commit();
             //$cart->delete();
             return $order;
         } catch (\Throwable $exception) {
+            DB::rollBack();
             throw new \Exception($exception->getMessage());
         }
     }
@@ -129,7 +142,7 @@ class OrderService
         $data = new AlfabankData(
             token: Setting::getSetting(Setting::SETTING_ALFABANK_API_TOKEN),
             orderNumber: $order->id,
-            amount: (int) $order->total,
+            amount: (int)$order->total,
             returnUrl: Setting::getSetting(Setting::SETTING_ALFABANK_RETURN_URL),
             failUrl: Setting::getSetting(Setting::SETTING_ALFABANK_FAIL_URL),
             phone: $order->phone
@@ -205,6 +218,4 @@ class OrderService
             echo 'Ошибка при отправке уведомления: ' . $e->getMessage();
         }
     }
-
-
 }

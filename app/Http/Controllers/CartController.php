@@ -130,4 +130,11 @@ class CartController extends Controller
 
         return redirect()->route('cart');
     }
+
+    public function checkDiscount(Request $request)
+    {
+        $cart = $this->cartRepository->getCart();
+        $userId = $request->user_id;
+
+    }
 }

@@ -38,6 +38,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'check.admin']], fun
         'sms' => \App\Http\Controllers\Admin\SmsController::class,
         'promotions' => \App\Http\Controllers\Admin\PromotionsController::class,
         'promotion-cards' => \App\Models\PromotionCards\PromotionCards::class,
+        'client-group' => \App\Http\Controllers\Admin\ClientGroupController::class,
     ]);
 
     Route::get('/set/update-prices', [\App\Http\Controllers\Admin\SettingController::class, 'updatePrices'])->name('setting.update-prices');

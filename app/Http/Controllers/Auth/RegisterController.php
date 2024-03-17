@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Requests\AuthRequest;
+use App\Models\ClientGroup;
 use App\Notifications\UserRegisteredNotification;
 use App\Providers\RouteServiceProvider;
 use App\Services\Smspilot\SmspilotService;
@@ -104,6 +105,12 @@ class RegisterController extends Controller
             'phone' => $request->phone,
             'password' => Hash::make($request->password),
         ]);
+        $defaultClientGroup = ClientGroup::query()->where('is_default', 1)->first();
+
+        if ($defaultClientGroup) {
+            $user->client_group_id = $defaultClientGroup->id;
+            $user->save();
+        }
 
         event(new Registered($user));
 
